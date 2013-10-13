@@ -12,4 +12,9 @@ class Lineup extends Base
 	{
 		return $this->hasMany('RMAN\Models\ORM\Slot');
 	}
+	
+	public function artists()
+	{
+		return $this->belongsToMany('RMAN\Models\ORM\Artist', 'slots');
+	}
 }

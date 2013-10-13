@@ -12,4 +12,9 @@ class Slot extends Base
 	{
 		return $this->belongsTo('RMAN\Models\ORM\Artist');
 	}
+	
+	public function lineup()
+	{
+		return $this->belongsTo('RMAN\Models\ORM\Lineup');
+	}
 }
