@@ -2,7 +2,7 @@
   <h1>Artists</h1>
   {{#artists}}
   <h2>{{name}}</h2>
-  IMG: {{img}}<br/>
+  {{#picture}}<img src="{{url}}"/>{{/picture}}
   <p>
     {{bio}}
   </p>
