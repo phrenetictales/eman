@@ -2,7 +2,11 @@
   {{#event}}
   <h2>{{title}}</h2>
     {{#stages}}
-      <h3>{{title}}</h3>
+      <h3>
+        <a href="/events/{{#event}}{{id}}{{/event}}/stages/{{id}}/lineup">
+          {{title}}
+        </a>
+      </h3>
     {{/stages}}
   {{/event}}
 <div>
