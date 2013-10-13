@@ -54,6 +54,6 @@
   </div>
   <link rel="stylesheet" type="text/css" href="/css/jquery.tagit.css"></link>
   <script src="/js/tag-it.js"></script>
-  <script>var artists = {{{tags}}};</script>
+  <script>var artists = {{{tags}}}, default_artists = {};</script>
   <script src="/js/releases/tracks.js"></script>
 {{/release}}
