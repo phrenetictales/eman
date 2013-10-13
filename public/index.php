@@ -116,8 +116,22 @@ $app->get('/artists/create/', function() use ($app) {
 	$app->render('artists/create', ['artist' => $artist]);
 });
 
-$app->post('/artists/save/', function() use ($app) {
-	$artist = new RMAN\Models\ORM\Artist($app->request()->post());
+$app->get('/artists/edit/:id', function($id) use ($app) {
+	$artist = RMAN\Models\ORM\Artist::with('picture')->find($id);
+	$app->render('artists/create', ['artist' => $artist]);
+})->conditions(['id' => '\d+']);
+
+$app->post('/artists/save(/:id)', function($id) use ($app) {
+	if ($id) {
+		$artist = RMAN\Models\ORM\Artist::find($id);
+		foreach($_POST as $k => $v) {
+			$artist->$k = $v;
+		}
+	}
+	else {
+		$artist = new RMAN\Models\ORM\Artist($app->request()->post());
+	}
+	
 	$artist->save();
 	$app->response()->redirect('/artists/' . $artist->id);
 });
