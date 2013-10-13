@@ -11,7 +11,7 @@
 		}
 	],
 	"require": {
-		"slim/slim": "2.*",
+		"slim/slim": "2.0.0",
 		"illuminate/database": "4.0.*@dev",
 		"mustache/mustache": "dev-temporaryfixlaravelrelationships",
 		"jsebrech/o": " v0.1.0",

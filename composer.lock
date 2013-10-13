@@ -3,21 +3,21 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "fb6b75f550fc371a633d878d26c68901",
+    "hash": "bb9193e554bf17aa3dc22f5f07fec6f0",
     "packages": [
         {
             "name": "illuminate/container",
-            "version": "v4.0.5",
+            "version": "v4.0.8",
             "target-dir": "Illuminate/Container",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
-                "reference": "v4.0.5"
+                "reference": "ee86c892f98e7509515149cc71bc8a74abc0c5dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/container/zipball/v4.0.5",
-                "reference": "v4.0.5",
+                "url": "https://api.github.com/repos/illuminate/container/zipball/ee86c892f98e7509515149cc71bc8a74abc0c5dc",
+                "reference": "ee86c892f98e7509515149cc71bc8a74abc0c5dc",
                 "shasum": ""
             },
             "require": {
@@ -44,10 +44,12 @@
             "authors": [
                 {
                     "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
+                    "email": "taylorotwell@gmail.com",
+                    "homepage": "https://github.com/taylorotwell",
+                    "role": "Developer"
                 }
             ],
-            "time": "2013-05-28 00:50:14"
+            "time": "2013-10-02 21:36:40"
         },
         {
             "name": "illuminate/database",
@@ -56,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "ba4f9b6cc8bcffd0bdb34593665ff567b39b35e5"
+                "reference": "26da1ba8b3e509b1057bde7a70c99b1f30894f3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/ba4f9b6cc8bcffd0bdb34593665ff567b39b35e5",
-                "reference": "ba4f9b6cc8bcffd0bdb34593665ff567b39b35e5",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/26da1ba8b3e509b1057bde7a70c99b1f30894f3e",
+                "reference": "26da1ba8b3e509b1057bde7a70c99b1f30894f3e",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +100,9 @@
             "authors": [
                 {
                     "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
+                    "email": "taylorotwell@gmail.com",
+                    "homepage": "https://github.com/taylorotwell",
+                    "role": "Developer"
                 }
             ],
             "keywords": [
@@ -107,21 +111,21 @@
                 "orm",
                 "sql"
             ],
-            "time": "2013-06-24 08:05:56"
+            "time": "2013-10-09 19:50:44"
         },
         {
             "name": "illuminate/events",
-            "version": "v4.0.5",
+            "version": "v4.0.8",
             "target-dir": "Illuminate/Events",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
-                "reference": "v4.0.5"
+                "reference": "2253c8c3a8a186a15c0a78a9dbffb6defbb47e69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/events/zipball/v4.0.5",
-                "reference": "v4.0.5",
+                "url": "https://api.github.com/repos/illuminate/events/zipball/2253c8c3a8a186a15c0a78a9dbffb6defbb47e69",
+                "reference": "2253c8c3a8a186a15c0a78a9dbffb6defbb47e69",
                 "shasum": ""
             },
             "require": {
@@ -151,24 +155,26 @@
             "authors": [
                 {
                     "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
+                    "email": "taylorotwell@gmail.com",
+                    "homepage": "https://github.com/taylorotwell",
+                    "role": "Developer"
                 }
             ],
-            "time": "2013-05-28 00:50:14"
+            "time": "2013-10-02 14:15:14"
         },
         {
             "name": "illuminate/support",
-            "version": "v4.0.5",
+            "version": "v4.0.8",
             "target-dir": "Illuminate/Support",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "v4.0.5"
+                "reference": "bec895ef2331ff2f4afbbe48d1ea3d48c3bd8a9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/v4.0.5",
-                "reference": "v4.0.5",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/bec895ef2331ff2f4afbbe48d1ea3d48c3bd8a9f",
+                "reference": "bec895ef2331ff2f4afbbe48d1ea3d48c3bd8a9f",
                 "shasum": ""
             },
             "require": {
@@ -200,10 +206,12 @@
             "authors": [
                 {
                     "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
+                    "email": "taylorotwell@gmail.com",
+                    "homepage": "https://github.com/taylorotwell",
+                    "role": "Developer"
                 }
             ],
-            "time": "2013-06-11 00:56:49"
+            "time": "2013-10-03 18:37:29"
         },
         {
             "name": "intervention/image",
@@ -211,12 +219,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "1.4.1"
+                "reference": "6783515d00135a567db3bcfdeb784e3f2da00733"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/1.4.1",
-                "reference": "1.4.1",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/6783515d00135a567db3bcfdeb784e3f2da00733",
+                "reference": "6783515d00135a567db3bcfdeb784e3f2da00733",
                 "shasum": ""
             },
             "require": {
@@ -261,12 +269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jsebrech/php-o.git",
-                "reference": "v0.1.0"
+                "reference": "6e300fff2217b839ab3a2cfa821dbee17ffe9504"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jsebrech/php-o/zipball/v0.1.0",
-                "reference": "v0.1.0",
+                "url": "https://api.github.com/repos/jsebrech/php-o/zipball/6e300fff2217b839ab3a2cfa821dbee17ffe9504",
+                "reference": "6e300fff2217b839ab3a2cfa821dbee17ffe9504",
                 "shasum": ""
             },
             "require": {
@@ -298,8 +306,14 @@
             "version": "dev-temporaryfixlaravelrelationships",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phrenetictales/mustache.php",
+                "url": "https://github.com/phrenetictales/mustache.php.git",
                 "reference": "21529205a93171ee23dc4ccb3d3a5e5b1380d400"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phrenetictales/mustache.php/zipball/21529205a93171ee23dc4ccb3d3a5e5b1380d400",
+                "reference": "21529205a93171ee23dc4ccb3d3a5e5b1380d400",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
@@ -326,20 +340,23 @@
                 "mustache",
                 "templating"
             ],
+            "support": {
+                "source": "https://github.com/phrenetictales/mustache.php/tree/temporaryfixlaravelrelationships"
+            },
             "time": "2013-07-07 21:43:57"
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.2.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
-                "url": "git://github.com/briannesbitt/Carbon.git",
-                "reference": "1.2.0"
+                "url": "https://github.com/briannesbitt/Carbon.git",
+                "reference": "06f0b8a99a90c5392ceccb09b75b74ff6c08ec07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/briannesbitt/Carbon/zipball/1.2.0",
-                "reference": "1.2.0",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/06f0b8a99a90c5392ceccb09b75b74ff6c08ec07",
+                "reference": "06f0b8a99a90c5392ceccb09b75b74ff6c08ec07",
                 "shasum": ""
             },
             "require": {
@@ -348,7 +365,7 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Carbon": "."
+                    "Carbon": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -369,20 +386,20 @@
                 "datetime",
                 "time"
             ],
-            "time": "2012-10-14 17:41:18"
+            "time": "2013-09-09 02:39:19"
         },
         {
             "name": "slim/slim",
-            "version": "2.2.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/codeguy/Slim",
-                "reference": "2.2.0"
+                "url": "https://github.com/codeguy/Slim.git",
+                "reference": "3e95c9abbc57a8f023ab4dacebcab9dae4d9f1f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/codeguy/Slim/archive/2.2.0.zip",
-                "reference": "2.2.0",
+                "url": "https://api.github.com/repos/codeguy/Slim/zipball/3e95c9abbc57a8f023ab4dacebcab9dae4d9f1f0",
+                "reference": "3e95c9abbc57a8f023ab4dacebcab9dae4d9f1f0",
                 "shasum": ""
             },
             "require": {
@@ -412,7 +429,7 @@
                 "rest",
                 "router"
             ],
-            "time": "2012-12-13 02:15:50"
+            "time": "2012-09-09 14:54:09"
         }
     ],
     "packages-dev": [
