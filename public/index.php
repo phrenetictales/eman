@@ -275,6 +275,7 @@ $app->get('/events/:eid/stages', function($eid) use ($app) {
 
 $app->get('/events/:eid/stages/:sid/lineup', function($eid, $sid) use ($app) {
 	$stage = RMAN\Models\ORM\Stage::with(
+				'event',
 				'lineups', 
 				'lineups.slots',
 				'lineups.slots.artist'
@@ -282,6 +283,51 @@ $app->get('/events/:eid/stages/:sid/lineup', function($eid, $sid) use ($app) {
 			->find($sid);
 	
 	$app->render('events/lineup', ['stage' => $stage]);
+});
+
+$app->get('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app) {
+	$stage = RMAN\Models\ORM\Stage::with(
+				'event',
+				'lineups', 
+				'lineups.slots',
+				'lineups.slots.artist',
+				'lineups.slots.lineup'
+			)
+			->find($sid);
+	$artists = json_encode(RMAN\Models\ORM\Artist::tags());
+	$app->render('events/lineup/edit', ['stage' => $stage, 'artists' => $artists]);
+});
+
+$app->post('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app) {
+	
+	$event = RMAN\Models\ORM\Event::find($sid);
+	$stage = RMAN\Models\ORM\Stage::with('event')->find($sid);
+	$end = Carbon\Carbon::parse($stage->event->start_date_time);
+	
+	foreach($_POST['lineup'] as $lid => $data) {
+		if (substr($lid, 0, 3) == 'new') {
+			$lineup = new RMAN\Models\ORM\Lineup;
+			$lineup->stage_id = $stage->id;
+		}
+		else {
+			$lineup = RMAN\Models\ORM\Lineup::find($lid);
+		}
+		
+		$lineup->start_date_time = (string)$end;
+		$end = $end->addMinutes($data['duration'] * 60);
+		$lineup->end_date_time = (string)$end;
+		
+		print "DATE = + {$data['duration']} ".(string)$end."\n";
+		$lineup->save();
+		$lineup->artists()->detach();
+		
+		$lineup->artists()->sync(array_map(function($elem) {
+			return $elem['artist'];
+		}, $data['slots']));
+		
+	}
+	
+	
 });
 
 error_reporting(E_ALL);
