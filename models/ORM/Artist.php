@@ -19,4 +19,18 @@ class Artist extends Base
 	{
 		return $this->belongsToMany('RMAN\Models\ORM\Track');
 	}
+	
+	public static function tags()
+	{
+		return array_map(function($artist) {
+				return array(
+					'id'	=> $artist['id'],
+					'value'	=> $artist['id'],
+					'label'	=> $artist['name']
+				);
+			}, 
+			self::get()->toArray()
+		);
+		
+	}
 }

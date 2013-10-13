@@ -158,16 +158,7 @@ $app->get('/releases/:id', function($id) use ($app) {
 
 $app->get('/releases/create/', function() use ($app) {
 	$release = new RMAN\Models\ORM\Release;
-	$artists = RMAN\Models\ORM\Artist::get();
-	
-	$tags = array_map(function($artist) {
-		
-		return array(
-			'id'	=> $artist['id'],
-			'value'	=> $artist['id'],
-			'label'	=> $artist['name']
-		);
-	}, $artists->toArray());
+	$tags = RMAN\Models\ORM\Artist::tags();
 	
 	$app->render('releases/create', [
 		'release'	=> $release,
