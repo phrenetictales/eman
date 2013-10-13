@@ -5,3 +5,9 @@ DEADJOE
 
 # Ignore installed composer dependencies
 /vendor/
+
+# Ignore the file store
+/store/
+
+# Ignore HT Access File
+/public/.htaccess
