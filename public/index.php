@@ -253,4 +253,31 @@ $app->get('/pictures/display/:storename', function($storename) use ($app) {
 	$response->body($store->get($picture->storename));
 });
 
+////////////////////////////////////////////////////////////////////////////////
+// Events                                                                     //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+$app->get('/events/', function() use ($app) {
+	$events = RMAN\Models\ORM\Event::all();
+	$app->render('events/index', ['events' => $events]);
+});
+
+$app->get('/events/:eid/stages', function($eid) use ($app) {
+	$event = RMAN\Models\ORM\Event::with('stages')->find($eid);
+	$app->render('events/stages', ['event' => $event]);
+});
+
+$app->get('/events/:eid/stages/:sid/lineup', function($eid, $sid) use ($app) {
+	$stage = RMAN\Models\ORM\Stage::with(
+				'lineups', 
+				'lineups.slots',
+				'lineups.slots.artist'
+			)
+			->find($sid);
+	
+	$app->render('events/lineup', ['stage' => $stage]);
+});
+
+error_reporting(E_ALL);
 $app->run();
