@@ -247,7 +247,7 @@ $app->post('/pictures/upload/', function() use ($app) {
 $app->get('/pictures/display/:storename', function($storename) use ($app) {
 	
 	$store = new Phrenetic\StoreFile('pictures');
-	$picture = RMAN\Models\ORM\Picture::where('storename', $storename)->first();
+	$picture = RMAN\Models\ORM\Picture::where('storename', $storename)->where('default', 1)->first();
 	
 	if (empty($picture)) {
 		die('FOOBAR');
