@@ -5,3 +5,55 @@ BODY {
 #main {
 	background-color: #ddd;
 }
+
+#menu {
+	position: fixed;
+	padding: 10px;
+	top: 5%; 
+	right: 5%; 
+	background-color:black;
+	opacity:0.8;
+	display:none;
+	font-size: xx-large;
+	border-radius: 10px
+}
+
+#menu a {
+	color: blue;
+	text-decoration: none;
+}
+
+#menu a:hover {
+	color: red;
+}
+
+ul.topnav {
+	list-style: none;
+	padding: 0 20px;	
+	margin: 0;
+	float: left;
+	background: #222;
+	font-size: 1.2em;
+	background: url(topnav_bg.gif) repeat-x;
+}
+ul.topnav li {
+	float: left;
+	margin: 0;	
+	padding: 0 15px 0 0;
+	position: relative; /*--Declare X and Y axis base for sub navigation--*/
+}
+
+ul.topnav li ul.subnav {
+	position: absolute;
+	width: 920px;
+	display: none;
+}
+
+ul.topnav li ul.subnav li {
+	padding: 5px;
+	position: relative;
+	float: left;
+	font-size: x-large;
+	border-radius: 5px;
+	background-color: black;
+}
