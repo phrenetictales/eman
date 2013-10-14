@@ -52,18 +52,11 @@ $app = new \Slim\Slim(['view' => new SlimViewSimple($mustache)]);
 ////////////////////////////////////////////////////////////////////////////////
 // Load Laravel Database and ORM (Eloquent)                                   //
 ////////////////////////////////////////////////////////////////////////////////
-$capsule = new Capsule;
-$capsule->addConnection(array(
-	'driver'    => 'mysql',
-	'host'      => '127.0.0.1',
-	'database'  => 'phrenetic',
-	'username'  => 'root',
-	'password'  => 'shit4b',
-	'charset'   => 'utf8',
-	'collation' => 'utf8_general_ci',
-	'prefix'    => 'phr_',
-));
 
+require_once __DIR__.'/../config/database.php';
+
+$capsule = new Capsule;
+$capsule->addConnection($DATABASE_CONFIG);
 $capsule->setEventDispatcher(new EventDispatcher());
 $capsule->bootEloquent();
 $capsule->setAsGlobal();
