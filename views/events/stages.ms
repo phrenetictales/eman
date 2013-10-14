@@ -56,14 +56,16 @@ var _animations = [
       <div id="slideshow" class="box_skitter" style="height: 450px; width: 650px">
       <ul class="rslides" style="background-color: red">
       {{#lineups}}
-        {{#artists}}
+        {{#slots}}
+        {{#artist}}
           <li>
-            <a href="#cut">
+            <a href="/artists/{{id}}">
               <img src="{{#picture}}{{#scale}}650_450{{/scale}}{{/picture}}" class="cut">
             </a>
             <div class="label_text"><p>{{name}}</p></div>
           </li>
-        {{/artists}}
+        {{/artist}}
+        {{/slots}}
       {{/lineups}}
       </ul>
       </div>
