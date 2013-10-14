@@ -313,12 +313,18 @@ $app->post('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($ap
 			$lineup = RMAN\Models\ORM\Lineup::find($lid);
 		}
 		
+		if (!isset($data['slots'])) {
+			print "<pre>"; print_r($data);
+			die('FFS');
+			continue;
+		}
+		
 		$lineup->start_date_time = (string)$end;
 		$end = $end->addMinutes($data['duration'] * 60);
 		$lineup->end_date_time = (string)$end;
 		
-		print "DATE = + {$data['duration']} ".(string)$end."\n";
 		$lineup->save();
+		
 		$lineup->artists()->detach();
 		
 		$lineup->artists()->sync(array_map(function($elem) {
@@ -327,7 +333,7 @@ $app->post('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($ap
 		
 	}
 	
-	
+	$app->redirect("/events/{$eid}/stages/{$sid}/lineup/edit");
 });
 
 error_reporting(E_ALL);

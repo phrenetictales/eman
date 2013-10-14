@@ -15,6 +15,6 @@ class Stage extends Base
 	
 	public function lineups()
 	{
-		return $this->hasMany('RMAN\Models\ORM\Lineup');
+		return $this->hasMany('RMAN\Models\ORM\Lineup')->orderBy('start_date_time', 'asc');
 	}
 }
