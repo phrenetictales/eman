@@ -397,7 +397,14 @@ $app->get('/events/', function() use ($app) {
 });
 
 $app->get('/events/:eid/stages', function($eid) use ($app) {
-	$event = RMAN\Models\ORM\Event::with('stages')->find($eid);
+	$event = RMAN\Models\ORM\Event::with(
+				'stages',
+				'stages.lineups',
+				'stages.lineups.artists',
+				'stages.lineups.artists.picture'
+			)
+		->find($eid);
+	
 	$app->render('events/stages', ['event' => $event]);
 });
 
