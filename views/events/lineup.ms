@@ -1,13 +1,13 @@
 <div style="width: 50%;margin:auto">
   {{#stage}}
-  <h2>{{title}}</h2>
+  <h1>{{title}}</h1>
     {{#lineups}}
-      <h3>{{start_date_time}} -> {{end_date_time}}</h3>
+      <h2>{{duration}} - {{start_date_time}}</h2>
       <ul>
         {{#slots}}
           {{#artist}}
-            {{name}}
-            {{#picture}}<img src="{{url}}"/>{{/picture}}
+            <h3>{{name}}</h3>
+            {{#picture}}<img src="{{#scale}}200_100{{/scale}}"/>{{/picture}}
           {{/artist}}
         {{/slots}}
       </ul>

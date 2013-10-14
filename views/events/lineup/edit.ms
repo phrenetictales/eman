@@ -7,6 +7,8 @@
 #hours { width: 100%; margin: 1px;}
 #hours tr { height: 19px; }
 #hours td { border: solid 1px black;}
+#hours td.time { width:10%;background-color: green;font-size:small;}
+#hours td.daychange {border-top: solid 1px red; background-color: red}
 .ui-state-default { border-top: none !important;}
 </style>
 <form method="POST" action="/events/1/stages/1/lineup/edit">
@@ -24,7 +26,7 @@
         <input type="hidden" class="duration" name="lineup[{{id}}][duration]" value="">
         {{#slots}}
           <input type="hidden" name="lineup[{{#lineup}}{{id}}{{/lineup}}][slots][{{id}}][artist]" value="{{#artist}}{{id}}{{/artist}}">
-          {{#artist}}{{name}}{{/artist}}
+          {{#artist}}{{name}} - <span class="durationText"></span>{{/artist}}
         {{/slots}}
         </span>
       </li>

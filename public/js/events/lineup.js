@@ -17,9 +17,11 @@ function make_resizable(idx, node) {
 			stop: function(ev, ui) {
 				var newheight = $(ev.target).css('height').replace('px', '');
 				$('.duration', ev.target).val((newheight / 19));
+				$('.durationText', ev.target).html(' ' + (newheight / 19) + ' hours');
 			}
 		});
 	$('.duration', node).val(_lineup.duration);
+	$('.durationText', node).html(' ' + _lineup.duration + ' hours');
 };
 
 $('#sortable li').each(make_resizable);
@@ -31,7 +33,22 @@ var event = stage.event;
 event.duration = (event.end_date_time.getTime() - event.start_date_time.getTime()) / interval;
 
 for (var i = 0; i < event.duration ; i++) {
-	$('#hours tbody').append('<tr><td style="width:10%;background-color: red"/></td><td></td></tr>');
+	
+	var slot = new Date(stage.event.start_date_time.getTime() + (i * interval));
+	var _printhour = function(_d)
+	{
+		var h = slot.getHours(), m = slot.getMinutes();
+		
+		return (h < 10 ? '0' + h : h) + ':' + (m < 10 ? '0' + m : m);
+	}
+	$('#hours tbody').append(
+		'<tr>' + 
+			'<td class="time '+(slot.getHours() == 0 ? 'daychange' : '' )+'">' +
+				_printhour(slot) +
+			'</td>' + 
+			'<td></td>' +
+		'</tr>'
+	);
 }
 
 $('#sortable')
