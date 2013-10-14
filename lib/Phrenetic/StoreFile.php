@@ -27,11 +27,12 @@ class StoreFile
 	
 	public function add($fname)
 	{
+		/*
 		if (!is_uploaded_file($fname)) {
 			throw new Exception('File '
 				.$fname.' is not an uploaded file');
 		}
-		
+		*/
 		$newname = md5($fname).'-'.time().'.blob';
 		move_uploaded_file($fname, 
 			$this->_rootStoreDirectory.'/'.$newname);
@@ -39,10 +40,14 @@ class StoreFile
 		return $newname;
 	}
 	
+	public function filename($name)
+	{
+		return $this->_rootStoreDirectory.'/'.basename($name);
+	}
+	
 	public function get($name)
 	{
-		$name = basename($name);
-		return file_get_contents($this->_rootStoreDirectory.'/'.$name);
+		return file_get_contents($this->filename($name));
 	}
 	
 	public static function instance($name)

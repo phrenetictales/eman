@@ -258,6 +258,134 @@ $app->get('/pictures/display/:storename', function($storename) use ($app) {
 	$response->body($store->get($picture->storename));
 });
 
+$app->get('/pictures/resized/:x/:y/:storename', function($size_x, $size_y, $storename) use ($app) {
+	
+	$store = new Phrenetic\StoreFile('pictures');
+	$q = RMAN\Models\ORM\Picture::where('storename', $storename);
+	$db = $q->getQuery();
+	
+	$columns = ['pictures.*'];
+	
+	
+	if ($size_x) {
+		$columns[] = $db->raw((int)$size_x.' - width as wdiff');
+		$q->orderBy('wdiff', 'asc');
+	}
+	
+	
+	if ($size_y) {
+		$columns[] = $db->raw((int)$size_y.' - height as hdiff');
+		$q->orderBy('hdiff', 'asc');
+	}
+	
+	$q->select($columns);
+	
+	
+	$picture = $q->first();
+	if (empty($picture)) {
+		die('FOOBAR');
+	}
+	
+	if (($size_x && $picture->wdiff) && !$size_y) {
+		try {
+			$img = Intervention\Image\Image::make($store->filename($picture->storename));
+			
+			$resized = new RMAN\Models\ORM\Picture([
+				'type'		=> $picture->type,
+				'name'		=> $picture->name,
+				'storename'	=> $picture->storename,
+				'resizedname'	=> $store->add($picture->storename),
+				'default'	=> 0
+			]);
+			
+			$img->resize($size_x, null, true);
+			$img->save($store->filename($resized->resizedname));
+			
+			$resized->width = $img->width;
+			$resized->height = $img->height;
+			$resized->save();
+		}
+		catch (Exception $e) {
+			die('ERROR: '.$e->getMessage());
+		}
+		
+		$response = $app->response();
+		$response['Content-Type'] = $resized->type;
+		$response->body($store->get($resized->resizedname));
+		
+		return;
+	}
+	else if (($size_y && $picture->hdiff) && !$size_x) {
+		try {
+			$img = Intervention\Image\Image::make($store->filename($picture->storename));
+			
+			$resized = new RMAN\Models\ORM\Picture([
+				'type'		=> $picture->type,
+				'name'		=> $picture->name,
+				'storename'	=> $picture->storename,
+				'resizedname'	=> $store->add($picture->storename),
+				'default'	=> 0
+			]);
+			
+			$img->resize(null, $size_y, true);
+			$img->save($store->filename($resized->resizedname));
+			
+			$resized->width = $img->width;
+			$resized->height = $img->height;
+			$resized->save();
+		}
+		catch (Exception $e) {
+			die('ERROR: '.$e->getMessage());
+		}
+		
+		$response = $app->response();
+		$response['Content-Type'] = $resized->type;
+		$response->body($store->get($resized->resizedname));
+		
+		return;
+	}
+	else if (($size_y && $size_x) && (($size_y != $picture->hdiff) || ($size_x && $picture->wdiff))) {
+		try {
+			$img = Intervention\Image\Image::make($store->filename($picture->storename));
+			
+			$resized = new RMAN\Models\ORM\Picture([
+				'type'		=> $picture->type,
+				'name'		=> $picture->name,
+				'storename'	=> $picture->storename,
+				'resizedname'	=> $store->add($picture->storename),
+				'default'	=> 0
+			]);
+			
+			if ($picture->width > $picture->height) {
+				$img->resize($size_x, null, true);
+			}
+			else {
+				$img->resize(null, $size_y, true);
+			}
+			
+			$img->crop($size_x, $size_y);
+			$img->save($store->filename($resized->resizedname));
+			
+			$resized->width = $img->width;
+			$resized->height = $img->height;
+			$resized->save();
+		}
+		catch (Exception $e) {
+			die('ERROR: '.$e->getMessage());
+		}
+		
+		$response = $app->response();
+		$response['Content-Type'] = $resized->type;
+		$response->body($store->get($resized->resizedname));
+		
+		return;
+	}
+	
+	$response = $app->response();
+	$response['Content-Type'] = $picture->type;
+	$response->body($store->get($picture->resizedname));
+});
+
 ////////////////////////////////////////////////////////////////////////////////
 // Events                                                                     //
 //                                                                            //
