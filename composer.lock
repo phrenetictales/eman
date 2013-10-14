@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bb9193e554bf17aa3dc22f5f07fec6f0",
+    "hash": "140819910a53bff087173a8565340564",
     "packages": [
         {
             "name": "illuminate/container",
@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "26da1ba8b3e509b1057bde7a70c99b1f30894f3e"
+                "reference": "aaff2e0c10536228aa0248fe5f1939c15694d6dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/26da1ba8b3e509b1057bde7a70c99b1f30894f3e",
-                "reference": "26da1ba8b3e509b1057bde7a70c99b1f30894f3e",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/aaff2e0c10536228aa0248fe5f1939c15694d6dc",
+                "reference": "aaff2e0c10536228aa0248fe5f1939c15694d6dc",
                 "shasum": ""
             },
             "require": {
@@ -111,7 +111,7 @@
                 "orm",
                 "sql"
             ],
-            "time": "2013-10-09 19:50:44"
+            "time": "2013-10-12 18:57:01"
         },
         {
             "name": "illuminate/events",
