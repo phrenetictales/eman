@@ -3,8 +3,45 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bb9193e554bf17aa3dc22f5f07fec6f0",
+    "hash": "9963fb8c3dfe77b4ce4e66bd1c65f83a",
     "packages": [
+        {
+            "name": "badcow/lorem-ipsum",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/samuelwilliams/LoremIpsum.git",
+                "reference": "568f94bada0f7c95f69fabd6e7007148f90c31b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/samuelwilliams/LoremIpsum/zipball/568f94bada0f7c95f69fabd6e7007148f90c31b0",
+                "reference": "568f94bada0f7c95f69fabd6e7007148f90c31b0",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Badcow": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Williams",
+                    "email": "sam@badcow.co"
+                },
+                {
+                    "name": "Mathew Tinsley",
+                    "email": "tinsley@tinsology.net"
+                }
+            ],
+            "description": "Lorem ipsum generator.",
+            "time": "2013-03-05 07:52:52"
+        },
         {
             "name": "illuminate/container",
             "version": "v4.0.8",
@@ -58,12 +95,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "26da1ba8b3e509b1057bde7a70c99b1f30894f3e"
+                "reference": "aaff2e0c10536228aa0248fe5f1939c15694d6dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/26da1ba8b3e509b1057bde7a70c99b1f30894f3e",
-                "reference": "26da1ba8b3e509b1057bde7a70c99b1f30894f3e",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/aaff2e0c10536228aa0248fe5f1939c15694d6dc",
+                "reference": "aaff2e0c10536228aa0248fe5f1939c15694d6dc",
                 "shasum": ""
             },
             "require": {
@@ -111,7 +148,7 @@
                 "orm",
                 "sql"
             ],
-            "time": "2013-10-09 19:50:44"
+            "time": "2013-10-12 18:57:01"
         },
         {
             "name": "illuminate/events",
@@ -441,7 +478,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "illuminate/database": 20,
-        "mustache/mustache": 20
+        "mustache/mustache": 20,
+        "badcow/lorem-ipsum": 20
     },
     "platform": [
 
