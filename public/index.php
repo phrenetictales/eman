@@ -7,7 +7,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Connection as DatabaseConnection;
 use Illuminate\Database\MySqlConnection as MySqlConnection;
 use Illuminate\Events\Dispatcher as EventDispatcher;
-use Illuminate\Database\Query\Builder as DB;
+
 
 O\O::init();
 
