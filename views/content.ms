@@ -9,12 +9,21 @@
 
   </head>
   <body>
-  
-    <div id="topbar">
+<style type="text/css">
+
+body{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	height: 100%; 
+	max-height: 100%; 
+}	
+</style>  
     {{> _header}}
-	</div>
+	<div id="main">{{{main}}}</div>
+    <div id="footer">{{> _footer}}</div>
 	
-    <div id="main">{{{main}}}</div>
-    {{> _footer}}
+	
   </body>
 </html>

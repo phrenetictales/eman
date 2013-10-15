@@ -1,35 +1,5 @@
-       <style>
-			body{
-				background:#333; 
-				font-family:Arial;
-				
-			}
-			span.reference{
-				position:fixed;
-				left:10px;
-				bottom:10px;
-				font-size:12px;
-			}
-			span.reference a{
-				color:#aaa;
-				text-transform:uppercase;
-				text-decoration:none;
-				text-shadow:1px 1px 1px #000;
-				margin-right:30px;
-			}
-			span.reference a:hover{
-				color:#ddd;
-			}
-			ul.menu{
-				margin-top:150px;
-			}
-			h1.title{
-				text-indent:-9000px;
-				background:transparent url(title.png) no-repeat top left;
-				width:633px;
-				height:69px;
-			}
-		</style>
+</div>
+<div id=topbar>      
  
 <ul id="sdt_menu" class="sdt_menu">
 				<li>
@@ -137,17 +107,17 @@
 					var $elem = $(this);
 					$elem.find('.sdt_wrap')
 					     .stop(true)
-						 .animate({'top':'60px'},500,'easeOutBack')
+						 .animate({'top':'45px'},500,'easeOutBack')
 						 .andSelf()
 						 .find('.sdt_active')
 					     .stop(true)
-						 .animate({'height':'50px'},300,function(){
+						 .animate({'height':'40px'},300,function(){
 						var $sub_menu = $elem.find('.sdt_box');
 						if($sub_menu.length){
 							var left = '170px';
 							if($elem.parent().children().length == $elem.index()+1)
 								left = '-170px';
-							$sub_menu.show().animate({'left':left},200);
+							$sub_menu.show().animate({'left':left},50);
 						}	
 						
 				
@@ -170,7 +140,8 @@
 						 .andSelf()
 						 .find('.sdt_wrap')
 						 .stop(true)
-						 .animate({'top':'10px'},500);
+						 .animate({'top':'5px'},500);
 				});
             });
         </script>
+</div>
