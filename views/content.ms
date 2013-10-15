@@ -9,8 +9,8 @@
 
   </head>
   <body>
-    {{> _header}}
+	{{> _header}}
 	<div id="main">{{{main}}}</div>
-    {{> _footer}}
+    	{{> _footer}}
   </body>
 </html>

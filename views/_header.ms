@@ -1,5 +1,5 @@
-</div>
-<div id=topbar>      
+
+<div id="topbar">      
  
 <ul id="sdt_menu" class="sdt_menu">
 				<li>
