@@ -22,8 +22,6 @@ body{
 </style>  
     {{> _header}}
 	<div id="main">{{{main}}}</div>
-    <div id="footer">{{> _footer}}</div>
-	
-	
+    {{> _footer}}
   </body>
 </html>
