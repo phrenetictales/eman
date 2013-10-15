@@ -117,15 +117,7 @@
 				*/
                 $('#sdt_menu > li').bind('mouseenter',function(){
 					var $elem = $(this);
-					$elem.find('img')
-						 .stop(true)
-						 .animate({
-							'width':'170px',
-							'height':'170px',
-							'left':'0px'
-						 },400,'easeOutBack')
-						 .andSelf()
-						 .find('.sdt_wrap')
+					$elem.find('.sdt_wrap')
 					     .stop(true)
 						 .animate({'top':'60px'},500,'easeOutBack')
 						 .andSelf()
@@ -139,6 +131,8 @@
 								left = '-170px';
 							$sub_menu.show().animate({'left':left},200);
 						}	
+						
+				
 					});
 				}).bind('mouseleave',function(){
 					var $elem = $(this);
