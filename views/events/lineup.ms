@@ -13,4 +13,4 @@
       </ul>
     {{/lineups}}
   {{/stage}}
-<div>
+</div>
