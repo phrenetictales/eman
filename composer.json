@@ -15,7 +15,6 @@
 		"illuminate/database": "4.0.*@dev",
 		"mustache/mustache": "dev-temporaryfixlaravelrelationships",
 		"jsebrech/o": " v0.1.0",
-		"intervention/image": " 1.4.1",
-		"badcow/lorem-ipsum": "dev-master"
+		"intervention/image": " 1.4.1"
 	}
 }

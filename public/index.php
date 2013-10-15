@@ -27,27 +27,8 @@ $mustache = new Mustache_Engine([
 	)
 ]);
 
-class SlimViewSimple extends \Slim\View
-{
-	protected $_engine = null;
-	
-	public function __construct($engine)
-	{
-		$this->_engine = $engine;
-	}
-	
-	public function render($tpl)
-	{
-		if ($this->_engine == null) {
-			$this->_engine = new Mustache_Engine;
-		}
-		$page = $this->_engine->loadTemplate('content');
-		$m = $this->_engine->loadTemplate($tpl);
-		return $page->render(['main' => $m->render($this->data)]);
-	}
-}
 
-$app = new \Slim\Slim(['view' => new SlimViewSimple($mustache)]);
+$app = new \Slim\Slim(['view' => new Phrenetic\SlimMustacheView($mustache)]);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Load Laravel Database and ORM (Eloquent)                                   //
@@ -84,23 +65,13 @@ spl_autoload_register(function ($class) {
 ////////////////////////////////////////////////////////////////////////////////
 $app->get('/', function() use ($app) {
 	$artists = RMAN\Models\ORM\Artist::with('picture')->get();
-	$generator = new Badcow\LoremIpsum\Generator();
-	
+		
 	$news = [
 		[
-			'title'		=> ucwords(implode(' ', $generator->getRandomWords(8))),
+			'title'		=> "No Lorem Ipsum",
 			'date'		=> '2013-14-10',
-			'content'	=> implode('<p></p>', $generator->getSentences(2))
-		],
-		[
-			'title'		=> ucwords(implode(' ', $generator->getRandomWords(3))),
-			'date'		=> '2013-14-10',
-			'content'	=> implode('<p></p>', $generator->getParagraphs(1))
-		],
-		[
-			'title'		=> 'Announcing Alluvium 2014',
-			'date'		=> '2013-10-10',
-			'content'	=> implode('<p></p>', $generator->getParagraphs(2))
+			'content'	=> 
+				"Lorem Ipsum doesn't work on Mikes PC"
 		]
 	];
 	
@@ -185,7 +156,7 @@ $app->get('/releases/create/', function() use ($app) {
 	]);
 });
 
-$app->post('/releases/save/', function() use ($app) {
+$app->post('/releases/save(/:id)', function() use ($app) {
 	
 	$request = $app->request();
 	$release = new RMAN\Models\ORM\Release;
@@ -419,8 +390,8 @@ $app->get('/events/:eid/stages', function($eid) use ($app) {
 	$event = RMAN\Models\ORM\Event::with(
 				'stages',
 				'stages.lineups',
-				'stages.lineups.artists',
-				'stages.lineups.artists.picture'
+				'stages.lineups.slots.artist',
+				'stages.lineups.slots.artist.picture'
 			)
 		->find($eid);
 	
