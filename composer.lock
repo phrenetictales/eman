@@ -3,8 +3,45 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "140819910a53bff087173a8565340564",
+    "hash": "acba5f901651040914c8426ae4388317",
     "packages": [
+        {
+            "name": "badcow/lorem-ipsum",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/samuelwilliams/LoremIpsum.git",
+                "reference": "568f94bada0f7c95f69fabd6e7007148f90c31b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/samuelwilliams/LoremIpsum/zipball/568f94bada0f7c95f69fabd6e7007148f90c31b0",
+                "reference": "568f94bada0f7c95f69fabd6e7007148f90c31b0",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Badcow": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Williams",
+                    "email": "sam@badcow.co"
+                },
+                {
+                    "name": "Mathew Tinsley",
+                    "email": "tinsley@tinsology.net"
+                }
+            ],
+            "description": "Lorem ipsum generator.",
+            "time": "2013-03-05 07:52:52"
+        },
         {
             "name": "illuminate/container",
             "version": "v4.0.8",
@@ -441,7 +478,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "illuminate/database": 20,
-        "mustache/mustache": 20
+        "mustache/mustache": 20,
+        "badcow/lorem-ipsum": 20
     },
     "platform": [
 

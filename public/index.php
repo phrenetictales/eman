@@ -83,7 +83,31 @@ spl_autoload_register(function ($class) {
 // TODO: replace with front page: slideshow, news, etc..                      //
 ////////////////////////////////////////////////////////////////////////////////
 $app->get('/', function() use ($app) {
-	$app->render('index');
+	$artists = RMAN\Models\ORM\Artist::with('picture')->get();
+	$generator = new Badcow\LoremIpsum\Generator();
+	
+	$news = [
+		[
+			'title'		=> ucwords(implode(' ', $generator->getRandomWords(8))),
+			'date'		=> '2013-14-10',
+			'content'	=> implode('<p></p>', $generator->getSentences(2))
+		],
+		[
+			'title'		=> ucwords(implode(' ', $generator->getRandomWords(3))),
+			'date'		=> '2013-14-10',
+			'content'	=> implode('<p></p>', $generator->getParagraphs(1))
+		],
+		[
+			'title'		=> 'Announcing Alluvium 2014',
+			'date'		=> '2013-10-10',
+			'content'	=> implode('<p></p>', $generator->getParagraphs(2))
+		]
+	];
+	
+	$app->render('index', [
+		'artists'	=> $artists,
+		'news'		=> $news
+	]);
 });
 
 ////////////////////////////////////////////////////////////////////////////////
