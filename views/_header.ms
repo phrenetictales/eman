@@ -77,16 +77,7 @@
 						</span>
 					</a>
 				</li>
-				<li>
-					<a href="#">
-						<img src="/img/5.jpg" alt=""/>
-						<span class="sdt_active"></span>
-						<span class="sdt_wrap">
-							<span class="sdt_link">News</span>
-							<span class="sdt_descr">Latest developements</span>
-						</span>
-					</a>
-				</li>
+				
 				<li>
 					<a href="/events">
 						<img src="/img/6.jpg" alt=""/>
@@ -100,6 +91,33 @@
 						<a href="#">Mushroom on Elm Street</a>
 						<a href="#">New Years</a>
 						<a href="#">Alluvium</a>
+					</div>
+				</li>
+				
+				<li>
+					<a href="#">
+						<img src="/img/5.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">News</span>
+							<span class="sdt_descr">Latest developements</span>
+						</span>
+					</a>
+				</li>
+								
+				<li>
+					<a href="#">
+						<img src="/img/6.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">Applications</span>
+							<span class="sdt_descr">Get Involved!</span>
+						</span>
+					</a>
+					<div class="sdt_box">
+						<a href="#">Artists</a>
+						<a href="#">Volunteers</a>
+						<a href="#">Vendors</a>
 					</div>
 				</li>
 			</ul>
