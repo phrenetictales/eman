@@ -1,4 +1,4 @@
-<div id="main_box">
+<div id="lineup">
   {{#stage}}
   <h1>{{title}}</h1>
     {{#lineups}}

@@ -9,17 +9,6 @@
 
   </head>
   <body>
-<style type="text/css">
-
-body{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	overflow: hidden;
-	height: 100%; 
-	max-height: 100%; 
-}	
-</style>  
     {{> _header}}
 	<div id="main">{{{main}}}</div>
     {{> _footer}}
