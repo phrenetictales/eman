@@ -35,6 +35,24 @@
 	overflow: auto; 
 }
 
+#main_box{
+
+	position:fixed;
+	margin:0;
+	left:0px;
+	top: 150px;
+	bottom:50px;
+	padding: 0px;
+	background:#333;
+	background-repeat:no-repeat;
+	background-attachement:fixed;
+	background-position:top center;
+	border-bottom-right-radius: 4em 0.5em;
+	border-bottom-left-radius: 1em 3em;
+	width: 90%;
+	height:100%;
+	overflow: auto; 
+}
 #footer {
 
 	position: absolute;
