@@ -1,4 +1,4 @@
-<div style="width: 50%;margin:auto">
+<div id="main_box">
   {{#stage}}
   <h1>{{title}}</h1>
     {{#lineups}}

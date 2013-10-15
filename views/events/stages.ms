@@ -44,7 +44,7 @@ var _animations = [
   'randomSmart'
 ];
 </script>
-<div style="width: 50%;margin:auto">
+<div id="main_box">
   {{#event}}
   <h2>{{title}}</h2>
     {{#stages}}
