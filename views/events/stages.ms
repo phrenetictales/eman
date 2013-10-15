@@ -71,7 +71,7 @@ var _animations = [
       </div>
     {{/stages}}
   {{/event}}
-<div>
+</div>
 <script>
 /*
 $(function() {
