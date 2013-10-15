@@ -1,9 +1,6 @@
        <style>
 			body{
-				background:#333 url(/img/bg1.jpg) ;
-				background-repeat:no-repeat
-				background-attachement:fixed;
-				background-position:top center;
+				background:#333; 
 				font-family:Arial;
 				
 			}
@@ -33,11 +30,7 @@
 				height:69px;
 			}
 		</style>
-    </head>
-
-<body>
-
-<div id="topbar">
+ 
 <ul id="sdt_menu" class="sdt_menu">
 				<li>
 					<a href="/">
@@ -110,8 +103,7 @@
 					</div>
 				</li>
 			</ul>
-		</div>
-        
+		        
         <!-- The JavaScript -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
@@ -136,11 +128,11 @@
 						 .andSelf()
 						 .find('.sdt_wrap')
 					     .stop(true)
-						 .animate({'top':'140px'},500,'easeOutBack')
+						 .animate({'top':'60px'},500,'easeOutBack')
 						 .andSelf()
 						 .find('.sdt_active')
 					     .stop(true)
-						 .animate({'height':'170px'},300,function(){
+						 .animate({'height':'50px'},300,function(){
 						var $sub_menu = $elem.find('.sdt_box');
 						if($sub_menu.length){
 							var left = '170px';
@@ -171,4 +163,3 @@
 				});
             });
         </script>
-</body>

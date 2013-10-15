@@ -10,8 +10,10 @@
  * http://www.opensource.org/licenses/MIT
  */
 
+ 
+ 
 body {
-  padding-top: 60px;
+  padding-top: 10px;
 }
 
 .ng-cloak {

@@ -10,7 +10,10 @@
   </head>
   <body>
   
+    <div id="topbar">
     {{> _header}}
+	</div>
+	
     <div id="main">{{{main}}}</div>
     {{> _footer}}
   </body>
