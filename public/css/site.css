@@ -3,21 +3,25 @@
     left: 0;
     top: 0;
     width: 100%;
-	margin: 0;
-	padding: 0;
-	background-color: #222;
+	margin: 0px;
+	padding: 5px;
+	background: #000 url(/img/banner_bg.jpg);
+	background-position:top left;
 	border-top-left-radius: 5px;
 	border-bottom-right-radius: 4em 0.5em;
-	height: 50px;
+	height: 140px;
 	z-index: 100;
 	
 }
 
 #main {
 
-	margin: 0;
+	position:absolute;
+	margin:0;
+	left:0;
+	top: 140px;
 	padding: 0;
-	background:#000 url(/img/bg1.jpg) ;
+	background:#555;
 	background-repeat:no-repeat;
 	background-attachement:fixed;
 	background-position:top center;
@@ -59,8 +63,18 @@ ul.topnav li ul.subnav li {
 }
 
 ul.sdt_menu{
-	margin:0;
-	padding:0;
+	Position: fixed;
+    left: 0;
+    top: 100;
+    width: 100%;
+	min-width: 1020px;
+	margin: 0;
+	padding: 0;
+	background-color: #050505;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 4em 0.5em;
+	height: 50px;
+	z-index: 100;
 	list-style: none;
 	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
 	font-size:12px;
