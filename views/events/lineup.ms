@@ -2,7 +2,7 @@
   
   {{#stage}}
   <h1>{{title}}</h2><br>
-    <div align="center" class="columns">
+    <div style="width:80%; margin:0 auto;" class="columns">
 	{{#lineups}}
 	<div id="lineup_box">
 	<ul class="lineup">

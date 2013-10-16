@@ -89,6 +89,7 @@
 	padding: 10px;
 	width: 300;
 	height: 240;
+	text-align:center;
 	background:#111;
 	border-top-right-radius: 6px;
 	border-top-left-radius: 6px;
@@ -103,11 +104,11 @@
 
 .columns {
     -moz-column-count: 3;
-    -moz-column-gap: 20px;
+    -moz-column-gap: 5px;
     -webkit-column-count: 3;
-    -webkit-column-gap: 20px;
+    -webkit-column-gap: 5px;
     column-count: 3;
-    column-gap: 20px;	
+    column-gap: 5px;	
 }
 
 ul.lineup {
