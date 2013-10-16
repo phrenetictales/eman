@@ -53,7 +53,7 @@ var _animations = [
           {{title}}
         </a>
       </h3>
-      <div id="slideshow" class="box_skitter" style="height: 450px; width: 650px">
+      <div class="box_skitter slideshow" style="height: 450px; width: 650px">
       <ul class="rslides" style="background-color: red">
       {{#lineups}}
         {{#slots}}
@@ -79,7 +79,7 @@ $(function() {
   $(".rslides").responsiveSlides({random: true, maxwidth: 300});
 });
 */
-$("#slideshow").skitter({
+$(".slideshow").skitter({
   /*
   imageSwitched: function() {
     var _animation = _animations[(Math.floor(Math.random() * _animations.length))];
