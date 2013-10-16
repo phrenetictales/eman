@@ -19,6 +19,6 @@
         {{/slots}}
         {{/lineups}}
   {{/stage}}
-  
+  <div style="clear:both"></div> 
 </div>
 </div>
