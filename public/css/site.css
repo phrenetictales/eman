@@ -66,10 +66,10 @@
 	padding: 0;
 	background: url(/img/footerbg.png);
 	background-position: center;
-	border-top-right-radius: 4px;
-	border-top-left-radius: 4px;
 	height: 25px;
 	z-index: 100;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
 	border-top-width: 1px;
 	border-right-width: 1px;
 	border-bottom-width: 1px;
@@ -84,13 +84,27 @@
 	border-left-color: #006BA3;
 }
 
+#lineup_box {
+	position: float;
+	padding: 10px;
+	width: 300;
+	background:#222;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-width:1px;
+	border-style: solid;
+	border-right-color: #333;
+	border-bottom-color: #344;
+}
+
 .columns {
     -moz-column-count: 3;
-    -moz-column-gap: 20px;
+    -moz-column-gap: 10px;
     -webkit-column-count: 3;
-    -webkit-column-gap: 20px;
+    -webkit-column-gap: 10px;
     column-count: 3;
-    column-gap: 20px;	
+    column-gap: 10px;	
 }
 
 ul.lineup {
