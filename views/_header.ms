@@ -33,7 +33,7 @@
 						<span class="sdt_active"></span>
 						<span class="sdt_wrap">
 							<span class="sdt_link">Shuttle</span>
-							<span class="sdt_descr">Get a seat on the bus</span>
+							<span class="sdt_descr">Get a ride!</span>
 						</span>
 					</a>
 				</li>
@@ -70,7 +70,7 @@
 						<span class="sdt_active"></span>
 						<span class="sdt_wrap">
 							<span class="sdt_link">News</span>
-							<span class="sdt_descr">Latest developements</span>
+							<span class="sdt_descr">What's new?</span>
 						</span>
 					</a>
 				</li>
