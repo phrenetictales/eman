@@ -22,7 +22,7 @@
 						</span>
 					</a>
 					<div class="sdt_box">
-							<a href="events/1/stages/1/lineup">Psytrance Stage</a>
+							<a href="/events/1/stages/1/lineup">Psytrance Stage</a>
 							<a href="#">Techno Stage</a>
 							<a href="#">Third Stage</a>
 					</div>
@@ -107,11 +107,11 @@
 					var $elem = $(this);
 					$elem.find('.sdt_wrap')
 					     .stop(true)
-						 .animate({'top':'45px'},500,'easeOutBack')
+						 .animate({'top':'5px'},500,'easeOutBack')
 						 .andSelf()
 						 .find('.sdt_active')
 					     .stop(true)
-						 .animate({'height':'40px'},300,function(){
+						 .animate({'height':'80px'},300,function(){
 						var $sub_menu = $elem.find('.sdt_box');
 						if($sub_menu.length){
 							var left = '170px';

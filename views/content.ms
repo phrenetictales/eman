@@ -5,12 +5,11 @@
     <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css"></link>
     <link rel="stylesheet" type="text/css" href="/css/site.css"></link>
     <!-- <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/dark-hive/jquery-ui.css"></link> -->
-		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
-
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
   </head>
   <body>
-	{{> _header}}
-	<div id="main">{{{main}}}</div>
-    	{{> _footer}}
+    {{> _header}}
+     <div id="main">{{{main}}}</div>
+    {{> _footer}}
   </body>
 </html>

@@ -1,16 +1,24 @@
 <div id="lineup">
   {{#stage}}
-  <h1>{{title}}</h1>
-    {{#lineups}}
-      <h2>{{duration}} - {{start_date_time}}</h2>
-      <ul>
+  <h1>{{title}}</h2><br>
+    <div style="width:80%; margin:0 auto;" class="columns">
+	{{#lineups}}
+	<div id="lineup_box">
+	<ul class="lineup">
+	  <li class="lineup">
+	  
         {{#slots}}
           {{#artist}}
-            <h3>{{name}}</h3>
-            {{#picture}}<img src="{{#scale}}200_100{{/scale}}"/>{{/picture}}
-          {{/artist}}
+            {{#picture}}<img src="{{#scale}}300_200{{/scale}}"/>{{/picture}}
+			<a href="#"><h3>{{name}}</h3></a>
+          </div>
+		  </li>
+  </ul>
+		  
+		  {{/artist}}
         {{/slots}}
-      </ul>
-    {{/lineups}}
+        {{/lineups}}
   {{/stage}}
+  
+</div>
 </div>

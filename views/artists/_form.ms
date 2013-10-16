@@ -28,12 +28,7 @@
     </style>
     <label for="picture">Photo</label>
     <br/>
-    {{#picture}}
-      <img src="{{url}}"/>
-    {{/picture}}
-    {{#picture?}}
       <img src="/img/profile_person_generic.jpg"/>
-    {{/picture?}}
     <br/>
     <input id="picture" type="file" name="picture" data-url="/pictures/upload/"/>
     <input type="hidden" name="picture_id" value="{{picture.id}}"/>
