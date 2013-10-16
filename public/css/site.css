@@ -8,7 +8,8 @@ BODY {
 	border-bottom-left-radius: 1em 3em;
 }
 
-H1 {color:#006BA3
+H1 {color:#006BA3;
+	text-align:center;
 }
 
 #topbar {
