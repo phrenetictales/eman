@@ -1,4 +1,4 @@
-<div id="main_box">
+<div id="artists">
   <h1>Artists</h1>
   {{#artists}}
   <h2>{{name}}</h2>

@@ -1,8 +1,18 @@
+BODY {
+	margin: 0;
+	background:#050505;
+	background-repeat:no-repeat;
+	background-attachement:fixed;
+	background-position:top center;
+	border-bottom-right-radius: 4em 0.5em;
+	border-bottom-left-radius: 1em 3em;
+}
+
 #topbar {
-	Position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
 	min-width: 1100px;
 	margin: 0;
 	padding: 0;
@@ -10,56 +20,35 @@
 	background-position:top left;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
+	border-bottom-color: #006BA3;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
 	height: 140px;
-	z-index: 100;
-	
+	z-index: 99999999999;
 }
 
 #main {
-
-	clear: both;
-	position:fixed;
-	margin:0;
-	left:0px;
-	top: 140px;
-	bottom:100px;
-	padding: 0px;
-	background:#000;
-	background-repeat:no-repeat;
-	background-attachement:fixed;
-	background-position:top center;
-	border-bottom-right-radius: 4em 0.5em;
-	border-bottom-left-radius: 1em 3em;
-	width: 100%;
-	height: 100%
-}
-
-#main_box{
-	position: fixed;
-	top: 144px;
-	left: 0px;
-	bottom: 0px;
-	padding: 0px;
+	/* must set bottom padding to the height of #footer */
+	margin: 140px 0 30px 0;
+	clear:both;
 	background-repeat: no-repeat;
 	background-attachement: fixed;
 	background-position: center bottom;
 	border-bottom-right-radius: 4em 0.5em;
 	border-bottom-left-radius: 1em 3em;
 	width: 100%;
-	overflow: auto;
 	background-color: #050505;
 	border-top-width: 1px;
 	border-right-width: 1px;
-	border-bottom-width: 1px;
 	border-left-width: 1px;
 	border-top-style: solid;
 	border-right-style: none;
 	border-bottom-style: solid;
 	border-left-style: solid;
-	border-top-color: #006BA3;
 }
+
 #footer {
-	position: absolute;
+	position: fixed;
 	left: 0;
 	bottom: 0px;
 	width: 100%;
