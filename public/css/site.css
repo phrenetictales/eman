@@ -8,6 +8,9 @@ BODY {
 	border-bottom-left-radius: 1em 3em;
 }
 
+H1 {color:#006BA3
+}
+
 #topbar {
 	position: fixed;
 	left: 0;
@@ -74,7 +77,7 @@ BODY {
 }
 
 #lineup_box {
-	position: float;
+	float:left;
 	padding: 10px;
 	width: 300;
 	height: 240;
@@ -91,17 +94,6 @@ BODY {
 	border-top-color:#000;
 }
 
-.columns {
-    -moz-column-count: 3;
-    -moz-column-gap: 10px;
-	-moz-row-gap:10px;
-    -webkit-column-count: 3;
-    -webkit-column-gap: 10px;
-	-webkit-row-gab: 10px;
-    column-count: 3;
-    column-gap: 10px;
- 		
-}
 
 ul.lineup {
 	margin: 0;
