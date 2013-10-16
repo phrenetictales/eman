@@ -1,3 +1,4 @@
+<div id="main_box">
 {{#artist}}
   <h1>{{name}}</h1>
 {{/artist}}
@@ -9,3 +10,4 @@
   {{> artists/_form_long}}
   <button>Save</button>
 </form>
+</div>
