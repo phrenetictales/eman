@@ -72,18 +72,20 @@
     -webkit-column-count: 3;
     -webkit-column-gap: 20px;
     column-count: 3;
-    column-gap: 20px;
-	align: center;
-	
+    column-gap: 20px;	
 }
-ul.lineup
-{
+
+ul.lineup {
+	margin: 0;
+	padding: 0;
     list-style-type: none;
-	vertical-align: bottom;
 	}
 
 li.lineup {
-line-height: 100px 
+	line-height: 100px 
+	margin: 0;
+	padding: 0;
+
 }
 	
 
