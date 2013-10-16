@@ -111,7 +111,7 @@
 						 .andSelf()
 						 .find('.sdt_active')
 					     .stop(true)
-						 .animate({'height':'40px'},300,function(){
+						 .animate({'height':'60px'},300,function(){
 						var $sub_menu = $elem.find('.sdt_box');
 						if($sub_menu.length){
 							var left = '170px';
