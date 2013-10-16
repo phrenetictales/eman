@@ -1,11 +1,11 @@
-<div id="lineup">
+<div class="lineup">
   {{#stage}}
-  <h1>{{title}}</h2><br>
+  <h1>{{title}}</h1><br>
     
 	{{#lineups}}
 	<div id="lineup_box">
-	<ul class="lineup">
-	  <li class="lineup">
+	<ul>
+	  <li>
 	  
         {{#slots}}
           {{#artist}}
@@ -19,6 +19,6 @@
         {{/slots}}
         {{/lineups}}
   {{/stage}}
-  
+  <div style="clear:both"></div> 
 </div>
 </div>
