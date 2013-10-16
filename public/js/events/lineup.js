@@ -104,8 +104,14 @@ $('#add-artist-submit').on('click', function() {
 		.html($input)
 		.append(artistnames.join(' vs '));
 	
-	_li.data('start', new Date(lineups[(lineups.length-1)].end));
-	_li.data('end', _li.data('start').getTime() + (interval * 1));
+	if (lineups.length > 0) {
+		_li.data('start', new Date(lineups[(lineups.length-1)].end));
+	}
+	else {
+		_li.data('start', new Date(stage.event.start_date_time));
+	}
+	
+	_li.data('end', new Date(_li.data('start').getTime() + (interval * 1)));
 	
 	$('#sortable').append(_li);
 	

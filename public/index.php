@@ -425,9 +425,10 @@ $app->get('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app
 
 $app->post('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app) {
 	
-	$event = RMAN\Models\ORM\Event::find($sid);
+	$event = RMAN\Models\ORM\Event::find($eid);
 	$stage = RMAN\Models\ORM\Stage::with('event')->find($sid);
 	$end = Carbon\Carbon::parse($stage->event->start_date_time);
+	
 	
 	foreach($_POST['lineup'] as $lid => $data) {
 		if (substr($lid, 0, 3) == 'new') {

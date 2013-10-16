@@ -11,9 +11,9 @@
 #hours td.daychange {border-top: solid 1px red; background-color: red}
 .ui-state-default { border-top: none !important;}
 </style>
-<form method="POST" action="/events/1/stages/1/lineup/edit">
+{{#stage}}
+<form method="POST" action="/events/{{event.id}}/stages/{{id}}/lineup/edit">
 <div style="width: 50%;margin:auto;position:relative">
-  {{#stage}}
   <h2>{{title}}</h2>
     <table id="hours" border=0 cellpadding=0 cellspacing=0>
       <thead/>
@@ -33,11 +33,15 @@
     {{/lineups}}
     </ul>
   </div>
-  {{/stage}}
 </div>
 
 <input type="Submit">
 <button id="add-artist">Add Artist</button>
+
+</form>
+
+{{/stage}}
+
 
 <script>
 var stage = {{{stage}}}; /*$.parseJSON('{{{stage}}}'.replace(/(\n|\r)/g, ''));*/
