@@ -12,9 +12,9 @@
               {{/artist}}
             {{/slots}}
           </li>
-        </ul>
-        <div style="clear:both"></div> 
+        </ul>        
       </div>
     {{/lineups}}
   {{/stage}}
-</div>
+<div style="clear:both"></div> 
+  </div>
