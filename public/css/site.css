@@ -27,7 +27,7 @@ H1 {color:#006BA3
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	height: 140px;
-	z-index: 99999999999;
+	z-index: 999;
 }
 
 #main {

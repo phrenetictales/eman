@@ -100,7 +100,7 @@
   js.src = "//connect.facebook.net/fb_LT/all.js#xfbml=1&appId=314562471925657";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-like" data-href="http://www.facebook.com/alluviumfestival" data-width="220" data-height="30" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="false">
+<div style="z-index:1000" class="fb-like" data-href="http://www.facebook.com/alluviumfestival" data-width="220" data-height="30" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="false">
 </div>			
      					
         <!-- The JavaScript -->
