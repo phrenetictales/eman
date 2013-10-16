@@ -88,23 +88,26 @@
 	position: float;
 	padding: 10px;
 	width: 300;
-	background:#222;
-	border-top-right-radius: 4px;
-	border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px;
+	height: 240;
+	background:#111;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
 	border-width:1px;
 	border-style: solid;
-	border-right-color: #333;
-	border-bottom-color: #344;
+	border-right-color: #222;
+	border-bottom-color: #333;
+	border-left-color:#000;
+	border-top-color:#000;
 }
 
 .columns {
     -moz-column-count: 3;
-    -moz-column-gap: 10px;
+    -moz-column-gap: 20px;
     -webkit-column-count: 3;
-    -webkit-column-gap: 10px;
+    -webkit-column-gap: 20px;
     column-count: 3;
-    column-gap: 10px;	
+    column-gap: 20px;	
 }
 
 ul.lineup {

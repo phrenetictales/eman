@@ -11,7 +11,7 @@
         {{#slots}}
           {{#artist}}
             {{#picture}}<img src="{{#scale}}300_200{{/scale}}"/>{{/picture}}
-			<h3>{{name}}</h3>
+			<a href="#"><h3>{{name}}</h3></a>
           </div>
 		  </li>
   </ul>
