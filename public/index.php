@@ -111,7 +111,7 @@ $app->get('/artists/edit/:id', function($id) use ($app) {
 	$app->render('artists/create', ['artist' => $artist]);
 })->conditions(['id' => '\d+']);
 
-$app->post('/artists/save/(:id)', function($id) use ($app) {
+$app->post('/artists/save/(:id)', function($id = 0) use ($app) {
 	if ($id) {
 		$artist = RMAN\Models\ORM\Artist::find($id);
 		foreach($_POST as $k => $v) {
