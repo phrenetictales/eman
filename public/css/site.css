@@ -219,19 +219,19 @@ ul.sdt_menu li span.sdt_wrap{
 	left:0px;
 	width:130px;
 	height:40px;
-	z-index:0;
+	z-index:50;
 }
 
 ul.sdt_menu li span.sdt_active{
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 4em 0.5em;
 	position: absolute;
-	background: #111;
+	background: url(/img/transbg2.png);
 	top: 20px;
 	width: 130px;
 	height: 0px;
 	left: 0px;
-	z-index: 0;
+	z-index: 50;
 	-moz-box-shadow: 0px 0px 4px #000 inset;
 	-webkit-box-shadow: 0px 0px 4px #000 inset;
 	box-shadow: 0px 0px 4px #000 inset;
@@ -243,12 +243,12 @@ ul.sdt_menu li span.sdt_active2{
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 4em 0.5em;
 	position:absolute;
-	background:#111;
+	background:;
 	top:40px;
 	width:130px;
 	height:0px;
 	left:0px;
-	z-index:0;
+	z-index:50;
 	-moz-box-shadow:0px 0px 4px #000 inset;
 	-webkit-box-shadow:0px 0px 4px #000 inset;
 	box-shadow:0px 0px 4px #000 inset;
