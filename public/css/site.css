@@ -77,22 +77,29 @@ BODY {
 .lineup {
 	margin : 0px auto;
 	width: 90%;
-	padding-top: 0;
+	padding-top: 40px;
 }
 
 .lineup h1 {
-	margin-top: 0px;
-	padding-top: 5px;
-	color:#006BA3;
-	text-align:center;
+	position: fixed;
+	margin:0px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 15px;
+	margin-bottom: 20px;
+	top:140px;
+	left:0;
+	color:#fff;
+	text-align:left;
 	vertical-align:middle;
-	font: bold italic 2em/1em "Times New Roman", "MS Serif", "New York", serif;
-	background: url("/img/transbg.png");
+	font: 20px "Papyrus", fantasy;
+	background: url(/img/footerbg.png);
 	border-right: solid #006BA3 1px;
 	border-bottom: solid #006BA3 1px;
-	border-bottom-left-radius: 1em 3em;
-	border-bottom-right-radius: 8px;
-	height:50px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 1em 3em;
+	height:25px;
+	width:20%;
 	
 }	
 
@@ -272,7 +279,7 @@ ul.sdt_menu li div.sdt_box{
 	width: 140px;
 	overflow: hidden;
 	height: 140px;
-	top: 44px;
+	top: 41px;
 	left: 0px;
 	display: none;
 	background: #000;
