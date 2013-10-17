@@ -183,7 +183,7 @@ ul.sdt_menu a{
 }
 ul.sdt_menu li{
 	float:left;
-	width:140px;
+	width:130px;
 	height:50px;
 	position:relative;
 	cursor:pointer;
@@ -192,7 +192,7 @@ ul.sdt_menu li > a{
 	position:absolute;
 	top:0px;
 	left:0px;
-	width:140px;
+	width:130px;
 	height:40px;
 	z-index:0;
 	background:transparent url(../images/overlay1.png) no-repeat bottom right;
@@ -216,7 +216,7 @@ ul.sdt_menu li span.sdt_wrap{
 	position:absolute;
 	top:5px;
 	left:0px;
-	width:140px;
+	width:130px;
 	height:40px;
 	z-index:0;
 }
@@ -227,7 +227,7 @@ ul.sdt_menu li span.sdt_active{
 	position: absolute;
 	background: #111;
 	top: 20px;
-	width: 140px;
+	width: 130px;
 	height: 0px;
 	left: 0px;
 	z-index: 0;
@@ -244,7 +244,7 @@ ul.sdt_menu li span.sdt_active2{
 	position:absolute;
 	background:#111;
 	top:40px;
-	width:140px;
+	width:130px;
 	height:0px;
 	left:0px;
 	z-index:0;
@@ -276,14 +276,15 @@ ul.sdt_menu li span span.sdt_descr{
 ul.sdt_menu li div.sdt_box{
 	display: block;
 	position: absolute;
-	width: 140px;
+	width: 180px;
 	overflow: hidden;
-	height: 140px;
+	height: 130px;
 	top: 41px;
 	left: 0px;
 	display: none;
-	background: #000;
+	background: url(/img/transbg.png);
 	border-width: 1px;
+	padding-bottom:2px;
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
 	border-right-style: solid;
@@ -306,7 +307,7 @@ ul.sdt_menu li div.sdt_box a:hover{
 
 .fb-like {
 	
-	background: url("/img/transbg.png");
+	background: url(/img/transbg.png);
 	width:220px;
 	float: right;
 	padding: 7px;

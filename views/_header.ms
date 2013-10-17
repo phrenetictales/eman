@@ -125,9 +125,9 @@
 						 .animate({'height':'80px'},300,function(){
 						var $sub_menu = $elem.find('.sdt_box');
 						if($sub_menu.length){
-							var left = '140px';
+							var left = '130px';
 							if($elem.parent().children().length == $elem.index()+1)
-								left = '-140px';
+								left = '-180px';
 							$sub_menu.show().animate({'left':left},50);
 						}	
 						
