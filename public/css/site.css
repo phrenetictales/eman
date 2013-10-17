@@ -88,7 +88,7 @@ BODY {
 	padding-left: 15px;
 	margin-bottom: 20px;
 	top:100px;
-	left:0;
+	right:0;
 	color:#fff;
 	text-align:left;
 	vertical-align:middle;
@@ -96,10 +96,9 @@ BODY {
 	background: url(/img/footerbg.png);
 	border-right: solid #006BA3 1px;
 	border-bottom: solid #006BA3 1px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 1em 3em;
-	height:25px;
-	width:20%;
+	border-bottom-left-radius: 1em 3em;
+	border-bottom-right-radius: 5px;
+	width:22%;
 	z-index:100;
 	
 }	
