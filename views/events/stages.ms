@@ -44,8 +44,10 @@ var _animations = [
   'randomSmart'
 ];
 </script>
-<div id="stages">
+
+<div class="lineup">
   {{#event}}
+  <h1>Alluvium 2014 Lineup</h1>
   <h2>{{title}}</h2>
     {{#stages}}
       <h3>
@@ -72,7 +74,7 @@ var _animations = [
     {{/stages}}
   {{/event}}
 </div>
-
+<div style="clear:both"></div> 
 <script>
 /*
 $(function() {
@@ -93,4 +95,11 @@ $(".slideshow").skitter({
   hideTools: true
   
 });
+
+$(document).ready(function() {
+  $("h1").animate({
+  top: 140, 
+  opacity: 1 
+  }, 700 );
+  });
 </script>

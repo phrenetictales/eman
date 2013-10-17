@@ -1,6 +1,16 @@
-<div style="width: 50%;margin:auto">
-  <h1>Events</h1>
+<div class="lineup">
   {{#events}}
+  <h1>Upcomming Events</h1>
   <h2><a href="/events/{{id}}/stages">{{title}}</a></h2>
   {{/events}}
-<div>
+<script>
+  $(document).ready(function() {
+  $("h1").animate({
+  top: 140, 
+  opacity: 1 
+  }, 700 );
+  });
+</script>
+
+  </div>
+ <div style="clear:both"></div> 

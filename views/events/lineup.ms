@@ -16,14 +16,14 @@
        
       </div>
     
-	<script>
+<script>
   $(document).ready(function() {
   $("h1").animate({
   top: 140, 
   opacity: 1 
   }, 700 );
   });
-  </script>
+</script>
 	
 	{{/lineups}}
   {{/stage}}

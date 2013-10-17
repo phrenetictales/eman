@@ -7,7 +7,7 @@ BODY {
 	border-bottom-right-radius: 4em 0.5em;
 	border-bottom-left-radius: 1em 3em;
 }
-
+	
 #topbar {
 	position: fixed;
 	left: 0;
@@ -100,6 +100,7 @@ BODY {
 	border-bottom-right-radius: 1em 3em;
 	height:25px;
 	width:20%;
+	z-index:100;
 	
 }	
 
