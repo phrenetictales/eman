@@ -118,7 +118,6 @@
 					var $elem = $(this);
 					$elem.find('.sdt_wrap')
 					     .stop(true)
-						 .animate({'top':'5px'},500,'easeOutBack')
 						 .andSelf()
 						 .find('.sdt_active')
 					     .stop(true)
@@ -151,7 +150,7 @@
 						 .andSelf()
 						 .find('.sdt_wrap')
 						 .stop(true)
-						 .animate({'top':'5px'},500);
+						 
 				});
             });
         </script>

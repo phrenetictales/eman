@@ -162,7 +162,7 @@ ul.topnav li ul.subnav li {
 ul.sdt_menu{
 	Position: fixed;
     left: 0;
-    top: 100;
+    top: 105;
     width: 100%;
 	min-width: 900px;
 	margin: 0;
@@ -170,7 +170,7 @@ ul.sdt_menu{
 	border-top-left-radius: 5px;
 	border-bottom-right-radius: 4em 0.5em;
 	background: url(/img/transbg.png);
-	height: 40px;
+	height: 35px;
 	z-index: 100;
 	list-style: none;
 	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
@@ -185,7 +185,7 @@ ul.sdt_menu a{
 ul.sdt_menu li{
 	float:left;
 	width:130px;
-	height:50px;
+	height:30px;
 	position:relative;
 	cursor:pointer;
 }
@@ -194,7 +194,7 @@ ul.sdt_menu li > a{
 	top:0px;
 	left:0px;
 	width:130px;
-	height:40px;
+	height:35px;
 	z-index:0;
 	background:transparent url(../images/overlay1.png) no-repeat bottom right;
 	-moz-box-shadow:0px 0px 2px #000 inset;
@@ -215,7 +215,7 @@ ul.sdt_menu li a img{
 }
 ul.sdt_menu li span.sdt_wrap{
 	position:absolute;
-	top:5px;
+	top:2px;
 	left:0px;
 	width:130px;
 	height:40px;
@@ -280,7 +280,7 @@ ul.sdt_menu li div.sdt_box{
 	width: 180px;
 	overflow: hidden;
 	height: 130px;
-	top: 41px;
+	top: 35px;
 	left: 0px;
 	display: none;
 	background: url(/img/transbg.png);
