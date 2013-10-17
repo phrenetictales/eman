@@ -1,6 +1,6 @@
 <div class="lineup">
   {{#stage}}
-    <h1>{{title}}</h1><br>
+    <h1>{{title}}</h1>
     {{#lineups}}
       <div id="lineup_box">
         <ul>
@@ -12,9 +12,10 @@
               {{/artist}}
             {{/slots}}
           </li>
-        </ul>        
+        </ul>
+       
       </div>
     {{/lineups}}
   {{/stage}}
-<div style="clear:both"></div> 
-  </div>
+</div>
+ <div style="clear:both"></div> 
