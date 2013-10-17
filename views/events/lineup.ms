@@ -15,7 +15,19 @@
         </ul>
        
       </div>
-    {{/lineups}}
+    
+	<script>
+  $(document).ready(function() {
+  $("h1").animate({
+  top: 140, 
+  opacity: 1 
+  }, 700 );
+  });
+  </script>
+	
+	{{/lineups}}
   {{/stage}}
-</div>
+  
+  </div>
  <div style="clear:both"></div> 
+ 
