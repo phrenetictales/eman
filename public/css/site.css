@@ -124,12 +124,13 @@ BODY {
 	background:#111;
 	border-top-right-radius: 6px;
 	border-top-left-radius: 4em 0.5em;
+	border-bottom-right-radius: 4em 0.5em;
 	border-bottom-left-radius: 6px;
 	border-width:1px;
 	border-style: solid;
-	border-right-color: #222;
-	border-bottom-color: #333;
-	border-left-color:#000;
+	border-right-color: #333;
+	border-bottom-color: #222;
+	border-left-color:#111;
 	border-top-color:#000;
 	margin-bottom:15px;
 	margin-left:23px;

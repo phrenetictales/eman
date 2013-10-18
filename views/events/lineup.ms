@@ -7,8 +7,8 @@
           <li>
             {{#slots}}
               {{#artist}}
-                {{#picture}}<img src="{{#scale}}250_150{{/scale}}"/>{{/picture}}
-                <a href="/artists/{{id}}"><h3>{{name}}</h3></a>
+                <a href="/artists/{{id}}">{{#picture}}<img src="{{#scale}}250_150{{/scale}}"/>{{/picture}}</a>
+                <h3>{{name}}</h3>
               {{/artist}}
             {{/slots}}
           </li>
