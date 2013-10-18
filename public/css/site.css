@@ -35,17 +35,9 @@ BODY {
 	background-repeat: no-repeat;
 	background-attachement: fixed;
 	background-position: center bottom;
-	border-bottom-right-radius: 4em 0.5em;
-	border-bottom-left-radius: 1em 3em;
-	width: 100%;
+	width: 99%;
 	background-color: #050505;
-	border-top-width: 1px;
-	border-right-width: 1px;
-	border-left-width: 1px;
-	border-top-style: solid;
-	border-right-style: none;
-	border-bottom-style: solid;
-	border-left-style: solid;
+
 }
 
 #footer {
