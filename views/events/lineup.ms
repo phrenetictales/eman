@@ -1,6 +1,6 @@
 <div class="lineup">
   {{#stage}}
-    <h1>{{title}}</h1>
+    <h1>{{title}} Line up</h1>
     {{#lineups}}
       <div id="lineup_box">
         <ul>

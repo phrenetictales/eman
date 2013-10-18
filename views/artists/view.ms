@@ -1,6 +1,6 @@
 <div class="lineup">
 {{#artist}}
-<h1>{{name}}</h1>
+<h1>{{name}}'s profile</h1>
 {{#picture}}<img src="{{#scale}}350_250{{/scale}}" align="left"/>{{/picture}}
 <p>{{bio}}</p>
 {{/artist}}
