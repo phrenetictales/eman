@@ -23,7 +23,7 @@
 					</a>
 					<div class="sdt_box">
 							<a href="/events/1/stages/1/lineup">Psytrance Stage</a>
-							<a href="#">Techno Stage</a>
+							<a href="/events/1/stages/2/lineup">Techno Stage</a>
 							<a href="#">Third Stage</a>
 					</div>
 				</li>

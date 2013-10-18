@@ -14,8 +14,8 @@ BODY {
 	top: 0;
 	width: 100%;
 	min-width: 1200px;
-	margin: 0;
-	padding: 0;
+	margin-bottom: 20px;
+	padding-bottom: 0;
 	background: #000 url(/img/banner_bg.jpg);
 	background-position:top left;
 	border-top-left-radius: 10px;
@@ -36,7 +36,9 @@ BODY {
 	background-attachement: fixed;
 	background-position: center bottom;
 	width: 99%;
+	color:#aaa;
 	background-color: #050505;
+	padding-top:20px;
 
 }
 
@@ -107,6 +109,10 @@ BODY {
 	margin: 0;
 	padding: 0;
 
+}
+
+.lineup p {
+	margin:20;
 }
 
 #lineup_box {

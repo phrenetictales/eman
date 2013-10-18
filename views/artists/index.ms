@@ -1,4 +1,4 @@
-<div id="artists">
+<div class="lineup">
   <h1>Artists</h1>
   {{#artists}}
   <h2>{{name}}</h2>
@@ -7,4 +7,13 @@
     {{bio}}
   </p>
   {{/artists}}
-<div>
+<script>
+  $(document).ready(function() {
+  $("h1").animate({
+  top: 140, 
+  opacity: 1 
+  }, 700 );
+  });
+</script>
+  </div>
+ <div style="clear:both"></div> 

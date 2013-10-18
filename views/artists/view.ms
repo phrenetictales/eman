@@ -1,5 +1,16 @@
+<div class="lineup">
 {{#artist}}
 <h1>{{name}}</h1>
-<img src="{{picture.url}}"/>
+{{#picture}}<img src="{{#scale}}350_250{{/scale}}" align="left"/>{{/picture}}
 <p>{{bio}}</p>
 {{/artist}}
+<script>
+  $(document).ready(function() {
+  $("h1").animate({
+  top: 140, 
+  opacity: 1 
+  }, 700 );
+  });
+</script>
+</div>
+<div style="clear:both"></div> 
