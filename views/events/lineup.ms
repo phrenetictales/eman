@@ -1,6 +1,6 @@
 <div class="lineup">
   {{#stage}}
-    <h1>{{title}} Line up</h1>
+    <h1>{{title}} Lineup</h1>
     {{#lineups}}
       <div id="lineup_box">
         <ul>
@@ -23,6 +23,15 @@
   opacity: 1 
   }, 700 );
   });
+  
+  $(document).ready(function(){
+
+    $("#lineup").click(function(){
+      window.location=$(this).find("a").attr("href"); return false;
+    });
+
+});
+  
 </script>
 	
 	{{/lineups}}
