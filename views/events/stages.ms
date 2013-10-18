@@ -47,7 +47,7 @@ var _animations = [
 
 <div class="lineup">
   {{#event}}
-  <h1>Alluvium 2014 Lineup</h1>
+  <style h1.lineup {font-size: 20px;}><h1>Alluvium 2014 Lineup</h1></style>
   <h2>{{title}}</h2>
     {{#stages}}
       <h3>

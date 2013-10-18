@@ -1,3 +1,10 @@
+
+html {
+    font-family: sans-serif; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+}
+
 BODY {
 	margin: 0;
 	background:#050505;
@@ -7,7 +14,11 @@ BODY {
 	border-bottom-right-radius: 4em 0.5em;
 	border-bottom-left-radius: 1em 3em;
 }
-	
+
+a {
+	text-decoration: none;
+}
+
 #topbar {
 	position: fixed;
 	left: 0;
@@ -75,9 +86,17 @@ BODY {
 	padding:0;
 }
 
+.lineup a {
+
+	text-decoration: none
+}
+	
+
 .lineup:hover {
 	cursor:pointer;
 }	
+
+.lineup img { border-style: none; }
 
 .lineup h1 {
 	position: fixed;
@@ -86,12 +105,14 @@ BODY {
 	padding-bottom: 2px;
 	padding-left: 34px;
 	margin-bottom: 20px;
-	top:100px;
+	top:140px;
 	right:0;
 	color:#fff;
 	text-align:left;
 	vertical-align:middle;
-	font: 20px "Papyrus", fantasy;
+	font-family: fantasy, papyrus;
+	font-size: 1.2em;
+	font-style: normal;
 	background: url(/img/footerbg.png);
 	border-right: solid #006BA3 1px;
 	border-bottom: solid #006BA3 1px;
