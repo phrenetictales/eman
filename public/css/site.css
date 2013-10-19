@@ -17,7 +17,7 @@ a {
 	left : 0;
 	top : 0;
 	width : 100%;
-	min-width : 1200px;
+	minimum-witdh:1200px;
 	margin-bottom : 20px;
 	padding-bottom : 0;
 	background : url(/img/banner_bg.jpg) #000;
@@ -107,19 +107,18 @@ box-sizing:border-box;
 	}
 	
 .lineup ul {
-	margin : 0;
-	padding : 0;
+	margin : 0px;
+	padding : 0px;
 	list-style-type : none;
 	}
 
 .lineup li {
-	
-	margin : 0;
-	padding : 0;
+	margin : 0px;
+	padding : 0px;
 }
 #lineup_box {
 	float : left;
-	padding : 0;
+	padding-bottom : 2px;
 	text-align : center;
 	background : #111;
 	border-top-right-radius : 6px;
@@ -134,7 +133,7 @@ box-sizing:border-box;
 	border-top-color : #000;
 	margin-bottom : 15px;
 	margin-left : 23px;
-	height : 200;
+	height: 200px;
 }
 ul.topnav li {
 	float : left;
@@ -160,7 +159,7 @@ ul.sdt_menu {
 	top : 105px;
 	left : 0;
 	width : 100%;
-	min-width : 900px;
+	min-width : 1000px;
 	margin : 0;
 	padding : 0;
 	border-top-left-radius : 5px;
@@ -289,6 +288,8 @@ ul.sdt_menu li div.sdt_box a:hover {
 	color : #fff;
 }
 .fb-like {
+	position:relative;
+	margin-left:900px;
 	background : url(/img/transbg.png);
 	width : 220px;
 	height: 30px;
