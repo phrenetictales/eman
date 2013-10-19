@@ -34,13 +34,13 @@ a {
 #main {
 	margin : 140px 0 0 0;
 	clear : both;
+	background: #050505;
 	background-repeat : no-repeat;
 	background-position : center bottom; fixed;
 	width : 100%;
 	color : #aaa;
 	padding-top : 50px;
 	padding-bottom:50px;
-	z-index :999999;
 }
 #footer {
 	position : fixed;
@@ -48,11 +48,11 @@ a {
 	bottom : 0;
 	width : 100%;
 	padding : 0;
-	background : url(/img/mainboxbg.png) #050505;
+	background : url(/img/mainboxbg.png);
 	background-position : center;
 	padding-top: 280px;
 	margin-top: 240px;
-	z-index : -1;
+	z-index : 9999;
 
 }
 .lineup {
