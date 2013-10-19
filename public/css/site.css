@@ -133,6 +133,7 @@ box-sizing:border-box;
 	border-top-color : #000;
 	margin-bottom : 15px;
 	margin-left : 23px;
+	width: 250px;
 	height: 200px;
 }
 ul.topnav li {

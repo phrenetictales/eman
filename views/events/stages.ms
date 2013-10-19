@@ -96,7 +96,7 @@ $(".slideshow").skitter({
   
 });
 
-$(document).ready(function() {
+ $(document).ready(function() {
   $("h1").animate({
   top: 140, 
   opacity: 1 
