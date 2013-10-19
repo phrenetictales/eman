@@ -1,14 +1,13 @@
-
 <div class="lineup">
-  {{#stage}}
-    <h1>{{title}} Lineup</h1>
+    {{#stage}}
+   <span><h1>{{title}} Lineup</h1></span>
     {{#lineups}}
       <div id="lineup_box">
         <ul>
           <li>
             {{#slots}}
               {{#artist}}
-                <a href="/artists/{{id}}">{{#picture}}<img src="{{#scale}}250_150{{/scale}}"/ border="none">{{/picture}}</a>
+                <a href="/artists/{{id}}">{{#picture}}<img src="{{#scale}}250_150{{/scale}}"/>{{/picture}}</a>
                 <h3>{{name}}</h3>
               {{/artist}}
             {{/slots}}
@@ -19,17 +18,14 @@
     
 <script>
   
+  $(document).ready(function() {
+  $("h1").animate({
+  top: 140, 
+  opacity: 1 
+  }, 700 );
+  });
   
-**/ IE 10 does not like this? Removed for h compatibility need fix
-  * $(document).ready(function() {
-  * $("h1").animate({
-  * top: 140, 
-  * opacity: 1 
-  * }, 700 );
-  * });
-*/
   
-  **/ IE 10 does not like this? Remove for h compatibility  */
    $(document).ready(function(){
    
     $("#lineup").click(function(){
