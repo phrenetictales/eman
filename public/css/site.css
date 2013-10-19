@@ -17,7 +17,7 @@ a {
 	left : 0;
 	top : 0;
 	width : 100%;
-	min-width:1160px;
+	minimum-width:1160px;
 	margin-bottom : 20px;
 	padding-bottom : 0;
 	background : url(/img/banner_bg.jpg) #000;
@@ -32,14 +32,15 @@ a {
 	z-index : 999;
 }
 #main {
-	margin : 140px 0 30px 0;
+	margin : 140px 0 0 0;
 	clear : both;
 	background-repeat : no-repeat;
-	background-position : center bottom;
-	width : 99%;
+	background-position : center bottom; fixed;
+	width : 100%;
 	color : #aaa;
-	background-color : #050505;
 	padding-top : 50px;
+	padding-bottom:50px;
+	z-index :999999;
 }
 #footer {
 	position : fixed;
@@ -47,24 +48,12 @@ a {
 	bottom : 0;
 	width : 100%;
 	padding : 0;
-	background : url(/img/footerbg.png);
+	background : url(/img/mainboxbg.png) #050505;
 	background-position : center;
-	height : 20px;
-	z-index : 100;
-	border-top-right-radius : 12em 3em;
-	border-top-left-radius : 12em 3em;
-	border-top-width : 1px;
-	border-right-width : 1px;
-	border-bottom-width : 1px;
-	border-left-width : 1px;
-	border-top-style : solid;
-	border-right-style : solid;
-	border-bottom-style : none;
-	border-left-style : solid;
-	border-top-color : #006BA3;
-	border-right-color : #006BA3;
-	border-bottom-color : #000;
-	border-left-color : #006BA3;
+	padding-top: 280px;
+	margin-top: 240px;
+	z-index : -1;
+
 }
 .lineup {
 	margin : 0 auto;
