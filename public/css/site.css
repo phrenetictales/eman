@@ -17,7 +17,7 @@ a {
 	left : 0;
 	top : 0;
 	width : 100%;
-	minimum-witdh:1200px;
+	min-witdh:1200px;
 	margin-bottom : 20px;
 	padding-bottom : 0;
 	background : url(/img/banner_bg.jpg) #000;
