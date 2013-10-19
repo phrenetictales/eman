@@ -21,11 +21,7 @@
 							<span class="sdt_descr">Perfoming artists</span>
 						</span>
 					</a>
-					<div class="sdt_box">
-							<a href="/events/1/stages/1/lineup">Psytrance Stage</a>
-							<a href="/events/1/stages/2/lineup">Techno Stage</a>
-							<a href="#">Third Stage</a>
-					</div>
+					
 				</li>
 				<li>
 					<a href="#">
@@ -57,11 +53,7 @@
 							<span class="sdt_descr">Related Parties</span>
 						</span>
 					</a>
-					<div class="sdt_box">
-						<a href="#">Mushroom on Elm Street</a>
-						<a href="#">New Years</a>
-						<a href="#">Alluvium</a>
-					</div>
+					
 				</li>
 				
 				<li>
@@ -84,11 +76,7 @@
 							<span class="sdt_descr">Get Involved!</span>
 						</span>
 					</a>
-					<div class="sdt_box">
-						<a href="#">Artists</a>
-						<a href="#">Volunteers</a>
-						<a href="#">Vendors</a>
-					</div>
+				
 				</li>
 			</ul>
 		        
@@ -121,7 +109,7 @@
 						 .andSelf()
 						 .find('.sdt_active')
 					     .stop(true)
-						 .animate({'height':'80px'},300,function(){
+						 .animate({'height':'30px'},300,function(){
 						var $sub_menu = $elem.find('.sdt_box');
 						if($sub_menu.length){
 							var left = '130px';

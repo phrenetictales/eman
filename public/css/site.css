@@ -106,7 +106,7 @@ box-sizing:border-box;
 }
 #lineup_box {
 	float : left;
-	padding-bottom : 2px;
+	padding: 8px 5px 5px;
 	text-align : center;
 	background : #111;
 	border-top-right-radius : 6px;
@@ -122,7 +122,7 @@ box-sizing:border-box;
 	margin-bottom : 15px;
 	margin-left : 23px;
 	width: 250px;
-	height: 200px;
+	
 }
 ul.topnav li {
 	float : left;
