@@ -29,13 +29,14 @@ a {
 	border-bottom-width : 1px;
 	border-bottom-style : solid;
 	height : 140px;
-	z-index : 999;
+	z-index : 9999;
 }
 #main {
 	
 	background: #050505;
 	background-repeat : no-repeat;
 	background-position : center bottom; fixed;
+	minimum-height:280px;
 	width : 100%;
 	color : #aaa;
 	padding-top : 190px;
@@ -50,8 +51,7 @@ a {
 	background : url(/img/mainboxbg.png);
 	background-position : center;
 	padding-top: 280px;
-	margin-top: 240px;
-	z-index : 9999;
+	z-index : 999;
 
 }
 .lineup {
