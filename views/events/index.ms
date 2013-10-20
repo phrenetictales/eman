@@ -1,4 +1,4 @@
-<div class="lineup">
+<div class="lineup2">
   {{#events}}
   <h1>Upcomming Events</h1>
   <h2><a href="/events/{{id}}/stages">{{title}}</a></h2>
