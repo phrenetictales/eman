@@ -1,11 +1,11 @@
 BODY {
-	margin : 0;
 	background : #050505;
 	background-repeat : no-repeat;
 	background-position : top center;
 	border-bottom-right-radius : 4em 0.5em;
 	border-bottom-left-radius : 1em 3em;
 	font-size : 1em;
+	height : 100%;
 }
 
 a {
@@ -32,32 +32,34 @@ a {
 	z-index : 9999;
 }
 #main {
+	clear: both;
+	position: relative;
 	margin: 0 auto;
-	background-repeat : no-repeat;
-	background-position : center bottom; fixed;
-	minimum-height:280px;
+	top: 135px;
 	width : 95%;
 	color : #aaa;
-	padding-top : 160px;
-	padding-bottom:50px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	
 }
-#footer2 {
-	position : fixed;
-	left : 0;
-	bottom : 0;
+#footer {
+	position: fixed;
+	margin-left:0px;
+	margin-top: 145px;
+	padding-top: 50px;
+	left: 0;
+	bottom: 0;
 	width : 100%;
-	padding : 0;
+	height: 75px;
 	background : url(/img/mainboxbg.png);
-	background-position : center;
-	padding-top: 180px;
-	z-index : 1;
-
+	background-position : center bottom;
+	z-index : 9999;
+	
 }
 .lineup {
 	margin: 0 auto;
 	width: 98%;
 	padding-top : 20px;
-	margin-left: 20px;
 	text-align:center;
 }
 .lineup a {
