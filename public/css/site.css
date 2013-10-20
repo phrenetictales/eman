@@ -33,7 +33,6 @@ a {
 }
 #main {
 	margin: 0 auto;
-	background: #acacac;
 	background-repeat : no-repeat;
 	background-position : center bottom; fixed;
 	minimum-height:280px;
@@ -57,7 +56,6 @@ a {
 .lineup {
 	margin: 0 auto;
 	width: 98%;
-	background : #ffffff;
 	padding-top : 20px;
 	margin-left: 20px;
 	text-align:center;
