@@ -1,20 +1,14 @@
 
-
 <div id="submenu">
 
 <style type="text/css">
-
-div.bottombar{ 
-height: 1px;
-background: #006BA3;
-}
 
 ul.semiopaquemenu{ 
 font: bold 10px Georgia ;
 font-color: #fff;
 width: 100%;
-background: url(/img/transbg2.png);
-padding: 7px 0 4px 7px; 
+background: url(/img/transbg.png);
+padding: 7px 0 5px 8px; 
 margin: 0;
 text-align: left; 
 }
@@ -55,9 +49,7 @@ padding-bottom: 12px;
 <li><a href="#">Link 2</a></li>
 <li><a href="#">Link 3</a></li>
 </ul>
-<div class="bottombar"></div>
 </div>
-
 
 <div class="lineup">
     {{#stage}}
