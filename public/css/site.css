@@ -35,8 +35,8 @@ a {
 	clear: both;
 	position: relative;
 	margin: 0 auto;
-	top: 135px;
-	width : 95%;
+	margin-top: 135px;
+	width : 99%;
 	color : #aaa;
 	padding-top: 50px;
 	padding-bottom: 50px;
@@ -56,8 +56,37 @@ a {
 	z-index : 9999;
 	
 }
+
+#submenu {
+	clear:both;
+	position: fixed ;
+	left: 0;
+	top: 140px;
+	width: 100%;
+	z-index: 20;
+	}
+	
+
+	.submenu a {
+		display: block;
+		width: 60px;
+	}
+
+.submenu ul { 
+
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+.submenu li {
+	float: left;
+}
+	
 .lineup {
 	margin: 0 auto;
+	margin-left: 15px
 	width: 98%;
 	padding-top : 20px;
 	text-align:center;
