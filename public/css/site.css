@@ -316,8 +316,11 @@ ul.sdt_menu li div.sdt_box a:hover {
 	margin-top:115px;
 	float:right;
 	background: url(/img/transbg2.png);
-	padding: 2px;
-	font-color:#fff;
+	padding-right: 20px;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-color: #fff;
 	z-index:999;
 	border-color: #006BA3;
 	border-top-left-radius: 5px;
