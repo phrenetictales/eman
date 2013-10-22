@@ -45,14 +45,13 @@ padding-bottom: 12px;
 </style>
 
 <ul class="semiopaquemenu">
-	{{#event}}
-	{{#stages}}
 
-		<li><a href="/events/{{stage.event.id}}stages/{{stage.id}}lineup">{{title}} Stage</a></li>
+	{{#stage}}
 
-	{{/stages}}
-	{{/event}}
-</ul>
+		<li><a href="/events/{{#event}}{{id}}{{/event}}/stages/{{id}}/lineup">{{title}} Stage</a></li>
+
+	{{/stage}}
+		</ul>
 </div>
 
 <div class="lineup">
