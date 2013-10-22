@@ -75,7 +75,7 @@ class Eman_Auth_Cartalyst_Sentry extends Eman\ServiceProvider\Authentication
 	
 	public function logout()
 	{
-		return Sentry\Sentry::logout();
+		return $this->_sentry->logout();
 	}
 	
 	public function isLoggedIn()

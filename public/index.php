@@ -466,7 +466,8 @@ $app->post('/login', function() use($app, $container) {
 });
 
 $app->get('/logout', function() use ($app) {
-	Sentry::logout();
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	$auth->logout();
 	$app->redirect('/');
 });
 
