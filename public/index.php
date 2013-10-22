@@ -457,10 +457,8 @@ $app->post('/login', function() use($app, $container) {
 		);
 	}
 	catch(Eman\Exception\Authentication $ae) {
-		$app->flash('error', [
-			'title'		=> $e->getTitle(),
-			'message'	=> $e->getmessage()
-		]);
+		$app->flash('error.title', $ae->getTitle());
+		$app->flash('error.message', $ae->getmessage());
 		$app->redirect('/login');
 	}
 	

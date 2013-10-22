@@ -34,7 +34,21 @@ class SlimMustacheView extends \Slim\View
 			$this->appendData(['user' => null]);
 		}
 		
+		$flash = [];
+		foreach($_SESSION['slim.flash'] as $k => $v) {
+			if (($dot = strpos($k, '.')) !== FALSE) {
+				list($arr, $key) = explode('.', $k, 2);
+				if (!isset($flash[$arr])) {
+					$flash[$arr] = [];
+				}
+				$flash[$arr][$key] = $v;
+			}
+			else {
+				$flash[$k] = $v;
+			}
+		}
 		
+		$this->appendData(['flash' => $flash]);
 		$this->appendData(['main' => $m->render($this->data)]);
 		
 		return $page->render($this->data);

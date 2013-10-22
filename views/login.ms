@@ -7,10 +7,11 @@
     <label for="submit"></label>
     <input type="submit" value="Login">
   </form>
-  {{#flash.error}}
-  <div id="error">
-    <h1>{{title}}</h1>
-    <p>{{message}}</p>
-  </div>
-  {{/flash.error}}
 </div>
+<div style="clear:both"></div>
+{{#flash.error}}
+<div id="error">
+  <h3>{{title}}</h3>
+  <p>{{message}}</p>
+</div>
+{{/flash.error}}
