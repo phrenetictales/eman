@@ -416,38 +416,6 @@ $app->get('/login', function() use ($app) {
 });
 
 $app->post('/login', function() use($app, $container) {
-	/*
-	try {
-		$user = Sentry::findUserByCredentials([
-			'email'		=> $app->request()->post('login'),
-			'password'	=> $app->request()->post('password')
-		]);
-		Sentry::login($user, false);
-	}
-	catch (Cartalyst\Sentry\Users\UserNotActivatedException $e) {
-		$app->flash('error', [
-			'title'		=> 'Account not Activated',
-			'message'	=> 'Please Activate your Account'
-		]);
-		$app->redirect('/login');
-	}
-	catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e) {
-		$app->flash('error', [
-			'title'		=> 'Account temporarily suspended',
-			'message'	=> 'Your Account is suspended for '.
-						$throttle->getSuspensionTime().
-						' minutes'
-		]);
-		$app->redirect('/login');
-	}
-	catch (Exception $e) {
-		$app->flash('error', [
-			'title'		=> 'Unable to login',
-			'message'	=> 'Your Account has been suspended or does not exist'
-		]);
-		$app->redirect('/login');
-	}
-	*/
 	
 	$auth = $container->resolve('Eman\\ServiceProvider\\Authentication');
 	try {
