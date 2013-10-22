@@ -1,9 +1,4 @@
 <div id="topbar">      
-{{#user}}
-	<div style="float:right;color:white">
-	{{login}}
-	</div>
-{{/user}}
 
 <ul id="sdt_menu" class="sdt_menu">
 				<li>
@@ -83,18 +78,13 @@
 				
 				</li>
 			</ul>
-		        
-	<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/fb_LT/all.js#xfbml=1&appId=314562471925657";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div style="z-index:1000" class="fb-like" data-href="http://www.facebook.com/alluviumfestival" data-width="220" data-height="30" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-send="false">
-</div>			
-     					
+	
+	{{#user}}
+	<div id="userbox">
+		{{login}}
+	</div>
+	{{/user}}
+	     					
         <!-- The JavaScript -->
 	<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
         <script type="text/javascript">
@@ -146,8 +136,6 @@
 				});
             });
         </script>
-
-</div>
 
 <div id="submenu">
 
