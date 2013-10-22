@@ -95,6 +95,11 @@ class Eman_Auth_Cartalyst_Sentry extends Eman\ServiceProvider\Authentication
 			'id'	=> $user->getID()
 		];
 	}
+	
+	public function hasAccess($role)
+	{
+		return $this->_sentry->getUser()->hasAccess($role);
+	}
 }
 
 $container->bind(

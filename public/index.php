@@ -51,16 +51,35 @@ $app->get('/artists/:id', function($id) use ($app) {
 })->conditions(['id' => '\d+']);
 
 $app->get('/artists/create/', function() use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
 	$artist = new RMAN\Models\ORM\Artist;
 	$app->render('artists/create', ['artist' => $artist]);
 });
 
 $app->get('/artists/edit/:id', function($id) use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
 	$artist = RMAN\Models\ORM\Artist::with('picture')->find($id);
 	$app->render('artists/create', ['artist' => $artist]);
 })->conditions(['id' => '\d+']);
 
 $app->post('/artists/save/(:id)', function($id = 0) use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
+	
 	if ($id) {
 		$artist = RMAN\Models\ORM\Artist::find($id);
 		foreach($_POST as $k => $v) {
@@ -96,6 +115,12 @@ $app->get('/releases/:id', function($id) use ($app) {
 })->conditions(['id' => '\d+']);
 
 $app->get('/releases/create/', function() use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
 	$release = new RMAN\Models\ORM\Release;
 	$tags = RMAN\Models\ORM\Artist::tags();
 	
@@ -106,6 +131,11 @@ $app->get('/releases/create/', function() use ($app) {
 });
 
 $app->post('/releases/save(/:id)', function() use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
 	
 	$request = $app->request();
 	$release = new RMAN\Models\ORM\Release;
@@ -151,6 +181,12 @@ $app->post('/releases/save(/:id)', function() use ($app) {
 // * Display                                                                  //
 ////////////////////////////////////////////////////////////////////////////////
 $app->post('/pictures/upload/', function() use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
 	$pictures = [];
 	
 	
@@ -382,6 +418,12 @@ $app->get('/events/:eid/stages/:sid/lineup', function($eid, $sid) use ($app) {
 });
 
 $app->get('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
 	$stage = RMAN\Models\ORM\Stage::with(
 				'event',
 				'lineups', 
@@ -395,6 +437,11 @@ $app->get('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app
 });
 
 $app->post('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
 	
 	$event = RMAN\Models\ORM\Event::find($eid);
 	$stage = RMAN\Models\ORM\Stage::with('event')->find($sid);

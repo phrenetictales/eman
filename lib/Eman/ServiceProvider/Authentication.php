@@ -8,4 +8,5 @@ abstract class Authentication
 	abstract public function logout();
 	abstract public function isLoggedIn();
 	abstract public function getCurrentUser();
+	abstract public function hasAccess($role);
 }
