@@ -319,7 +319,14 @@ ul.sdt_menu li div.sdt_box a:hover {
 }
 
 #login {
-	width: 350px;
+	width: 500px;
+	background:  #4f738e;
+	border-radius: 10px;
+	font-size: xx-large;
+	padding: 5px;
+	box-shadow: inset 0 0 10px #183c57; /*2px 2px 5px 0px #888888 inset;*/
+	font-family: Arial;
+	color: #7ca0bb;
 }
 
 #login label {
@@ -327,10 +334,39 @@ ul.sdt_menu li div.sdt_box a:hover {
 	clear: both;
 }
 
-#login input {
+#login input[type=text],
+#login input[type=text]:hover,
+#login input[type=text]:focus,
+#login input[type=text]:active,
+#login input[type=password],
+#login input[type=password]:hover,
+#login input[type=password]:focus,
+#login input[type=password]:active {
+	color: #7ca0bb;
 	float: right;
+	width: 70%;
+	font-size: x-large;
+	border: 0;
+	outline: none;
+	outline-offset: 0;
+	background-color: transparent;
 }
 
-#login input.submit {
-	float: center;
+#login input[type=submit],
+#login input[type=submit]:hover,
+#login input[type=submit]:focus,
+#login input[type=submit]:active
+{
+	float: right;
+	font-size: large;
+	border: 0;
+	border-radius: 2px;
+}
+
+#error {
+	padding: 5px;
+	width: 300px;
+	color: #CE1620;
+	border-radius: 5px;
+	background-color: #FF1C00;
 }
