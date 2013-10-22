@@ -30,3 +30,48 @@ $sentry = new Sentry\Sentry(
 	$session,
 	$cookie
 );
+
+class Eman_Auth_Cartalyst_Sentry implements Eman\ServiceProvider\Authentication
+{
+	$this->_sentry;
+	
+	public function __construct($sentry)
+	{
+		$this->_sentry = $sentry;
+	}
+	
+	public function login($email, $password)
+	{
+		try {
+			$user = Sentry\Sentry::findUserByCredentials([
+				'email'		=> $login,
+				'password'	=> $password
+			]);
+			Sentry::login($user, false);
+		}
+		catch (Cartalyst\Sentry\Users\UserNotActivatedException $e) {
+			throw new Eman\Exception\Authentication(
+				'Account not Activated',
+				'Please Activate your Account'
+			);
+		}
+		catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e) {
+			throw new Eman\Exception\Authentication(
+				'Account temporarily suspended',
+				'Your Account is suspended for '.
+					$throttle->getSuspensionTime().
+					' minutes'
+			);
+		}
+		catch (Exception $e) {
+			throw new Eman\Exception\Authentication(
+				'Unable to login',
+				'Your Account has been suspended or does not exist'
+			);
+		}
+		
+		return TRUE;
+	}
+}
+
+$container->bind('Eman\\ServiceProvider\\Authentication', 'Eman_Auth_Cartalyst_Sentry');

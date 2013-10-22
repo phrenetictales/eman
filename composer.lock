@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5ced5d51f2d5362d117a396f10349e0d",
+    "hash": "a286d80a43b4bcabedcd121eaa42201d",
     "packages": [
         {
             "name": "cartalyst/sentry",
@@ -440,6 +440,56 @@
             "time": "2013-03-25 20:54:09"
         },
         {
+            "name": "league/di",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-loep/di.git",
+                "reference": "ad0259589949f12abeae6c1e918a0ff7ef00b00a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-loep/di/zipball/ad0259589949f12abeae6c1e918a0ff7ef00b00a",
+                "reference": "ad0259589949f12abeae6c1e918a0ff7ef00b00a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "league/phpunit-coverage-listener": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "League\\Di\\": [
+                        "src/",
+                        "test/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Don Gilbert",
+                    "email": "don@dongilbert.net",
+                    "homepage": "http://dongilbert.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Fast Dependency Injection Container for PHP 5.3+",
+            "homepage": "https://github.com/php-loep/di",
+            "keywords": [
+                "dependency injection",
+                "dic",
+                "ioc"
+            ],
+            "time": "2013-08-04 22:55:53"
+        },
+        {
             "name": "mustache/mustache",
             "version": "dev-temporaryfixlaravelrelationships",
             "source": {
@@ -526,6 +576,51 @@
             ],
             "time": "2013-09-09 02:39:19"
         },
+        {
+            "name": "slim/slim",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeguy/Slim.git",
+                "reference": "3e95c9abbc57a8f023ab4dacebcab9dae4d9f1f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeguy/Slim/zipball/3e95c9abbc57a8f023ab4dacebcab9dae4d9f1f0",
+                "reference": "3e95c9abbc57a8f023ab4dacebcab9dae4d9f1f0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Slim": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Lockhart",
+                    "email": "info@joshlockhart.com",
+                    "homepage": "http://www.joshlockhart.com/"
+                }
+            ],
+            "description": "Slim Framework, a PHP micro framework",
+            "homepage": "http://github.com/codeguy/Slim",
+            "keywords": [
+                "microframework",
+                "rest",
+                "router"
+            ],
+            "time": "2012-09-09 14:54:09"
+        }
+    ],
+    "packages-dev": [
         {
             "name": "nikic/php-parser",
             "version": "dev-master",
@@ -633,49 +728,6 @@
             "time": "2013-10-16 13:57:48"
         },
         {
-            "name": "slim/slim",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/codeguy/Slim.git",
-                "reference": "3e95c9abbc57a8f023ab4dacebcab9dae4d9f1f0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/codeguy/Slim/zipball/3e95c9abbc57a8f023ab4dacebcab9dae4d9f1f0",
-                "reference": "3e95c9abbc57a8f023ab4dacebcab9dae4d9f1f0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Slim": "."
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Josh Lockhart",
-                    "email": "info@joshlockhart.com",
-                    "homepage": "http://www.joshlockhart.com/"
-                }
-            ],
-            "description": "Slim Framework, a PHP micro framework",
-            "homepage": "http://github.com/codeguy/Slim",
-            "keywords": [
-                "microframework",
-                "rest",
-                "router"
-            ],
-            "time": "2012-09-09 14:54:09"
-        },
-        {
             "name": "symfony/console",
             "version": "dev-master",
             "target-dir": "Symfony/Component/Console",
@@ -728,9 +780,6 @@
             "homepage": "http://symfony.com",
             "time": "2013-10-16 16:16:10"
         }
-    ],
-    "packages-dev": [
-
     ],
     "aliases": [
 

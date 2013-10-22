@@ -1,7 +1,8 @@
 {
 	"autoload": {
 		"psr-0": {
-			"Phrenetic": "lib/"
+			"Phrenetic": "lib/",
+			"Eman": "lib/"
 		}
 	},
 	"repositories": [
@@ -22,6 +23,9 @@
 		"intervention/image": " 1.4.1",
 		"cartalyst/sentry": "2.0.*",
 		"ircmaxell/password-compat": "1.0.*",
+		"league/di": "1.2"
+	},
+	"require-dev": {
 		"psy/psysh": "0.1.0.*@dev"
 	},
 	"minimum-stability": "dev"

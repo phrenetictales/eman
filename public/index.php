@@ -1,7 +1,5 @@
 <?php
 
-use Cartalyst\Sentry\Facades\Native\Sentry as Sentry;
-
 
 require_once __DIR__.'/../init.php';
 
@@ -416,9 +414,8 @@ $app->get('/login', function() use ($app, $sentry) {
 	$app->render('login');
 });
 
-$app->post('/login', function() use($app) {
-		
-	
+$app->post('/login', function() use($app, $container) {
+	/*
 	try {
 		$user = Sentry::findUserByCredentials([
 			'email'		=> $app->request()->post('login'),
@@ -446,6 +443,22 @@ $app->post('/login', function() use($app) {
 		$app->flash('error', [
 			'title'		=> 'Unable to login',
 			'message'	=> 'Your Account has been suspended or does not exist'
+		]);
+		$app->redirect('/login');
+	}
+	*/
+	
+	$auth = $container->resolve('Eman\\ServiceProvider\\Authentication');
+	try {
+		$auth->login(
+			$app->request()->post('login'),
+			$app->request()->post('pasword')
+		);
+	}
+	catch(Eman\Exception\Authentication $ae) {
+		$app->flash('error', [
+			'title'		=> $e->getTitle(),
+			'message'	=> $e->getmessage()
 		]);
 		$app->redirect('/login');
 	}
