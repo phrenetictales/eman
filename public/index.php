@@ -1,63 +1,13 @@
 <?php
 
-define('ROOTDIR', dirname(__DIR__));
-require_once ROOTDIR."/vendor/autoload.php";
-
-use Illuminate\Database\Capsule\Manager as Capsule;
-use Illuminate\Database\Connection as DatabaseConnection;
-use Illuminate\Database\MySqlConnection as MySqlConnection;
-use Illuminate\Events\Dispatcher as EventDispatcher;
+use Cartalyst\Sentry\Facades\Native\Sentry as Sentry;
 
 
-O\O::init();
-
-date_default_timezone_set('America/Vancouver');
-
-////////////////////////////////////////////////////////////////////////////////
-// Load the Mustache Template engine and configure it                         //
-////////////////////////////////////////////////////////////////////////////////
-$mustache = new Mustache_Engine([
-	'loader' => new Mustache_Loader_FilesystemLoader(
-		ROOTDIR.'/views/', 
-		['extension' => '.ms']
-	),
-	'partials_loader' => new Mustache_Loader_FilesystemLoader(
-		ROOTDIR.'/views/',
-		['extension' => '.ms']
-	)
-]);
+require_once __DIR__.'/../init.php';
 
 
 $app = new \Slim\Slim(['view' => new Phrenetic\SlimMustacheView($mustache)]);
 
-////////////////////////////////////////////////////////////////////////////////
-// Load Laravel Database and ORM (Eloquent)                                   //
-////////////////////////////////////////////////////////////////////////////////
-
-require_once __DIR__.'/../config/database.php';
-
-$capsule = new Capsule;
-$capsule->addConnection($DATABASE_CONFIG);
-$capsule->setEventDispatcher(new EventDispatcher());
-$capsule->bootEloquent();
-$capsule->setAsGlobal();
-
-spl_autoload_register(function ($class) {
-	$ns = O\c(O\s($class))->explode('\\');
-	if ($ns->count() <= 3) {
-		return;
-	}
-	
-	if ($ns->slice(0, 3)->implode('\\') == 'RMAN\Models\ORM') {
-		$path = ROOTDIR.'/models/ORM/'.
-				$ns->slice(3)->implode('/').
-				'.php';
-		
-		if (file_exists($path)) {
-			include $path;
-		}
-	}
-});
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hello World!                                                               //
@@ -460,6 +410,52 @@ $app->post('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($ap
 	}
 	
 	$app->redirect("/events/{$eid}/stages/{$sid}/lineup/edit");
+});
+
+$app->get('/login', function() use ($app, $sentry) {
+	$app->render('login');
+});
+
+$app->post('/login', function() use($app) {
+		
+	
+	try {
+		$user = Sentry::findUserByCredentials([
+			'email'		=> $app->request()->post('login'),
+			'password'	=> $app->request()->post('password')
+		]);
+		Sentry::login($user, false);
+	}
+	catch (Cartalyst\Sentry\Users\UserNotActivatedException $e) {
+		$app->flash('error', [
+			'title'		=> 'Account not Activated',
+			'message'	=> 'Please Activate your Account'
+		]);
+		$app->redirect('/login');
+	}
+	catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e) {
+		$app->flash('error', [
+			'title'		=> 'Account temporarily suspended',
+			'message'	=> 'Your Account is suspended for '.
+						$throttle->getSuspensionTime().
+						' minutes'
+		]);
+		$app->redirect('/login');
+	}
+	catch (Exception $e) {
+		$app->flash('error', [
+			'title'		=> 'Unable to login',
+			'message'	=> 'Your Account has been suspended or does not exist'
+		]);
+		$app->redirect('/login');
+	}
+	
+	$app->redirect('/');
+});
+
+$app->get('/logout', function() use ($app, $sentry) {
+	Sentry::logout();
+	$app->redirect('/');
 });
 
 error_reporting(E_ALL);

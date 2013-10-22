@@ -317,3 +317,20 @@ ul.sdt_menu li div.sdt_box a:hover {
 	margin-top : 61px;
 	margin-right : 2px;
 }
+
+#login {
+	width: 350px;
+}
+
+#login label {
+	float: left;
+	clear: both;
+}
+
+#login input {
+	float: right;
+}
+
+#login input.submit {
+	float: center;
+}

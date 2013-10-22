@@ -1,6 +1,10 @@
-
 <div id="topbar">      
- 
+{{#user}}
+	<div style="float:right;color:white">
+	{{login}}
+	</div>
+{{/user}}
+
 <ul id="sdt_menu" class="sdt_menu">
 				<li>
 					<a href="/">
@@ -142,4 +146,6 @@
 				});
             });
         </script>
+
 </div>
+

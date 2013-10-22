@@ -8,6 +8,10 @@
 		{
 			"type":	"vcs",
 			"url":	"https://github.com/phrenetictales/mustache.php"
+		},
+		{
+			"type": "composer",
+			"url": "http://packages.cartalyst.com"
 		}
 	],
 	"require": {
@@ -15,6 +19,10 @@
 		"illuminate/database": "4.0.*@dev",
 		"mustache/mustache": "dev-temporaryfixlaravelrelationships",
 		"jsebrech/o": " v0.1.0",
-		"intervention/image": " 1.4.1"
-	}
+		"intervention/image": " 1.4.1",
+		"cartalyst/sentry": "2.0.*",
+		"ircmaxell/password-compat": "1.0.*",
+		"psy/psysh": "0.1.0.*@dev"
+	},
+	"minimum-stability": "dev"
 }
