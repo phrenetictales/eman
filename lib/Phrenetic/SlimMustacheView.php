@@ -2,8 +2,6 @@
 
 namespace Phrenetic;
 
-use Cartalyst\Sentry\Facades\Native\Sentry as Sentry;
-
 
 class SlimMustacheView extends \Slim\View
 {
@@ -25,6 +23,7 @@ class SlimMustacheView extends \Slim\View
 		
 		$page = $this->_engine->loadTemplate('content');
 		$m = $this->_engine->loadTemplate($tpl);
+		
 		
 		$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
 		if ($auth->isLoggedIn()) {
@@ -49,8 +48,8 @@ class SlimMustacheView extends \Slim\View
 		}
 		
 		$this->appendData(['flash' => $flash]);
-		$this->appendData(['main' => $m->render($this->data)]);
 		
+		$this->appendData(['main' => $m->render($this->data)]);
 		return $page->render($this->data);
 	}
 }
