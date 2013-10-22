@@ -306,14 +306,20 @@ ul.sdt_menu li div.sdt_box a:first-child {
 ul.sdt_menu li div.sdt_box a:hover {
 	color : #fff;
 }
-.fb-like {
+
+#fbroot {
+	margin-left: 1000px
+}
+
+#userbox {
 	position:relative;
-	margin-left:900px;
-	background : url(/img/transbg.png);
-	width : 220px;
-	height: 30px;
-	float : right;
-	padding : 7px;
-	margin-top : 61px;
-	margin-right : 2px;
+	margin-top:115px;
+	float:right;
+	background: url(/img/transbg2.png);
+	padding: 2px;
+	font-color:#fff;
+	z-index:999;
+	border-color: #006BA3;
+	border-top-left-radius: 5px;
+	
 }
