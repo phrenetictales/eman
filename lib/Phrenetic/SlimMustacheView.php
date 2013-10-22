@@ -16,6 +16,9 @@ class SlimMustacheView extends \Slim\View
 	
 	public function render($tpl)
 	{
+		$app = \Slim\Slim::getInstance();
+		
+		
 		if ($this->_engine == null) {
 			$this->_engine = new Mustache_Engine;
 		}
@@ -23,12 +26,9 @@ class SlimMustacheView extends \Slim\View
 		$page = $this->_engine->loadTemplate('content');
 		$m = $this->_engine->loadTemplate($tpl);
 		
-		if (Sentry::check()) {
-			$user = Sentry::getUser();
-			$this->appendData(['user' => [
-				'login' => $user->getLogin(),
-				'id'	=> $user->getID()
-			]]);
+		$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+		if ($auth->isLoggedIn()) {
+			$this->appendData(['user' => $auth->getCurrentUser()]);
 		}
 		else {
 			$this->appendData(['user' => null]);

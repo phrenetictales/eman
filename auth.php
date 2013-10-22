@@ -31,9 +31,9 @@ $sentry = new Sentry\Sentry(
 	$cookie
 );
 
-class Eman_Auth_Cartalyst_Sentry implements Eman\ServiceProvider\Authentication
+class Eman_Auth_Cartalyst_Sentry extends Eman\ServiceProvider\Authentication
 {
-	$this->_sentry;
+	private $_sentry;
 	
 	public function __construct($sentry)
 	{
@@ -43,11 +43,11 @@ class Eman_Auth_Cartalyst_Sentry implements Eman\ServiceProvider\Authentication
 	public function login($email, $password)
 	{
 		try {
-			$user = Sentry\Sentry::findUserByCredentials([
-				'email'		=> $login,
+			$user = $this->_sentry->findUserByCredentials([
+				'email'		=> $email,
 				'password'	=> $password
 			]);
-			Sentry::login($user, false);
+			$this->_sentry->login($user, false);
 		}
 		catch (Cartalyst\Sentry\Users\UserNotActivatedException $e) {
 			throw new Eman\Exception\Authentication(
@@ -63,15 +63,44 @@ class Eman_Auth_Cartalyst_Sentry implements Eman\ServiceProvider\Authentication
 					' minutes'
 			);
 		}
+		/*
 		catch (Exception $e) {
 			throw new Eman\Exception\Authentication(
 				'Unable to login',
 				'Your Account has been suspended or does not exist'
 			);
 		}
-		
+		*/
 		return TRUE;
+	}
+	
+	public function logout()
+	{
+		return Sentry\Sentry::logout();
+	}
+	
+	public function isLoggedIn()
+	{
+		return $this->_sentry->check();
+	}
+	
+	public function getCurrentUser()
+	{
+		if (!$this->isLoggedIn()) {
+			return FALSE;
+		}
+		
+		$user = $this->_sentry->getUser();
+		return [
+			'login' => $user->getLogin(),
+			'id'	=> $user->getID()
+		];
 	}
 }
 
-$container->bind('Eman\\ServiceProvider\\Authentication', 'Eman_Auth_Cartalyst_Sentry');
+$container->bind(
+		'Eman\\ServiceProvider\\Authentication', 
+		'Eman_Auth_Cartalyst_Sentry'
+	)
+	->addArgs([$sentry]);
+

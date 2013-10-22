@@ -5,6 +5,7 @@ require_once __DIR__.'/../init.php';
 
 
 $app = new \Slim\Slim(['view' => new Phrenetic\SlimMustacheView($mustache)]);
+$app->container = $container;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -410,7 +411,7 @@ $app->post('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($ap
 	$app->redirect("/events/{$eid}/stages/{$sid}/lineup/edit");
 });
 
-$app->get('/login', function() use ($app, $sentry) {
+$app->get('/login', function() use ($app) {
 	$app->render('login');
 });
 
@@ -452,7 +453,7 @@ $app->post('/login', function() use($app, $container) {
 	try {
 		$auth->login(
 			$app->request()->post('login'),
-			$app->request()->post('pasword')
+			$app->request()->post('password')
 		);
 	}
 	catch(Eman\Exception\Authentication $ae) {
@@ -466,7 +467,7 @@ $app->post('/login', function() use($app, $container) {
 	$app->redirect('/');
 });
 
-$app->get('/logout', function() use ($app, $sentry) {
+$app->get('/logout', function() use ($app) {
 	Sentry::logout();
 	$app->redirect('/');
 });

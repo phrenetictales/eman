@@ -3,7 +3,7 @@
 namespace Eman\Exception;
 
 
-class Authentication
+class Authentication extends \Exception
 {
 	protected $_title = null;
 	

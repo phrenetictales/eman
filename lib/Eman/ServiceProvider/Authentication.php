@@ -2,10 +2,10 @@
 
 namespace Eman\ServiceProvider;
 
-class Authentication
+abstract class Authentication
 {
-	public function login($email, $password);
-	//public function logout();
-	//public function isLoggedIn();
-	//public function currentUser();
+	abstract public function login($email, $password);
+	abstract public function logout();
+	abstract public function isLoggedIn();
+	abstract public function getCurrentUser();
 }

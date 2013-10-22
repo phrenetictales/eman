@@ -61,3 +61,5 @@ spl_autoload_register(function ($class) {
 
 
 $container = new League\Di\Container;
+
+require_once 'auth.php';
