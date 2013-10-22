@@ -344,10 +344,32 @@ $app->get('/events/:eid/stages', function($eid) use ($app) {
 			)
 		->find($eid);
 	
-	$app->render('events/stages', ['event' => $event]);
+	$breadcrumbs = array_map(function($stage) use ($event) {
+		
+		return [
+			'title' => $stage['title'].' Stage', 
+			'url' => "/events/{$event->id}/stages/{$stage['id']}/lineup"
+		];
+	}, $event->stages->toArray());
+	
+	$app->render('events/stages', [
+		'event'		=> $event,
+		'breadcrumbs'	=> $breadcrumbs
+	]);
 });
 
 $app->get('/events/:eid/stages/:sid/lineup', function($eid, $sid) use ($app) {
+	
+	$event = RMAN\Models\ORM\Event::with('stages')->find($eid);
+	$breadcrumbs = array_map(function($stage) use ($event) {
+		
+		return [
+			'title' => $stage['title'].' Stage', 
+			'url' => "/events/{$event->id}/stages/{$stage['id']}/lineup"
+		];
+	}, $event->stages->toArray());
+	
+	
 	$stage = RMAN\Models\ORM\Stage::with(
 				'event',
 				'lineups', 
@@ -356,7 +378,7 @@ $app->get('/events/:eid/stages/:sid/lineup', function($eid, $sid) use ($app) {
 			)
 			->find($sid);
 	
-	$app->render('events/lineup', ['stage' => $stage]);
+	$app->render('events/lineup', ['stage' => $stage, 'breadcrumbs' => $breadcrumbs]);
 });
 
 $app->get('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app) {
