@@ -91,10 +91,16 @@ padding-bottom: 12px;
 </style>
 
 <ul class="semiopaquemenu">
-<li><a href="#" class="selected">Link 1</a></li>
-<li><a href="#">Link 2</a></li>
-<li><a href="#">Link 3</a></li>
+	{{#event}}
+	{{#stages}}
+
+		<li><a href="/events/{{#event}}{{id}}{{/event}}/stages/{{id}}/lineup">{{title}} Stage</a></li>
+
+	{{/stages}}
+	{{/event}}
 </ul>
+
+
 </div>
 
 <div class="lineup">
