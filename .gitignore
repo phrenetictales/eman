@@ -11,3 +11,12 @@ DEADJOE
 
 # Ignore HT Access File
 /public/.htaccess
+
+# Ignore cache
+/cache/
+
+# Ignore config files
+/config/
+
+# Ignore staging patches
+/staging/
