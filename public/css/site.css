@@ -102,7 +102,7 @@ a {
 	position : fixed;
 	clear : both;
 	margin : 0;
-	padding: 4px;
+	padding: 1px;
 	padding-left : 34px;
 	padding-right : 50px;
 	top : 130px;
@@ -445,8 +445,7 @@ ul.admin_parent li admin_child:hover {
     margin: 0;
  
     border: none;
-    border-bottom: 1px solid #353539;
-}
+ }
  
 .menu ul li:last-child a { border: none; }
 
