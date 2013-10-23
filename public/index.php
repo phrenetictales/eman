@@ -70,6 +70,19 @@ $app->get('/artists/', function() use ($app) {
 
 $app->get('/artists/:id', function($id) use ($app) {
 	$artist = RMAN\Models\ORM\Artist::with('picture')->find($id);
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if ($auth->hasAccess('admin')) {
+		foreach($app->menus as $key => $menu) {
+			if ($menu['title'] == 'Artists') {
+				$app->menus[$key]['children'][] = [
+					'title'	=> 'Edit',
+					'url'	=> "/artists/edit/{$artist->id}"
+				];
+			}
+		}
+	}
+	
 	$app->render('artists/view', ['artist' => $artist]);
 })->conditions(['id' => '\d+']);
 
