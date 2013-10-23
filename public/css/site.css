@@ -58,11 +58,12 @@ a {
 }
 
 #submenu {
-	clear:both;
-	position: fixed ;
+	position:fixed;
+	background : url(/img/transbg2.png);
 	left: 0;
 	top: 140px;
 	width: 100%;
+	height: 20px;
 	z-index: 900;
 	}
 	
@@ -100,13 +101,14 @@ a {
 }
 .lineup h1 {
 	position : fixed;
+	float: left;
 	clear : both;
+	left: 0;
 	margin : 0;
-	padding: 4px;
+	padding: 1px;
 	padding-left : 34px;
 	padding-right : 50px;
 	top : 130px;
-	right : 0;
 	color : #fff;
 	text-align : left;
 	font-family : "Myriad Pro", "Trebuchet MS", sans-serif;
@@ -117,7 +119,7 @@ a {
 	border-right : 1px solid #006BA3;
 	border-bottom : 1px solid #006BA3;
 	border-bottom-left-radius : 9em 4em;
-	border-bottom-right-radius : 5px;
+	border-bottom-right-radius : 2em 4em;
 	z-index : 999;
 	-moz-box-sizing:border-box;
 -webkit-box-sizing:border-box;
@@ -284,7 +286,7 @@ ul.sdt_menu li div.sdt_box {
 	top : 35px;
 	left : 0;
 	display : none;
-	background : url(/img/transbg.png);
+	background : url("/img/transbg.png");
 	border-width : 1px;
 	padding-bottom : 2px;
 	border-bottom-right-radius : 6px;
@@ -318,19 +320,20 @@ ul.sdt_menu li div.sdt_box a:hover {
 	margin-right : 2px;
 }
 
-#userbox {
+#adminbox {
 	position:relative;
 	margin-top:115px;
 	float:right;
-	background: url(/img/transbg2.png);
-	padding-right: 20px;
-	padding-left: 5px;
+	
+	padding-right:0px;
+	margin-left: 900px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	font-color: #fff;
 	z-index:999;
 	border-color: #006BA3;
 	border-top-left-radius: 5px;
+	
 }
 
 #login {
@@ -384,3 +387,138 @@ ul.sdt_menu li div.sdt_box a:hover {
 	border-radius: 5px;
 	background-color: #FF1C00;
 }
+
+ul.admin_child li {
+
+	display : none;
+	position : absolute;
+}
+
+ul.admin_parent li admin_child:hover {
+
+	display: block;
+}	
+	
+.menu,
+
+.menu a {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+ 
+.menu {
+	float:right;
+    margin:0;
+	height: 20px;
+    width: 300px;
+    background : url(/img/transbg2.png);
+    padding-bottom:2px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-top-left-radius: 5px;
+    border-radius-top-left: 5px;
+}
+ 
+.menu li {
+    
+	position: relative;
+    list-style: none;
+    float: left;
+    display: block;
+    height: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    color: #f3f3f3;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+	
+	
+	}
+
+.menu li a {
+    display: block;
+    padding: 0 5px;
+    margin: 6px 0;
+    text-decoration: none;
+    border-left: 1px solid #393942;
+    border-right: 1px solid #4f5058;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    color: #f3f3f3;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+ 
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+}
+ 
+.menu li:first-child a { border-left: none; }
+.menu li:last-child a{ border-right: none; }
+ 
+.menu li:hover > a { color: #006BA3; }
+
+.menu ul {
+    position: absolute;
+    top: 23px;
+    left: 0;
+ 
+    opacity: 0;
+    background: url(/img/transbg2.png);
+	border-right : 1px solid #006BA3;
+	border-bottom : 1px solid #006BA3;
+	border-left: 1px solid #000;
+	-webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+	
+    -webkit-transition: opacity .25s ease .1s;
+    -moz-transition: opacity .25s ease .1s;
+    -o-transition: opacity .25s ease .1s;
+    -ms-transition: opacity .25s ease .1s;
+    transition: opacity .25s ease .1s;
+}
+ 
+.menu li:hover > ul { opacity: 1; }
+ 
+.menu ul li {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    -webkit-transition: height .25s ease .1s;
+    -moz-transition: height .25s ease .1s;
+    -o-transition: height .25s ease .1s;
+    -ms-transition: height .25s ease .1s;
+    transition: height .25s ease .1s;
+}
+ 
+.menu li:hover > ul li {
+    height: 20px;
+    overflow: visible;
+    padding: 0;
+}
+
+.menu ul li a {
+    width: 70px;
+    padding: 4px 0 4px 0px;
+    margin: 0;
+	border: none;
+	font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 9px;
+    color: #f3f3f3;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+ }
+ 
+.menu ul li:last-child a { border: none; }
+
+.menu li.username {
+	float: right;
+	padding-top: 5px;
+	padding-right: 5px;
+	color : #006BA3;
+}
+	
