@@ -47,9 +47,8 @@ class SlimMustacheView extends \Slim\View
 					$flash[$k] = $v;
 				}
 			}
+			$this->appendData(['flash' => $flash]);
 		}
-		
-		$this->appendData(['flash' => $flash]);
 		
 		$this->appendData(['main' => $m->render($this->data)]);
 		return $page->render($this->data);
