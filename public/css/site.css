@@ -58,8 +58,8 @@ a {
 }
 
 #submenu {
-	clear:both;
-	position: fixed ;
+	position:fixed;
+	background : url(/img/mainboxbg.png);
 	left: 0;
 	top: 140px;
 	width: 100%;
@@ -100,13 +100,14 @@ a {
 }
 .lineup h1 {
 	position : fixed;
+	float: left;
 	clear : both;
+	left: 0;
 	margin : 0;
 	padding: 1px;
 	padding-left : 34px;
 	padding-right : 50px;
 	top : 130px;
-	right : 0;
 	color : #fff;
 	text-align : left;
 	font-family : "Myriad Pro", "Trebuchet MS", sans-serif;
@@ -117,7 +118,7 @@ a {
 	border-right : 1px solid #006BA3;
 	border-bottom : 1px solid #006BA3;
 	border-bottom-left-radius : 9em 4em;
-	border-bottom-right-radius : 5px;
+	border-bottom-right-radius : 2em 4em;
 	z-index : 999;
 	-moz-box-sizing:border-box;
 -webkit-box-sizing:border-box;
@@ -409,6 +410,7 @@ ul.admin_parent li admin_child:hover {
     background: url(/img/transbg2.png);
 	border-right : 1px solid #006BA3;
 	border-bottom : 1px solid #006BA3;
+	border-left: 1px solid #000;
 	-webkit-border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
@@ -426,7 +428,6 @@ ul.admin_parent li admin_child:hover {
     height: 0;
     overflow: hidden;
     padding: 0;
- 
     -webkit-transition: height .25s ease .1s;
     -moz-transition: height .25s ease .1s;
     -o-transition: height .25s ease .1s;
@@ -441,11 +442,15 @@ ul.admin_parent li admin_child:hover {
 }
 
 .menu ul li a {
-    width: 80px;
+    width: 70px;
     padding: 4px 0 4px 0px;
     margin: 0;
- 
-    border: none;
+	border: none;
+	font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 9px;
+    color: #f3f3f3;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
  }
  
 .menu ul li:last-child a { border: none; }
