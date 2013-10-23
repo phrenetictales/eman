@@ -80,7 +80,46 @@
 				</li>
 			</ul>
 	
-	<div id="userbox">username</div>
+	<div id="adminbox">
+	
+		<ul class="menu">
+ 
+    <li><a href="#">Artists</a>
+ 
+        <ul>
+            <li><a href="#" class="documents">Add</a></li>
+            <li><a href="#" class="messages">Edit</a></li>
+            
+        </ul>
+ 
+    </li>
+    
+	<li><a href="#">Stages</a>
+ 
+        <ul>
+            <li><a href="#">Add</a></li>
+            <li><a href="#">Edit stage1</a></li>
+            <li><a href="#">Edit stage2</a></li>
+			<li><a href="#">Edit stage3</a></li>
+        </ul>
+ 
+    </li>
+	
+	<li><a href="#">Events</a>
+	    <ul>
+            <li><a href="#" class="documents">Add</a></li>
+            <li><a href="#" class="messages">Edit</a></li>
+         
+        </ul>
+ 
+    </li>
+	
+	<li><a href="#">Logout</a></li>
+	<li class="username">username</li>
+	
+</ul>
+
+	</div>
 		</div>
 	
 
