@@ -79,6 +79,8 @@
 				</li>
 			</ul>
 	
+<div id="menu_wrapper">
+
 	<div id="adminbox">
 	
 	<ul class="menu">
@@ -97,8 +99,7 @@
 	</ul>
 	
 	</div>
-		</div>
-	
+</div>	
 
      					
         <!-- The JavaScript -->
