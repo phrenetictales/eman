@@ -188,7 +188,7 @@ width: 100%;
 float: right;
 padding: 7px 0 3px 8px; 
 margin: 0;
-margin-right: 180px;
+margin-right: 210px;
 text-align: right; 
 border-bottom-left-radius : 9em 4em;
 border-bottom-right-radius : 5em 4em;

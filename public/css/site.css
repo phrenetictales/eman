@@ -101,6 +101,7 @@ a {
 	border-style : none;
 }
 .lineup h1 {
+	min-width:200px;
 	position : fixed;
 	float: right;
 	clear : both;
