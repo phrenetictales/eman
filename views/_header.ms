@@ -87,8 +87,8 @@
     <li><a href="#">Artists</a>
  
         <ul>
-            <li><a href="#" class="documents">Add</a></li>
-            <li><a href="#" class="messages">Edit</a></li>
+            <li><a href="#">Add</a></li>
+            <li><a href="#">Edit</a></li>
             
         </ul>
  
@@ -107,8 +107,8 @@
 	
 	<li><a href="#">Events</a>
 	    <ul>
-            <li><a href="#" class="documents">Add</a></li>
-            <li><a href="#" class="messages">Edit</a></li>
+            <li><a href="#">Add</a></li>
+            <li><a href="#">Edit</a></li>
          
         </ul>
  
