@@ -1,10 +1,10 @@
 <div id="main_box">
-{{#artist}}
-  <h1>{{name}}</h1>
-{{/artist}}
-{{#artist?}}
+{{#artist.name}}
+  <h1>{{.}}</h1>
+{{/artist.name}}
+{{^artist.name}}
   <h1>New Artist</h1>
-{{/artist?}}
+{{/artist.name}}
 <form method="POST" action="/artists/save/{{#artist}}{{id}}{{/artist}}">
   {{> artists/_form}}
   {{> artists/_form_long}}

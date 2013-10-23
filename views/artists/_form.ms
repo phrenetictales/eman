@@ -20,6 +20,11 @@
   <!-- The File Upload validation plugin -->
   <!-- <script src="/js/jquery.fileupload-validate.js"></script> -->
   <p>
+    <label for="name">Name</label>
+    <br/>
+    <input name="name" value="{{name}}"/>
+  </p>
+  <p>
     <style>
     .bar {
       height: 18px;
@@ -28,7 +33,12 @@
     </style>
     <label for="picture">Photo</label>
     <br/>
-      <img src="/img/profile_person_generic.jpg"/>
+      {{#picture.url}}
+        <img src="{{.}}"/>
+      {{/picture.url}}
+      {{^picture.url}}
+        <img src="/img/profile_person_generic.jpg"/>
+      {{/picture.url}}
     <br/>
     <input id="picture" type="file" name="picture" data-url="/pictures/upload/"/>
     <input type="hidden" name="picture_id" value="{{picture.id}}"/>
@@ -38,9 +48,4 @@
   </p>
   <script src="/js/artists/picture.js">
   </script>
-  <p>
-    <label for="name">Name</label>
-    <br/>
-    <input name="name" value="{{name}}"/>
-  </p>
 {{/artist}}
