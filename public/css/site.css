@@ -328,7 +328,7 @@ ul.sdt_menu li div.sdt_box a:hover {
 	padding-bottom: 2px;
 	font-color: #fff;
 	z-index:999;
-	border-color: #006BA3;
+	border-top : 1px solid #006BA3;
 	border-top-left-radius: 5px;
 	
 }
@@ -361,6 +361,8 @@ ul.admin_parent li admin_child:hover {
     width: 300px;
     background : url(/img/transbg2.png);
     padding-bottom:2px;
+	border-top : 1px solid #006BA3;
+	border-left : 1px solid #006BA3;
     -webkit-border-top-left-radius: 5px;
     -moz-border-top-left-radius: 5px;
     border-radius-top-left: 5px;
