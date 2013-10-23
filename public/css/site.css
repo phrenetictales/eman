@@ -59,10 +59,11 @@ a {
 
 #submenu {
 	position:fixed;
-	background : url(/img/mainboxbg.png);
+	background : url(/img/transbg2.png);
 	left: 0;
 	top: 140px;
 	width: 100%;
+	height: 20px;
 	z-index: 900;
 	}
 	

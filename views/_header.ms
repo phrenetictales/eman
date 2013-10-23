@@ -184,10 +184,11 @@ ul.semiopaquemenu{
 font: bold 8px Georgia ;
 font-color: #fff;
 width: 100%;
-background: url(/img/transbg2.png);
+
 padding: 7px 0 3px 8px; 
 margin: 0;
-text-align: right; 
+margin-left:185px;
+text-align: left; 
 border-bottom-left-radius : 9em 4em;
 border-bottom-right-radius : 5em 4em;
 }
