@@ -97,7 +97,7 @@
 		<li class="username">{{login}}</li>
 	{{/user}}
 	</ul>
-	
+	</div>
 	</div>
 </div>	
 
