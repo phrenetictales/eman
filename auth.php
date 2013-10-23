@@ -98,6 +98,9 @@ class Eman_Auth_Cartalyst_Sentry extends Eman\ServiceProvider\Authentication
 	
 	public function hasAccess($role)
 	{
+		if (!$this->isLoggedIn()) {
+			return false;
+		}
 		return $this->_sentry->getUser()->hasAccess($role);
 	}
 }
