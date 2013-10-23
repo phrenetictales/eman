@@ -30,6 +30,29 @@ $app->get('/', function() use ($app) {
 	]);
 });
 
+
+$app->menus = [];
+
+
+$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+
+if ($auth->hasAccess('admin')) {
+	$app->menus[] = [
+		'title' => 'Artists', 'url' => '/artists',
+		'children'	=> [
+			['title' => 'Add', 'url' => '/artists/create']
+		]
+	];
+	$app->menus[] = [
+		'title' => 'Events', 'url' => '/events',
+		'children'	=> [
+			['title' => 'Add', 'url' => '/events/create']
+		]
+	];
+	//$app->menus['artists']['children'] = [['Add' => '/artists/create']];
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // Artists                                                                    //
 //                                                                            //
@@ -372,6 +395,7 @@ $app->get('/events/', function() use ($app) {
 });
 
 $app->get('/events/:eid/stages', function($eid) use ($app) {
+	
 	$event = RMAN\Models\ORM\Event::with(
 				'stages',
 				'stages.lineups',
@@ -387,6 +411,25 @@ $app->get('/events/:eid/stages', function($eid) use ($app) {
 			'url' => "/events/{$event->id}/stages/{$stage['id']}/lineup"
 		];
 	}, $event->stages->toArray());
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if ($auth->hasAccess('admin')) {
+		$app->menus[] = [
+			'title' => 'Stages', 
+			'url' => "/events/{$event->id}/stages",
+			'children'	=> [
+				['title' => 'Add', 'url' => "/events/{$event->id}/stages/create"]
+			]
+		];
+	}
+	
+	foreach($event->stages as $stage) {
+		$app->menus[(count($app->menus)-1)]['children'][] =
+			$menu['children'][] = [
+				'title'	=> 'Edit '.$stage->title,
+				'url'	=> '/events/1/stages/1/edit'
+			];
+	}
 	
 	$app->render('events/stages', [
 		'event'		=> $event,
@@ -404,6 +447,25 @@ $app->get('/events/:eid/stages/:sid/lineup', function($eid, $sid) use ($app) {
 			'url' => "/events/{$event->id}/stages/{$stage['id']}/lineup"
 		];
 	}, $event->stages->toArray());
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if ($auth->hasAccess('admin')) {
+		$app->menus[] = [
+			'title' => 'Stages', 
+			'url' => "/events/{$event->id}/stages",
+			'children'	=> [
+				['title' => 'Add', 'url' => "/events/{$event->id}/stages/create"]
+			]
+		];
+	}
+	
+	foreach($event->stages as $stage) {
+		$app->menus[(count($app->menus)-1)]['children'][] =
+			$menu['children'][] = [
+				'title'	=> 'Edit '.$stage->title,
+				'url'	=> '/events/1/stages/1/edit'
+			];
+	}
 	
 	
 	$stage = RMAN\Models\ORM\Stage::with(
@@ -432,6 +494,28 @@ $app->get('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app
 				'lineups.slots.lineup'
 			)
 			->find($sid);
+	
+	$event = RMAN\Models\ORM\Event::with('stages')->find($stage->event->id);
+	
+	if ($auth->hasAccess('admin')) {
+		$app->menus[] = [
+			'title' => 'Stages', 
+			'url' => "/events/{$event->id}/stages",
+			'children'	=> [
+				['title' => 'Add', 'url' => "/events/{$event->id}/stages/create"]
+			]
+		];
+	}
+	
+	foreach($event->stages as $stage) {
+		$app->menus[(count($app->menus)-1)]['children'][] =
+			$menu['children'][] = [
+				'title'	=> 'Edit '.$stage->title,
+				'url'	=> '/events/1/stages/1/edit'
+			];
+	}
+	
+	
 	$artists = json_encode(RMAN\Models\ORM\Artist::tags());
 	$app->render('events/lineup/edit', ['stage' => $stage, 'artists' => $artists]);
 });
