@@ -81,46 +81,21 @@
 	
 	<div id="adminbox">
 	
-		<ul class="menu">
- 
-    <li><a href="#">Artists</a>
- 
-        <ul>
-            <li><a href="#">Add</a></li>
-            <li><a href="#">Edit</a></li>
-            
-        </ul>
- 
-    </li>
-    
-	<li><a href="#">Stages</a>
- 
-        <ul>
-            <li><a href="#">Add</a></li>
-            <li><a href="#">Edit stage1</a></li>
-            <li><a href="#">Edit stage2</a></li>
-			<li><a href="#">Edit stage3</a></li>
-        </ul>
- 
-    </li>
-	
-	<li><a href="#">Events</a>
-	    <ul>
-            <li><a href="#">Add</a></li>
-            <li><a href="#">Edit</a></li>
-         
-        </ul>
- 
-    </li>
-	
-	<li><a href="/logout">Logout</a></li>
-	
+	<ul class="menu">
+	{{#menus}}
+		<li><a href="{{url}}">{{title}}</a>
+		<ul>
+			{{#children}}
+			<li><a href="{{url}}">{{title}}</a><li>
+			{{/children}}
+		</ul>
+		<li>
+	{{/menus}}
 	{{#user}}
 		<li class="username">{{login}}</li>
 	{{/user}}
+	</ul>
 	
-</ul>
-
 	</div>
 		</div>
 	

@@ -33,6 +33,15 @@ class SlimMustacheView extends \Slim\View
 			$this->appendData(['user' => null]);
 		}
 		
+		if ($auth->isLoggedIn()) {
+			$app->menus[] = ['title' => 'Logout', 'url' => '/logout'];
+		}
+		else {
+			$app->menus[] = ['title' => 'Login', 'url' => '/login'];
+		}
+		$this->appendData(['menus' => $app->menus]);
+		
+		
 		if (isset($_SESSION['slim.flash'])) {
 			$flash = [];
 			foreach($_SESSION['slim.flash'] as $k => $v) {
