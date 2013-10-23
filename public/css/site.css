@@ -407,8 +407,9 @@ ul.admin_parent li admin_child:hover {
  
     opacity: 0;
     background: url(/img/transbg2.png);
- 
-    -webkit-border-radius: 0 0 5px 5px;
+	border-right : 1px solid #006BA3;
+	border-bottom : 1px solid #006BA3;
+	-webkit-border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
 	
