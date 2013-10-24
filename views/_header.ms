@@ -4,7 +4,6 @@
 	<ul id="sdt_menu" class="sdt_menu">
 		<li>
 			<a href="/">
-				<img src="/img/1.jpg" alt=""/>
 					<span class="sdt_active"></span>
 					<span class="sdt_wrap">
 						<span class="sdt_link">Home</span>
