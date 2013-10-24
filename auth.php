@@ -23,6 +23,7 @@ $options = array(
 
 $cookie = new Sentry\Cookies\NativeCookie($options);
 
+global $sentry;
 $sentry = new Sentry\Sentry(
 	$userProvider,
 	$groupProvider,
