@@ -104,6 +104,8 @@ a {
 	border-style : none;
 }
 .lineup h1 {
+	
+	display: block;
 	min-width:200px;
 	position : fixed;
 	clear : both;
@@ -126,8 +128,8 @@ a {
 	border-bottom-right-radius : 2em 4em;
 	z-index : 999;
 	-moz-box-sizing:border-box;
--webkit-box-sizing:border-box;
-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
 	}
 	
 .lineup ul {
@@ -191,7 +193,7 @@ ul.sdt_menu {
 	border-bottom-right-radius : 4em 0.5em;
 	background : url(/img/transbg.png);
 	height : 35px;
-	z-index : 100;
+	z-index : 1;
 	list-style : none;
 	font-family : "Myriad Pro", "Trebuchet MS", sans-serif;
 	font-size : 0.7em;
@@ -234,26 +236,35 @@ ul.sdt_menu li span.sdt_wrap {
 	left : 0;
 	width : 130px;
 	height : 40px;
-	z-index : 50;
+	z-index : 1;
 }
 ul.sdt_menu li span.sdt_active {
-	border-bottom-left-radius : 3px;
-	border-bottom-right-radius : 4em 0.5em;
+	
+	display:block;
+	border-top-left-radius : 3px;
+	border-top-right-radius : 4em 0.5em;
 	position : absolute;
-	background : url(/img/transbg2.png);
-	top : 20px;
+	background : url(/img/footerbg.png);
+	bottom: 0;
 	width : 130px;
 	height : 0;
 	left : 0;
-	z-index : 50;
+	z-index : 1;
 	box-shadow : 0 0 4px #000 inset;
-	border-right-style : none;
-	border-bottom-style : none;
-	border-left-style : none;
+	border-right-color : #006BA3;
+	border-right-width : 1px;
+	border-right-style : solid;
+	
+	
 }
+
+.sdt_menu li sdt_active:hover > ul li sdt_active {
+    overflow: display:block;
+    padding: 0;
+}
+
 ul.sdt_menu li span.sdt_active2 {
-	border-bottom-left-radius : 3px;
-	border-bottom-right-radius : 4em 0.5em;
+	
 	position : absolute;
 	top : 40px;
 	width : 130px;
@@ -326,7 +337,7 @@ ul.sdt_menu li div.sdt_box a:hover {
 
 #adminbox {
 	position:relative;
-	margin-top:115px;
+	margin-top:113px;
 	float:right;
 	
 	padding-right:0px;
@@ -335,7 +346,7 @@ ul.sdt_menu li div.sdt_box a:hover {
 	padding-bottom: 2px;
 	font-color: #fff;
 	z-index:999;
-	border-color: #006BA3;
+	border-top : 1px solid #006BA3;
 	border-top-left-radius: 5px;
 	
 }
@@ -420,6 +431,9 @@ ul.admin_parent li admin_child:hover {
     width: 300px;
     background : url(/img/transbg2.png);
     padding-bottom:2px;
+	border-top : 1px solid #000;
+	border-left : 1px solid #000;
+
     -webkit-border-top-left-radius: 5px;
     -moz-border-top-left-radius: 5px;
     border-radius-top-left: 5px;
@@ -527,3 +541,42 @@ ul.admin_parent li admin_child:hover {
 	color : #006BA3;
 }
 	
+<<<<<<< HEAD
+=======
+ul.semiopaquemenu{ 
+
+	font: bold 8px Georgia ;
+	font-color: #fff;
+	width: 100%;
+	float: right;
+	padding: 7px 0 3px 8px; 
+	margin: 0;
+	margin-right: 210px;
+	text-align: right; 
+	border-bottom-left-radius : 9em 4em;
+	border-bottom-right-radius : 5em 4em;
+}
+
+ul.semiopaquemenu li{
+	display: inline;
+	margin-left: 0px;
+}
+
+ul.semiopaquemenu li a{
+	color: #fff;
+	padding: 0px 8px 2px 8px; 
+	margin-right: 15px; 
+	text-decoration: none;
+}
+
+ul.semiopaquemenu li a:hover, ul.semiopaquemenu li a.selected{
+	color: white;
+	background: url(/img/transbg2.png); 
+	-moz-box-shadow: 0 0 5px #595959; /* CSS3 box shadows */
+	-webkit-box-shadow: 0 0 5px #595959;
+	box-shadow: 0 0 5px #595959;
+	padding-top: 10px;
+	padding-bottom: 5px; 
+}
+
+>>>>>>> master
