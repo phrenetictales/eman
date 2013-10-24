@@ -7,7 +7,7 @@
     "packages": [
         {
             "name": "illuminate/container",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "target-dir": "Illuminate/Container",
             "source": {
                 "type": "git",
@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "aaff2e0c10536228aa0248fe5f1939c15694d6dc"
+                "reference": "9fb935eef6f12594d58824fd28558e393aee3837"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/aaff2e0c10536228aa0248fe5f1939c15694d6dc",
-                "reference": "aaff2e0c10536228aa0248fe5f1939c15694d6dc",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/9fb935eef6f12594d58824fd28558e393aee3837",
+                "reference": "9fb935eef6f12594d58824fd28558e393aee3837",
                 "shasum": ""
             },
             "require": {
@@ -111,11 +111,11 @@
                 "orm",
                 "sql"
             ],
-            "time": "2013-10-12 18:57:01"
+            "time": "2013-10-14 06:36:05"
         },
         {
             "name": "illuminate/events",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "target-dir": "Illuminate/Events",
             "source": {
                 "type": "git",
@@ -164,7 +164,7 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "target-dir": "Illuminate/Support",
             "source": {
                 "type": "git",
@@ -307,16 +307,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phrenetictales/mustache.php.git",
-                "reference": "21529205a93171ee23dc4ccb3d3a5e5b1380d400"
+                "reference": "41104f109caaa9c47e4ee47b28cd78a60cbbc80a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phrenetictales/mustache.php/zipball/21529205a93171ee23dc4ccb3d3a5e5b1380d400",
-                "reference": "21529205a93171ee23dc4ccb3d3a5e5b1380d400",
+                "url": "https://api.github.com/repos/phrenetictales/mustache.php/zipball/41104f109caaa9c47e4ee47b28cd78a60cbbc80a",
+                "reference": "41104f109caaa9c47e4ee47b28cd78a60cbbc80a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
             },
             "type": "library",
             "autoload": {
@@ -343,7 +346,7 @@
             "support": {
                 "source": "https://github.com/phrenetictales/mustache.php/tree/temporaryfixlaravelrelationships"
             },
-            "time": "2013-07-07 21:43:57"
+            "time": "2013-10-23 11:10:13"
         },
         {
             "name": "nesbot/carbon",
