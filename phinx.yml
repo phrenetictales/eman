@@ -10,7 +10,7 @@ environments:
         name: eman
         user: root
         prefix: phr_
-        pass: 'shit4b'
+        pass: ''
         port: 3306
                 
     development:
@@ -19,7 +19,7 @@ environments:
         name: eman_dev
         user: root
         prefix:
-        pass: 'shit4b'
+        pass: ''
         port: 3306
                     
     testing:

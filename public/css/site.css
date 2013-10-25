@@ -72,23 +72,7 @@ a {
 	}
 	
 
-	.submenu a {
-		display: block;
-		width: 60px;
-	}
 
-.submenu ul { 
-
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-
-}
-
-.submenu li {
-	float: left;
-}
-	
 .lineup {
 	margin: 0 auto;
 	padding-left: 15px;
@@ -541,8 +525,7 @@ ul.admin_parent li admin_child:hover {
 	color : #006BA3;
 }
 	
-<<<<<<< HEAD
-=======
+
 ul.semiopaquemenu{ 
 
 	font: bold 8px Georgia ;
@@ -579,4 +562,3 @@ ul.semiopaquemenu li a:hover, ul.semiopaquemenu li a.selected{
 	padding-bottom: 5px; 
 }
 
->>>>>>> master
