@@ -64,13 +64,14 @@ class Eman_Auth_Cartalyst_Sentry extends Eman\ServiceProvider\Authentication
 					' minutes'
 			);
 		}
+		/*
 		catch (Exception $e) {
 			throw new Eman\Exception\Authentication(
 				'Unable to login',
 				'Your Account has been suspended or does not exist'
 			);
 		}
-		
+		*/
 		return TRUE;
 	}
 	
