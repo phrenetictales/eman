@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-include __DIR__.'/../auth.php';
+require_once __DIR__.'/../auth.php';
 
 
 class AddUsers extends AbstractMigration
