@@ -279,13 +279,13 @@ $app->get('/pictures/resized/:x/:y/:storename', function($size_x, $size_y, $stor
 	
 	
 	if ($size_x) {
-		$columns[] = $db->raw((int)$size_x.' - width as wdiff');
+		$columns[] = $db->raw('ABS('.(int)$size_x.' - width) as wdiff');
 		$q->orderBy('wdiff', 'asc');
 	}
 	
 	
 	if ($size_y) {
-		$columns[] = $db->raw((int)$size_y.' - height as hdiff');
+		$columns[] = $db->raw('ABS('.(int)$size_y.' - height) as hdiff');
 		$q->orderBy('hdiff', 'asc');
 	}
 	
@@ -355,7 +355,7 @@ $app->get('/pictures/resized/:x/:y/:storename', function($size_x, $size_y, $stor
 		
 		return;
 	}
-	else if (($size_y && $size_x) && (($size_y != $picture->hdiff) || ($size_x && $picture->wdiff))) {
+	else if (($size_y && $size_x) && (($size_y != $picture->hdiff) || ($size_x != $picture->wdiff))) {
 		try {
 			$img = Intervention\Image\Image::make($store->filename($picture->storename));
 			

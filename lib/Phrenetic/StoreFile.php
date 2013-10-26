@@ -16,17 +16,17 @@ class StoreFile
 		}
 		
 		if (!is_dir($this->_rootStoreDirectory)) {
-			throw new Exception('Store directory for '.
+			throw new \Exception('Store directory for '.
 				$name.' does not exit');
-		}
-		if (!is_writeable($this->_rootStoreDirectory)) {
-			throw new Exception('Store directory for '.
-				$name.' is not writeable');
 		}
 	}
 	
 	public function add($fname)
 	{
+		if (!is_writeable($this->_rootStoreDirectory)) {
+			throw new \Exception('Store directory for '.
+				$name.' is not writeable');
+		}
 		/*
 		if (!is_uploaded_file($fname)) {
 			throw new Exception('File '
