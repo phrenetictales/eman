@@ -577,6 +577,12 @@ $app->post('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($ap
 	$app->redirect("/events/{$eid}/stages/{$sid}/lineup/edit");
 });
 
+////////////////////////////////////////////////////////////////////////////////
+// Users and Sessions                                                         //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+
 $app->get('/login', function() use ($app) {
 	$app->render('login');
 });
@@ -603,6 +609,45 @@ $app->get('/logout', function() use ($app) {
 	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
 	$auth->logout();
 	$app->redirect('/');
+});
+
+$app->get('/me', function() use ($app) {
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->isLoggedIn()) {
+		$app->redirect('/');
+	}
+	
+	$user = $auth->getCurrentUser();
+	$profile = RMAN\Models\ORM\User::where('id', $user['id'])
+			->with(
+				'artists',
+				'artists.picture'
+			)
+			->first();
+	
+	$app->render('me/profile', ['profile' => $profile]);
+});
+
+$app->get('/me/password', function() use ($app) {
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->isLoggedIn()) {
+		$app->redirect('/');
+	}
+	
+	$app->render('me/password');
+});
+
+$app->post('/me/password', function() use ($app) {
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->isLoggedIn()) {
+		$app->redirect('/');
+	}
+	
+	$user = $auth->getCurrentUserObject();
+	$user->password = $app->request()->post('password');
+	$user->save();
+	
+	$app->redirect('/me');
 });
 
 error_reporting(E_ALL);
