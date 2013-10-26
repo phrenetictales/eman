@@ -34,6 +34,13 @@ class SlimMustacheView extends \Slim\View
 		}
 		
 		if ($auth->isLoggedIn()) {
+			$app->menus[] = [
+				'title'		=> 'User', 
+				'url'		=> '/me',
+				'children'	=> [
+					['title' => 'Change Password', 'url' => '/me/password']
+				]
+			];
 			$app->menus[] = ['title' => 'Logout', 'url' => '/logout'];
 		}
 		else {
