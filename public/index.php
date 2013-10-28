@@ -355,7 +355,7 @@ $app->get('/pictures/resized/:x/:y/:storename', function($size_x, $size_y, $stor
 		
 		return;
 	}
-	else if (($size_y && $size_x) && (($size_y != $picture->hdiff) || ($size_x != $picture->wdiff))) {
+	else if (($size_y && $size_x) && ($picture->hdiff || $picture->wdiff)) {
 		try {
 			$img = Intervention\Image\Image::make($store->filename($picture->storename));
 			
@@ -367,7 +367,7 @@ $app->get('/pictures/resized/:x/:y/:storename', function($size_x, $size_y, $stor
 				'default'	=> 0
 			]);
 			
-			if ($picture->width > $picture->height) {
+			if ($picture->width < $picture->height) {
 				$img->resize($size_x, null, true);
 			}
 			else {

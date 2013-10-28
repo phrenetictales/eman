@@ -1,5 +1,5 @@
 <div id="topbar">
-	<ul id="sdt_menu" class="sdt_menu">
+	<ul id="main_menu" class="main_menu">
 		<li>
 			<a href="/">
 					<span class="main_active"></span>
