@@ -367,7 +367,7 @@ $app->get('/pictures/resized/:x/:y/:storename', function($size_x, $size_y, $stor
 				'default'	=> 0
 			]);
 			
-			if ($picture->width > $picture->height) {
+			if ($picture->width < $picture->height) {
 				$img->resize($size_x, null, true);
 			}
 			else {
