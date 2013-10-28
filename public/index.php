@@ -1,63 +1,12 @@
 <?php
 
-define('ROOTDIR', dirname(__DIR__));
-require_once ROOTDIR."/vendor/autoload.php";
 
-use Illuminate\Database\Capsule\Manager as Capsule;
-use Illuminate\Database\Connection as DatabaseConnection;
-use Illuminate\Database\MySqlConnection as MySqlConnection;
-use Illuminate\Events\Dispatcher as EventDispatcher;
-
-
-O\O::init();
-
-date_default_timezone_set('America/Vancouver');
-
-////////////////////////////////////////////////////////////////////////////////
-// Load the Mustache Template engine and configure it                         //
-////////////////////////////////////////////////////////////////////////////////
-$mustache = new Mustache_Engine([
-	'loader' => new Mustache_Loader_FilesystemLoader(
-		ROOTDIR.'/views/', 
-		['extension' => '.ms']
-	),
-	'partials_loader' => new Mustache_Loader_FilesystemLoader(
-		ROOTDIR.'/views/',
-		['extension' => '.ms']
-	)
-]);
+require_once __DIR__.'/../init.php';
 
 
 $app = new \Slim\Slim(['view' => new Phrenetic\SlimMustacheView($mustache)]);
+$app->container = $container;
 
-////////////////////////////////////////////////////////////////////////////////
-// Load Laravel Database and ORM (Eloquent)                                   //
-////////////////////////////////////////////////////////////////////////////////
-
-require_once __DIR__.'/../config/database.php';
-
-$capsule = new Capsule;
-$capsule->addConnection($DATABASE_CONFIG);
-$capsule->setEventDispatcher(new EventDispatcher());
-$capsule->bootEloquent();
-$capsule->setAsGlobal();
-
-spl_autoload_register(function ($class) {
-	$ns = O\c(O\s($class))->explode('\\');
-	if ($ns->count() <= 3) {
-		return;
-	}
-	
-	if ($ns->slice(0, 3)->implode('\\') == 'RMAN\Models\ORM') {
-		$path = ROOTDIR.'/models/ORM/'.
-				$ns->slice(3)->implode('/').
-				'.php';
-		
-		if (file_exists($path)) {
-			include $path;
-		}
-	}
-});
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hello World!                                                               //
@@ -81,6 +30,29 @@ $app->get('/', function() use ($app) {
 	]);
 });
 
+
+$app->menus = [];
+
+
+$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+
+if ($auth->hasAccess('admin')) {
+	$app->menus[] = [
+		'title' => 'Artists', 'url' => '/artists',
+		'children'	=> [
+			['title' => 'Add', 'url' => '/artists/create']
+		]
+	];
+	$app->menus[] = [
+		'title' => 'Events', 'url' => '/events',
+		'children'	=> [
+			['title' => 'Add', 'url' => '/events/create']
+		]
+	];
+	//$app->menus['artists']['children'] = [['Add' => '/artists/create']];
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // Artists                                                                    //
 //                                                                            //
@@ -98,20 +70,52 @@ $app->get('/artists/', function() use ($app) {
 
 $app->get('/artists/:id', function($id) use ($app) {
 	$artist = RMAN\Models\ORM\Artist::with('picture')->find($id);
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if ($auth->hasAccess('admin')) {
+		foreach($app->menus as $key => $menu) {
+			if ($menu['title'] == 'Artists') {
+				$app->menus[$key]['children'][] = [
+					'title'	=> 'Edit',
+					'url'	=> "/artists/edit/{$artist->id}"
+				];
+			}
+		}
+	}
+	
 	$app->render('artists/view', ['artist' => $artist]);
 })->conditions(['id' => '\d+']);
 
 $app->get('/artists/create/', function() use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
 	$artist = new RMAN\Models\ORM\Artist;
 	$app->render('artists/create', ['artist' => $artist]);
 });
 
 $app->get('/artists/edit/:id', function($id) use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
 	$artist = RMAN\Models\ORM\Artist::with('picture')->find($id);
 	$app->render('artists/create', ['artist' => $artist]);
 })->conditions(['id' => '\d+']);
 
 $app->post('/artists/save/(:id)', function($id = 0) use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
+	
 	if ($id) {
 		$artist = RMAN\Models\ORM\Artist::find($id);
 		foreach($_POST as $k => $v) {
@@ -147,6 +151,12 @@ $app->get('/releases/:id', function($id) use ($app) {
 })->conditions(['id' => '\d+']);
 
 $app->get('/releases/create/', function() use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
 	$release = new RMAN\Models\ORM\Release;
 	$tags = RMAN\Models\ORM\Artist::tags();
 	
@@ -157,6 +167,11 @@ $app->get('/releases/create/', function() use ($app) {
 });
 
 $app->post('/releases/save(/:id)', function() use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
 	
 	$request = $app->request();
 	$release = new RMAN\Models\ORM\Release;
@@ -202,6 +217,12 @@ $app->post('/releases/save(/:id)', function() use ($app) {
 // * Display                                                                  //
 ////////////////////////////////////////////////////////////////////////////////
 $app->post('/pictures/upload/', function() use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
 	$pictures = [];
 	
 	
@@ -258,13 +279,13 @@ $app->get('/pictures/resized/:x/:y/:storename', function($size_x, $size_y, $stor
 	
 	
 	if ($size_x) {
-		$columns[] = $db->raw((int)$size_x.' - width as wdiff');
+		$columns[] = $db->raw('ABS('.(int)$size_x.' - width) as wdiff');
 		$q->orderBy('wdiff', 'asc');
 	}
 	
 	
 	if ($size_y) {
-		$columns[] = $db->raw((int)$size_y.' - height as hdiff');
+		$columns[] = $db->raw('ABS('.(int)$size_y.' - height) as hdiff');
 		$q->orderBy('hdiff', 'asc');
 	}
 	
@@ -334,7 +355,7 @@ $app->get('/pictures/resized/:x/:y/:storename', function($size_x, $size_y, $stor
 		
 		return;
 	}
-	else if (($size_y && $size_x) && (($size_y != $picture->hdiff) || ($size_x && $picture->wdiff))) {
+	else if (($size_y && $size_x) && (($size_y != $picture->hdiff) || ($size_x != $picture->wdiff))) {
 		try {
 			$img = Intervention\Image\Image::make($store->filename($picture->storename));
 			
@@ -387,6 +408,7 @@ $app->get('/events/', function() use ($app) {
 });
 
 $app->get('/events/:eid/stages', function($eid) use ($app) {
+	
 	$event = RMAN\Models\ORM\Event::with(
 				'stages',
 				'stages.lineups',
@@ -402,6 +424,25 @@ $app->get('/events/:eid/stages', function($eid) use ($app) {
 			'url' => "/events/{$event->id}/stages/{$stage['id']}/lineup"
 		];
 	}, $event->stages->toArray());
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if ($auth->hasAccess('admin')) {
+		$app->menus[] = [
+			'title' => 'Stages', 
+			'url' => "/events/{$event->id}/stages",
+			'children'	=> [
+				['title' => 'Add', 'url' => "/events/{$event->id}/stages/create"]
+			]
+		];
+	}
+	
+	foreach($event->stages as $stage) {
+		$app->menus[(count($app->menus)-1)]['children'][] =
+			$menu['children'][] = [
+				'title'	=> 'Edit '.$stage->title,
+				'url'	=> '/events/1/stages/1/edit'
+			];
+	}
 	
 	$app->render('events/stages', [
 		'event'		=> $event,
@@ -420,6 +461,25 @@ $app->get('/events/:eid/stages/:sid/lineup', function($eid, $sid) use ($app) {
 		];
 	}, $event->stages->toArray());
 	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if ($auth->hasAccess('admin')) {
+		$app->menus[] = [
+			'title' => 'Stages', 
+			'url' => "/events/{$event->id}/stages",
+			'children'	=> [
+				['title' => 'Add', 'url' => "/events/{$event->id}/stages/create"]
+			]
+		];
+	}
+	
+	foreach($event->stages as $stage) {
+		$app->menus[(count($app->menus)-1)]['children'][] =
+			$menu['children'][] = [
+				'title'	=> 'Edit '.$stage->title,
+				'url'	=> '/events/1/stages/1/edit'
+			];
+	}
+	
 	
 	$stage = RMAN\Models\ORM\Stage::with(
 				'event',
@@ -433,6 +493,12 @@ $app->get('/events/:eid/stages/:sid/lineup', function($eid, $sid) use ($app) {
 });
 
 $app->get('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
+	
 	$stage = RMAN\Models\ORM\Stage::with(
 				'event',
 				'lineups', 
@@ -441,11 +507,38 @@ $app->get('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app
 				'lineups.slots.lineup'
 			)
 			->find($sid);
+	
+	$event = RMAN\Models\ORM\Event::with('stages')->find($stage->event->id);
+	
+	if ($auth->hasAccess('admin')) {
+		$app->menus[] = [
+			'title' => 'Stages', 
+			'url' => "/events/{$event->id}/stages",
+			'children'	=> [
+				['title' => 'Add', 'url' => "/events/{$event->id}/stages/create"]
+			]
+		];
+	}
+	
+	foreach($event->stages as $stage) {
+		$app->menus[(count($app->menus)-1)]['children'][] =
+			$menu['children'][] = [
+				'title'	=> 'Edit '.$stage->title,
+				'url'	=> '/events/1/stages/1/edit'
+			];
+	}
+	
+	
 	$artists = json_encode(RMAN\Models\ORM\Artist::tags());
 	$app->render('events/lineup/edit', ['stage' => $stage, 'artists' => $artists]);
 });
 
 $app->post('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->hasAccess('admin')) {
+		$app->halt('Go Away!', 403);
+	}
 	
 	$event = RMAN\Models\ORM\Event::find($eid);
 	$stage = RMAN\Models\ORM\Stage::with('event')->find($sid);
@@ -482,6 +575,79 @@ $app->post('/events/:eid/stages/:sid/lineup/edit', function($eid, $sid) use ($ap
 	}
 	
 	$app->redirect("/events/{$eid}/stages/{$sid}/lineup/edit");
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Users and Sessions                                                         //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+
+$app->get('/login', function() use ($app) {
+	$app->render('login');
+});
+
+$app->post('/login', function() use($app, $container) {
+	
+	$auth = $container->resolve('Eman\\ServiceProvider\\Authentication');
+	try {
+		$auth->login(
+			$app->request()->post('login'),
+			$app->request()->post('password')
+		);
+	}
+	catch(Eman\Exception\Authentication $ae) {
+		$app->flash('error.title', $ae->getTitle());
+		$app->flash('error.message', $ae->getmessage());
+		$app->redirect('/login');
+	}
+	
+	$app->redirect('/');
+});
+
+$app->get('/logout', function() use ($app) {
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	$auth->logout();
+	$app->redirect('/');
+});
+
+$app->get('/me', function() use ($app) {
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->isLoggedIn()) {
+		$app->redirect('/');
+	}
+	
+	$user = $auth->getCurrentUser();
+	$profile = RMAN\Models\ORM\User::where('id', $user['id'])
+			->with(
+				'artists',
+				'artists.picture'
+			)
+			->first();
+	
+	$app->render('me/profile', ['profile' => $profile]);
+});
+
+$app->get('/me/password', function() use ($app) {
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->isLoggedIn()) {
+		$app->redirect('/');
+	}
+	
+	$app->render('me/password');
+});
+
+$app->post('/me/password', function() use ($app) {
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->isLoggedIn()) {
+		$app->redirect('/');
+	}
+	
+	$user = $auth->getCurrentUserObject();
+	$user->password = $app->request()->post('password');
+	$user->save();
+	
+	$app->redirect('/me');
 });
 
 error_reporting(E_ALL);

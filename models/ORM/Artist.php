@@ -15,6 +15,11 @@ class Artist extends Base
 		return $this->belongsTo('RMAN\Models\ORM\Picture');
 	}
 	
+	public function user()
+	{
+		return $this->belongsTo('RMAN\Models\ORM\Picture');
+	}
+	
 	public function tracks()
 	{
 		return $this->belongsToMany('RMAN\Models\ORM\Track');

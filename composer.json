@@ -1,20 +1,33 @@
 {
-	"autoload": {
-		"psr-0": {
-			"Phrenetic": "lib/"
-		}
-	},
-	"repositories": [
-		{
-			"type":	"vcs",
-			"url":	"https://github.com/phrenetictales/mustache.php"
-		}
-	],
-	"require": {
-		"slim/slim": "2.0.0",
-		"illuminate/database": "4.0.*@dev",
-		"mustache/mustache": "dev-temporaryfixlaravelrelationships",
-		"jsebrech/o": " v0.1.0",
-		"intervention/image": " 1.4.1"
-	}
+    "require-dev": {
+        "psy/psysh": "0.1.0.*@dev"
+    }, 
+    "require": {
+        "mustache/mustache": "dev-temporaryfixlaravelrelationships", 
+        "illuminate/database": "4.0.*@dev", 
+        "jsebrech/o": " v0.1.0", 
+        "cartalyst/sentry": "2.0.*", 
+        "ircmaxell/password-compat": "1.0.*", 
+        "slim/slim": "2.0.0", 
+        "intervention/image": " 1.4.1", 
+        "league/di": "1.2",
+        "robmorgan/phinx": "*"
+    }, 
+    "repositories": [
+        {
+            "url": "https://github.com/phrenetictales/mustache.php", 
+            "type": "vcs"
+        }, 
+        {
+            "url": "http://packages.cartalyst.com", 
+            "type": "composer"
+        }
+    ], 
+    "autoload": {
+        "psr-0": {
+            "Phrenetic": "lib/", 
+            "Eman": "lib/"
+        }
+    }, 
+    "minimum-stability": "dev"
 }

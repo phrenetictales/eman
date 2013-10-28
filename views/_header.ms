@@ -1,7 +1,5 @@
-
-<div id="topbar">      
- 
-	<ul id="main_menu" class="main_menu">
+<div id="topbar">
+	<ul id="sdt_menu" class="sdt_menu">
 		<li>
 			<a href="/">
 					<span class="main_active"></span>
@@ -44,7 +42,7 @@
 				</span>
 			</a>
 		</li>
-				
+						
 		<li>
 			<a href="/events">
 				<img src="/img/6.jpg" alt=""/>
@@ -79,50 +77,27 @@
 		</li>
 	</ul>
 	
-<div id="menu_wrapper">
+	<div id="menu_wrapper">
 
-	<div id="adminbox">
-	
-		<ul class="menu">
- 
-			<li><a href="#">Artists</a>
- 
+		<div id="adminbox">
+		
+			<ul class="menu">
+			{{#menus}}
+				<li><a href="{{url}}">{{title}}</a>
 				<ul>
-					<li><a href="#">Add</a></li>
-					<li><a href="#">Edit</a></li>
-            
+					{{#children}}
+					<li><a href="{{url}}">{{title}}</a><li>
+					{{/children}}
 				</ul>
- 
-			</li>
-    
-			<li><a href="#">Stages</a>
- 
-				<ul>
-					<li><a href="#">Add</a></li>
-					<li><a href="#">Edit stage1</a></li>
-					<li><a href="#">Edit stage2</a></li>
-					<li><a href="#">Edit stage3</a></li>
-				</ul>
- 
-			</li>
-	
-			<li><a href="#">Events</a>
-				<ul>
-					<li><a href="#">Add</a></li>
-					<li><a href="#">Edit</a></li>
-         
-				</ul>
- 			</li>
-	
-			<li><a href="#">Logout</a></li>
-			<li class="username">username</li>
-	
-		</ul>
-
+				<li>
+			{{/menus}}
+			{{#user}}
+				<li class="username">{{login}}</li>
+			{{/user}}
+			</ul>
 		</div>
-	</div>
-</div>	
-
+	</div>	
+</div>
      					
         <!-- Script for main menu -->
 	<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
