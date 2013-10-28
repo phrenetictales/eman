@@ -1,3 +1,4 @@
+	<div id="add_artist">
 {{#artist}}
   <script src="/js/vendor/jquery.ui.widget.js"></script>
   <!--
@@ -19,33 +20,33 @@
   <!-- <script src="/js/jquery.fileupload-image.js"></script> -->
   <!-- The File Upload validation plugin -->
   <!-- <script src="/js/jquery.fileupload-validate.js"></script> -->
-  <p>
-    <label for="name">Name</label>
-    <br/>
+  
+
+	<label for="name">Name</label>
     <input name="name" value="{{name}}"/>
-  </p>
-  <p>
+
+  
     <style>
     .bar {
       height: 18px;
       background: green;
     }
     </style>
-    <label for="picture">Photo</label>
-    <br/>
-      {{#picture.url}}
+
+
+	<label for="picture">Photo</label>
+       {{#picture.url}}
         <img src="{{.}}"/>
       {{/picture.url}}
       {{^picture.url}}
         <img src="/img/profile_person_generic.jpg"/>
       {{/picture.url}}
-    <br/>
-    <input id="picture" type="file" name="picture" data-url="/pictures/upload/"/>
+       <input id="picture" type="file" name="picture" data-url="/pictures/upload/"/>
     <input type="hidden" name="picture_id" value="{{picture.id}}"/>
     <div id="progress">
       <div class="bar" style="width: 0%;"></div>
     </div>
-  </p>
-  <script src="/js/artists/picture.js">
+ <script src="/js/artists/picture.js">
   </script>
 {{/artist}}
+
