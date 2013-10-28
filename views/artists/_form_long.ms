@@ -1,7 +1,9 @@
+  <div id="artist_form_bio">
 {{#artist}}
-  <p>
+
     <label for="bio">Biography</label>
     <br/>
-    <textarea rows=24 cols=80 name="bio">{{bio}}</textarea>
-  </p>
+    <textarea rows=5 cols=60 name="bio">{{bio}}</textarea>
+  
 {{/artist}}
+</div>
