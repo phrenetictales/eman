@@ -1,7 +1,8 @@
 BODY {
-	background : #050505;
+	background : #000 url(/img/mainbg.jpg);
 	background-repeat : no-repeat;
-	background-position : top center;
+	background-position : bottom center;
+	background-attachment: fixed;
 	border-bottom-right-radius : 4em 0.5em;
 	border-bottom-left-radius : 1em 3em;
 	font-size : 1em;
@@ -420,7 +421,7 @@ ul.admin_parent li admin_child:hover {
     margin:0;
 	right: 0;
 	height: 20px;
-    width: 300px;
+    width: 400px;
     background : url(/img/transbg2.png);
     padding-bottom:2px;
 	border-top : 1px solid #000;
