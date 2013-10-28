@@ -421,7 +421,7 @@ ul.admin_parent li admin_child:hover {
     margin:0;
 	right: 0;
 	height: 20px;
-    width: 400px;
+    width: 350px;
     background : url(/img/transbg2.png);
     padding-bottom:2px;
 	border-top : 1px solid #000;
@@ -571,3 +571,32 @@ ul.semiopaquemenu li a:hover, ul.semiopaquemenu li a.selected{
 	padding-bottom: 5px; 
 }
 
+.add_artist_form {
+	background: url(/img/transbg2.png);
+	width : 80%;
+	border-radius: 5px;
+	margin: 0 auto;
+
+}
+.add_artist_form h1 {
+	clear: both;
+	width: 90%;
+	padding: 0px;
+	align: center;
+	text-align: center;
+	border-top-right-radius: 0px;
+	font-family : "Myriad Pro", "Trebuchet MS", sans-serif;
+	color : #fff;
+	font-size : 1em;
+	font-style : normal;
+	vertical-align : middle;
+	background : url(/img/footerbg.png);
+	border-right : 1px solid #006BA3;
+	border-bottom : 1px solid #006BA3;
+	border-bottom-left-radius : 9em 4em;
+	border-bottom-right-radius : 9em 4em;
+	z-index : 999;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
