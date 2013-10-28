@@ -2,10 +2,10 @@
 	<ul id="sdt_menu" class="sdt_menu">
 		<li>
 			<a href="/">
-					<span class="sdt_active"></span>
-					<span class="sdt_wrap">
-						<span class="sdt_link">Home</span>
-						<span class="sdt_descr">Main page</span>
+					<span class="main_active"></span>
+					<span class="main_wrap">
+						<span class="main_link">Home</span>
+						<span class="main_descr">Main page</span>
 				</span>
 			</a>
 		</li>
@@ -13,10 +13,10 @@
 		<li>
 			<a href="/events/1/stages">
 				<img src="/img/2.jpg" alt=""/>
-					<span class="sdt_active"></span>
-					<span class="sdt_wrap">
-						<span class="sdt_link">The Line up</span>
-						<span class="sdt_descr">Perfoming artists</span>
+					<span class="main_active"></span>
+					<span class="main_wrap">
+						<span class="main_link">The Line up</span>
+						<span class="main_descr">Perfoming artists</span>
 				</span>	
 			</a>	
 		</li>
@@ -24,10 +24,10 @@
 		<li>
 			<a href="#">
 				<img src="/img/3.jpg" alt=""/>
-					<span class="sdt_active"></span>
-					<span class="sdt_wrap">
-						<span class="sdt_link">Shuttle</span>
-						<span class="sdt_descr">Get a ride!</span>
+					<span class="main_active"></span>
+					<span class="main_wrap">
+						<span class="main_link">Shuttle</span>
+						<span class="main_descr">Get a ride!</span>
 				</span>
 			</a>
 		</li>
@@ -35,10 +35,10 @@
 		<li>
 			<a href="#">
 				<img src="/img/4.jpg" alt=""/>
-				<span class="sdt_active"></span>
-				<span class="sdt_wrap">
-					<span class="sdt_link">Gallery</span>
-					<span class="sdt_descr">Pictures & Videos</span>
+				<span class="main_active"></span>
+				<span class="main_wrap">
+					<span class="main_link">Gallery</span>
+					<span class="main_descr">Pictures & Videos</span>
 				</span>
 			</a>
 		</li>
@@ -46,10 +46,10 @@
 		<li>
 			<a href="/events">
 				<img src="/img/6.jpg" alt=""/>
-				<span class="sdt_active"></span>
-				<span class="sdt_wrap">
-					<span class="sdt_link">Events</span>
-					<span class="sdt_descr">Related Parties</span>
+				<span class="main_active"></span>
+				<span class="main_wrap">
+					<span class="main_link">Events</span>
+					<span class="main_descr">Related Parties</span>
 				</span>
 			</a>	
 		</li>
@@ -57,10 +57,10 @@
 		<li>
 			<a href="#">
 				<img src="/img/5.jpg" alt=""/>
-				<span class="sdt_active"></span>
-				<span class="sdt_wrap">
-					<span class="sdt_link">News</span>
-					<span class="sdt_descr">What's new?</span>
+				<span class="main_active"></span>
+				<span class="main_wrap">
+					<span class="main_link">News</span>
+					<span class="main_descr">What's new?</span>
 				</span>
 			</a>
 		</li>
@@ -68,10 +68,10 @@
 		<li>
 			<a href="#">
 				<img src="/img/6.jpg" alt=""/>
-				<span class="sdt_active"></span>
-				<span class="sdt_wrap">
-					<span class="sdt_link">Applications</span>
-					<span class="sdt_descr">Get Involved!</span>
+				<span class="main_active"></span>
+				<span class="main_wrap">
+					<span class="main_link">Applications</span>
+					<span class="main_descr">Get Involved!</span>
 				</span>
 			</a>
 		</li>
@@ -104,15 +104,15 @@
         <script type="text/javascript">
             $(function() {
 			
-			$('#sdt_menu > li').bind('mouseenter',function(){
+			$('#main_menu > li').bind('mouseenter',function(){
 					var $elem = $(this);
-					$elem.find('.sdt_wrap')
+					$elem.find('.main_wrap')
 					     .stop(true)
 						 .andSelf()
-						 .find('.sdt_active')
+						 .find('.main_active')
 					     .stop(true)
 						 .animate({'height':'30px'},300,function(){
-						var $sub_menu = $elem.find('.sdt_box');
+						var $sub_menu = $elem.find('.main_box');
 						if($sub_menu.length){
 							var left = '130px';
 							if($elem.parent().children().length == $elem.index()+1)
@@ -124,11 +124,11 @@
 					});
 				}).bind('mouseleave',function(){
 					var $elem = $(this);
-					var $sub_menu = $elem.find('.sdt_box');
+					var $sub_menu = $elem.find('.main_box');
 					if($sub_menu.length)
 						$sub_menu.hide().css('left','0px');
 					
-					$elem.find('.sdt_active')
+					$elem.find('.main_active')
 						 .stop(true)
 						 .animate({'height':'0px'},300)
 						 .andSelf().find('img')
@@ -138,7 +138,7 @@
 							'height':'0px',
 							'left':'85px'},400)
 						 .andSelf()
-						 .find('.sdt_wrap')
+						 .find('.main_wrap')
 						 .stop(true)
 						 
 				});
