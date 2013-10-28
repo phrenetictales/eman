@@ -11,7 +11,8 @@
         "slim/slim": "2.0.0", 
         "intervention/image": " 1.4.1", 
         "league/di": "1.2",
-        "robmorgan/phinx": "*"
+        "robmorgan/phinx": "*",
+        "ise/php-soundcloud": "dev-master"
     }, 
     "repositories": [
         {

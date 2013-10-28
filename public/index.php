@@ -617,15 +617,128 @@ $app->get('/me', function() use ($app) {
 		$app->redirect('/');
 	}
 	
+	$soundcloud = new Soundcloud\Service(
+		'fbeeffe2627eb7edd300d6699b92d05c', 
+		'e60727369bbee27012e92e7cd2550504',
+		'https://phrenetic.it.cx/connect/soundcloud'
+	);
+	
+	$mixcloud = new Beatnode\Mixcloud\Service(
+		'gBbh3jZBmrPH33Z4vp', 
+		'ywgzezsBK4wgKJdKeCFtE3xGBnLkGqRF', 
+		'https://phrenetic.it.cx/connect/mixcloud'
+	);
+	
 	$user = $auth->getCurrentUser();
 	$profile = RMAN\Models\ORM\User::where('id', $user['id'])
 			->with(
 				'artists',
-				'artists.picture'
+				'artists.picture',
+				'artists.soundclouds'
 			)
 			->first();
 	
-	$app->render('me/profile', ['profile' => $profile]);
+	$app->render('me/profile', ['profile' => $profile, 'soundcloud' => $soundcloud, 'mixcloud' => $mixcloud]);
+});
+
+$app->get('/connect/soundcloud', function() use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->isLoggedIn()) {
+		$app->redirect('/');
+	}
+	
+	
+	$user = $auth->getCurrentUser();
+	
+	
+	$soundcloud = new Soundcloud\Service(
+		'fbeeffe2627eb7edd300d6699b92d05c', 
+		'e60727369bbee27012e92e7cd2550504', 
+		'https://phrenetic.it.cx/connect/soundcloud'
+	);
+	
+	$dbtoken = null;
+	
+	if ($app->request()->get('code')) {
+		$token = (object)$soundcloud->accessToken($app->request()->get('code'));
+		$dbtoken = new RMAN\Models\ORM\OAuth2Token;
+		$dbtoken->access = $token->access_token;
+		$dbtoken->refresh = $token->refresh_token;
+		$dbtoken->expires = time() + $token->expires_in;
+		$dbtoken->scope = $token->scope;
+		$dbtoken->service = 'soundcloud';
+		$dbtoken->user_id = $user['id'];
+		
+		$dbtoken->save();
+	}
+	else {
+		$dbtoken = RMAN\Models\ORM\OAuth2Token::where('service', '=', 'soundcloud')
+				->where('user_id', '=', $user['id'])
+				// ->where('scope') TODO: work on scope resolution...
+				// if we ever, Ever, EVER, *EVER integrate with
+				// Google
+				->first();
+	}
+	
+	if ($dbtoken->expires->getTimestamp() < time()) {
+		$app->redirect('/refresh/soundcloud');
+	}
+	
+	
+	$soundcloud->setAccessToken($dbtoken->access);
+	$me = json_decode($soundcloud->get('me'));
+	print "<pre>"; print_r($me); print "</pre>";
+	
+	
+	$profile = RMAN\Models\ORM\User::with('artists')->find($user['id']);
+	$artist = $profile->artists->first();
+	
+	$sclink = RMAN\Models\ORM\Soundcloud::where('artist_id', '=', $artist->id)->first();
+	if (empty($sclink)) {
+		$sclink = new RMAN\Models\ORM\Soundcloud;
+	}
+	
+	$sclink->soundcloud_id = $me->id;
+	$sclink->artist_id = $artist->id;
+	$sclink->save();
+	
+	/*
+	$tracks = json_decode($soundcloud->get('me/tracks'));
+	foreach($tracks as $track) {
+		$t = new RMAN\Models\ORM\Track;
+		$t->artist_id = $artist->id;
+		
+		if (stripos($track->title, $artist->name) !== FALSE) {
+			$t->title = str_ireplace($artist->name, '', $track->title);
+		}
+		else {
+			$t->title = $track->title;
+		}
+		$t->title = trim($t->title, ' -_:');
+		$t->save();
+	}
+	*/
+	
+	$app->redirect('/me');
+});
+
+$app->get('/refresh/soundcloud', function() use ($app) {
+	$dbtoken = RMAN\Models\ORM\OAuth2Token::where('service', '=', 'soundcloud')
+				->where('user_id', '=', $user['id'])
+				// ->where('scope') TODO: work on scope resolution...
+				// if we ever, Ever, EVER, *EVER integrate with
+				// Google
+				->first();
+	
+	$soundcloud = new Soundcloud\Service(
+		'fbeeffe2627eb7edd300d6699b92d05c', 
+		'e60727369bbee27012e92e7cd2550504', 
+		'https://phrenetic.it.cx/connect/soundcloud'
+	);
+	
+	$token = $soundcloud->accessTokenRefresh($dbtoken->refresh);
+	
 });
 
 $app->get('/me/password', function() use ($app) {

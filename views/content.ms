@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/css/site.css"></link>
     <!-- <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/dark-hive/jquery-ui.css"></link> -->
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+    <script src="//w.soundcloud.com/player/api.js"></script>
   </head>
   <body>
 

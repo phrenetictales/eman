@@ -25,6 +25,24 @@ class Artist extends Base
 		return $this->belongsToMany('RMAN\Models\ORM\Track');
 	}
 	
+	public function soundclouds()
+	{
+		return $this->hasMany('RMAN\Models\ORM\Soundcloud');
+	}
+	
+	public function __get($key)
+	{
+		if ($key == 'soundclouds') {
+			$soundclouds = parent::__get('soundclouds');
+			
+			if ($soundclouds->count() == 0) {
+				return [];
+			}
+			return $soundclouds;
+		}
+		return parent::__get($key);
+	}
+	
 	public static function tags()
 	{
 		return array_map(function($artist) {

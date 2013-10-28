@@ -12,4 +12,9 @@ class User extends Base
 	{
 		return $this->hasMany('RMAN\Models\ORM\Artist');
 	}
+	
+	public function oauth2tokens()
+	{
+		return $this->hasMany('RMAN\Models\ORM\OAuth2Token');
+	}
 }

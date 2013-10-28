@@ -12,7 +12,19 @@
         {{name}}<br/>
         <img width="400" height="300" src="{{#picture.scale}}400_300{{/picture.scale}}"/>
       </a>
+      <br/>
+      {{#soundclouds}}
+        {{> artists/embed/_soundcloud }}
+      {{/soundclouds}}
+      {{^soundclouds}}
+        <a href="{{soundcloud.getAuthorizeUrl}}"><img src="/img/connect/soundcloud/btn-connect-l.png"/></a>
+      {{/soundclouds}}
     </li>
   {{/artists}}
   </ul>
 {{/profile}}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
