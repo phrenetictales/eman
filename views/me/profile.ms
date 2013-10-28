@@ -19,6 +19,7 @@
       {{^soundclouds}}
         <a href="{{soundcloud.getAuthorizeUrl}}"><img src="/img/connect/soundcloud/btn-connect-l.png"/></a>
       {{/soundclouds}}
+      <a href="{{mixcloud.getAuthorizationUri}}">Connect to Mixcloud</a>
     </li>
   {{/artists}}
   </ul>

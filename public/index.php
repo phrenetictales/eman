@@ -741,6 +741,110 @@ $app->get('/refresh/soundcloud', function() use ($app) {
 	
 });
 
+$app->get('/connect/mixcloud', function() use ($app) {
+	
+	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
+	if (!$auth->isLoggedIn()) {
+		$app->redirect('/');
+	}
+	
+	
+	$user = $auth->getCurrentUser();
+	
+	
+	$mixcloud = new Beatnode\Mixcloud\Service(
+		'gBbh3jZBmrPH33Z4vp', 
+		'ywgzezsBK4wgKJdKeCFtE3xGBnLkGqRF', 
+		'https://phrenetic.it.cx/connect/mixcloud'
+	);
+	
+	$dbtoken = null;
+	
+	if ($app->request()->get('code')) {
+		$token = (object)$mixcloud->accessToken($app->request()->get('code'));
+		print_r($token);
+		
+		$dbtoken = new RMAN\Models\ORM\OAuth2Token;
+		$dbtoken->access = $token->access_token;
+		$dbtoken->refresh = $token->refresh_token;
+		$dbtoken->expires = time() + $token->expires_in;
+		$dbtoken->scope = $token->scope;
+		$dbtoken->service = 'mixcloud';
+		$dbtoken->user_id = $user['id'];
+		
+		$dbtoken->save();
+	}
+	else {
+		$dbtoken = RMAN\Models\ORM\OAuth2Token::where('service', '=', 'mixcloud')
+				->where('user_id', '=', $user['id'])
+				// ->where('scope') TODO: work on scope resolution...
+				// if we ever, Ever, EVER, *EVER integrate with
+				// Google
+				->first();
+	}
+	
+	if ($dbtoken->expires->getTimestamp() < time()) {
+		$app->redirect('/refresh/mixcloud');
+	}
+	
+	
+	$mixcloud->setAccessToken($dbtoken->access);
+	$me = json_decode($mixcloud->get('me'));
+	print "<pre>"; print_r($me); print "</pre>";
+	
+	
+	$profile = RMAN\Models\ORM\User::with('artists')->find($user['id']);
+	$artist = $profile->artists->first();
+	
+	/*
+	$sclink = RMAN\Models\ORM\Soundcloud::where('artist_id', '=', $artist->id)->first();
+	if (empty($sclink)) {
+		$sclink = new RMAN\Models\ORM\Soundcloud;
+	}
+	
+	$sclink->soundcloud_id = $me->id;
+	$sclink->artist_id = $artist->id;
+	$sclink->save();
+	*/
+	/*
+	$tracks = json_decode($soundcloud->get('me/tracks'));
+	foreach($tracks as $track) {
+		$t = new RMAN\Models\ORM\Track;
+		$t->artist_id = $artist->id;
+		
+		if (stripos($track->title, $artist->name) !== FALSE) {
+			$t->title = str_ireplace($artist->name, '', $track->title);
+		}
+		else {
+			$t->title = $track->title;
+		}
+		$t->title = trim($t->title, ' -_:');
+		$t->save();
+	}
+	*/
+	
+	$app->redirect('/me');
+});
+
+$app->get('/refresh/mixcloud', function() use ($app) {
+	$dbtoken = RMAN\Models\ORM\OAuth2Token::where('service', '=', 'mixcloud')
+				->where('user_id', '=', $user['id'])
+				// ->where('scope') TODO: work on scope resolution...
+				// if we ever, Ever, EVER, *EVER integrate with
+				// Google
+				->first();
+	
+	$mixcloud = new Beatnode\Mixcloud\Service(
+		'fbeeffe2627eb7edd300d6699b92d05c', 
+		'e60727369bbee27012e92e7cd2550504', 
+		'https://phrenetic.it.cx/connect/mixcloud'
+	);
+	
+	$token = $mixcloud->accessTokenRefresh($dbtoken->refresh);
+	
+});
+
+
 $app->get('/me/password', function() use ($app) {
 	$auth = $app->container->resolve('Eman\\ServiceProvider\\Authentication');
 	if (!$auth->isLoggedIn()) {

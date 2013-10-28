@@ -12,7 +12,8 @@
         "intervention/image": " 1.4.1", 
         "league/di": "1.2",
         "robmorgan/phinx": "*",
-        "ise/php-soundcloud": "dev-master"
+        "ise/php-soundcloud": "dev-master",
+	"beatnode/mixcloud": "dev-master"
     }, 
     "repositories": [
         {
