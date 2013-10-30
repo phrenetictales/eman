@@ -17,11 +17,11 @@ for ($offset = 0; $offset < $count; $offset+=$step) {
 		->get();
 	
 	foreach($pictures as $picture) {
-		$picture->delete();
 		$fname = $store->filename($picture->resizedname);
-		
 		if (is_file($fname)) {
-			unlink($fname);
+			if (@unlink($fname)) {
+				$picture->delete();
+			}
 		}
 	}
 }
