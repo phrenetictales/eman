@@ -18,7 +18,7 @@
   
   $(document).ready(function() {
   $("h1").animate({
-  top: 140, 
+  top: 120, 
   opacity: 1 
   }, 700 );
   });
