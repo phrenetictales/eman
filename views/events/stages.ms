@@ -1,3 +1,4 @@
+
 <link type="text/css" href="/css/skitter.styles.css" media="all" rel="stylesheet" />
 <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
 <!-- <script type="text/javascript" src="/js/jquery.animate-colors-min.js"></script> -->
@@ -74,7 +75,6 @@ var _animations = [
     {{/stages}}
   {{/event}}
 </div>
-<div style="clear:both"></div> 
 <script>
 /*
 $(function() {
