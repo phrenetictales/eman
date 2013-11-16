@@ -11,23 +11,8 @@
     <script src="//w.soundcloud.com/player/api.js"></script>
   </head>
   <body>
-
-  <style type="text/css">
-	html, body {
-    height: 100%;
-}
-	#container {
-		height: 100%;
-		margin: 0 -100 0 0;
-		position: relative;
-	}
-
-	</style>
-<div id="container">
-    {{> _header}}
+     {{> _header}}
      <div id="main">{{{main}}}</div>
-</div>
-
 	<div id="footer">{{> _footer}}</div>
   </body>
 </html>

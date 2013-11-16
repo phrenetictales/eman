@@ -81,7 +81,7 @@
 
 		<div id="adminbox">
 		
-			<ul class="menu">
+			<ul class="adminmenu">
 			{{#menus}}
 				<li><a href="{{url}}">{{title}}</a>
 				<ul>
