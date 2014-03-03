@@ -1,7 +1,4 @@
 {
-    "require-dev": {
-        "psy/psysh": "0.1.0.*@dev"
-    }, 
     "require": {
         "mustache/mustache": "dev-master", 
         "illuminate/database": "4.0.*@dev", 
