@@ -67,6 +67,17 @@ class SlimMustacheView extends \Slim\View
 		}
 		
 		$this->appendData(['main' => $m->render($this->data)]);
+		
+		$this->data = array_map(
+			function ($data) {
+				if ($data instanceof \Illuminate\Database\Eloquent\Model) {
+					return new MustacheModelHelper($data);
+				}
+				return $data;
+			},
+			$this->data
+		);
+		
 		return $page->render($this->data);
 	}
 }
