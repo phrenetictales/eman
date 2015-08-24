@@ -6,21 +6,6 @@ class UserTables extends AbstractMigration
 {
 	public function up()
 	{
-		if ($this->hasTable('phr_groups')) {
-			$table = $this->table('phr_groups');
-			$table->rename('groups');
-			$table = $this->table('phr_users');
-			$table->rename('users');
-			$table = $this->table('phr_migrations');
-			$table->rename('migrations');
-			$table = $this->table('phr_throttle');
-			$table->rename('throttle');
-			$table = $this->table('phr_users_groups');
-			$table->rename('users_groups');
-			
-			return true;
-		}
-		
 		$this->execute("SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT ");
 		$this->execute("SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS ");
 		$this->execute("SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION ");

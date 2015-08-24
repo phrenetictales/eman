@@ -6,29 +6,6 @@ class InitialSchema extends AbstractMigration
 {
 	public function up()
 	{
-		if ($this->hasTable('phr_artist_track')) {
-			$table = $this->table('phr_artist_track');
-			$table->rename('artist_track');
-			$table = $this->table('phr_artists');
-			$table->rename('artists');
-			$table = $this->table('phr_events');
-			$table->rename('events');
-			$table = $this->table('phr_lineups');
-			$table->rename('lineups');
-			$table = $this->table('phr_pictures');
-			$table->rename('pictures');
-			$table = $this->table('phr_releases');
-			$table->rename('releases');
-			$table = $this->table('phr_slots');
-			$table->rename('slots');
-			$table = $this->table('phr_stages');
-			$table->rename('stages');
-			$table = $this->table('phr_tracks');
-			$table->rename('tracks');
-			
-			return true;
-		}
-		
 		$this->execute("SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT ");
 		$this->execute("SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS ");
 		$this->execute("SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION ");
@@ -43,10 +20,10 @@ class InitialSchema extends AbstractMigration
 				`artist_id` int(11) NOT NULL,
 				`track_id` int(11) NOT NULL,
 				PRIMARY KEY (`id`),
-				KEY `fk_phr_artist_tracks_artist` (`artist_id`),
-				KEY `fk_phr_artist_tracks_track` (`track_id`),
-				CONSTRAINT `fk_phr_artist_tracks_artist` FOREIGN KEY (`artist_id`) REFERENCES `phr_artists` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-				CONSTRAINT `fk_phr_artist_tracks_track` FOREIGN KEY (`track_id`) REFERENCES `phr_tracks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+				KEY `fk_artist_tracks_artist` (`artist_id`),
+				KEY `fk_artist_tracks_track` (`track_id`),
+				CONSTRAINT `fk_artist_tracks_artist` FOREIGN KEY (`artist_id`) REFERENCES `artists` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+				CONSTRAINT `fk_artist_tracks_track` FOREIGN KEY (`track_id`) REFERENCES `tracks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 				) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 			");
 		/* CREATED TABLE */
@@ -59,7 +36,7 @@ class InitialSchema extends AbstractMigration
 				`picture_id` int(11) DEFAULT NULL,
 				PRIMARY KEY (`id`),
 				KEY `fk_artists_picture` (`picture_id`),
-				CONSTRAINT `fk_artists_picture` FOREIGN KEY (`picture_id`) REFERENCES `phr_pictures` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+				CONSTRAINT `fk_artists_picture` FOREIGN KEY (`picture_id`) REFERENCES `pictures` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 				) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 			");
 		/* CREATED TABLE */
@@ -82,8 +59,8 @@ class InitialSchema extends AbstractMigration
 				`start_date_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
 				`end_date_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
 				PRIMARY KEY (`id`),
-				KEY `fk_phr_lineups_stage` (`stage_id`),
-				CONSTRAINT `fk_phr_lineups_stage` FOREIGN KEY (`stage_id`) REFERENCES `phr_stages` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+				KEY `fk_lineups_stage` (`stage_id`),
+				CONSTRAINT `fk_lineups_stage` FOREIGN KEY (`stage_id`) REFERENCES `stages` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 				) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 			");
 		/* CREATED TABLE */
@@ -111,8 +88,8 @@ class InitialSchema extends AbstractMigration
 				`release_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				`picture_id` int(11) NOT NULL,
 				PRIMARY KEY (`id`),
-				KEY `fk_phr_releases_picture` (`picture_id`),
-				CONSTRAINT `fk_phr_releases_picture` FOREIGN KEY (`picture_id`) REFERENCES `phr_pictures` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+				KEY `fk_releases_picture` (`picture_id`),
+				CONSTRAINT `fk_releases_picture` FOREIGN KEY (`picture_id`) REFERENCES `pictures` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 				) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 			");
 		/* CREATED TABLE */
@@ -123,10 +100,10 @@ class InitialSchema extends AbstractMigration
 				`lineup_id` int(11) NOT NULL,
 				`artist_id` int(11) NOT NULL,
 				PRIMARY KEY (`id`),
-				KEY `fk_phr_slots_lineup` (`lineup_id`),
-				KEY `fk_phr_slots_artist` (`artist_id`),
-				CONSTRAINT `fk_phr_slots_artist` FOREIGN KEY (`artist_id`) REFERENCES `phr_artists` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-				CONSTRAINT `fk_phr_slots_lineup` FOREIGN KEY (`lineup_id`) REFERENCES `phr_lineups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+				KEY `fk_slots_lineup` (`lineup_id`),
+				KEY `fk_slots_artist` (`artist_id`),
+				CONSTRAINT `fk_slots_artist` FOREIGN KEY (`artist_id`) REFERENCES `artists` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+				CONSTRAINT `fk_slots_lineup` FOREIGN KEY (`lineup_id`) REFERENCES `lineups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 				) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=latin1;
 			");
 		/* CREATED TABLE */
@@ -137,8 +114,8 @@ class InitialSchema extends AbstractMigration
 				`event_id` int(11) NOT NULL,
 				`title` varchar(256) NOT NULL,
 				PRIMARY KEY (`id`),
-				KEY `fk_phr_stages_event` (`event_id`),
-				CONSTRAINT `fk_phr_stages_event` FOREIGN KEY (`event_id`) REFERENCES `phr_events` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+				KEY `fk_stages_event` (`event_id`),
+				CONSTRAINT `fk_stages_event` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 				) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 			");
 		/* CREATED TABLE */
@@ -150,8 +127,8 @@ class InitialSchema extends AbstractMigration
 				`title` varchar(64) NOT NULL,
 				`order` int(11) NOT NULL,
 				PRIMARY KEY (`id`),
-				KEY `fk_phr_tracks_release` (`release_id`),
-				CONSTRAINT `fk_phr_tracks_release` FOREIGN KEY (`release_id`) REFERENCES `phr_releases` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+				KEY `fk_tracks_release` (`release_id`),
+				CONSTRAINT `fk_tracks_release` FOREIGN KEY (`release_id`) REFERENCES `releases` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 				) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 			");
 		/* CREATED TABLE */

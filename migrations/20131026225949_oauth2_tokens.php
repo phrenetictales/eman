@@ -13,15 +13,6 @@ class Oauth2Tokens extends AbstractMigration
 	 * Uncomment this method if you would like to use it.
 	 *
 	 */
-	/*
-	Array
-	(
-		[access_token] => 1-56565-557468-7ab4437d970ab727b
-		[expires_in] => 21599
-		[scope] => *
-		[refresh_token] => c281fba6cc2462bbfc4005984cf5d6ce
-	)
-	*/
 	public function change()
 	{
 		$oauth2tokens = $this->table('oauth2tokens');
